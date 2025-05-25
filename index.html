@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Site Bilíngue</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a class="myButton" onclick="setLanguage('pt')">Português (Brasil)</a>
+      <a class="myButton" onclick="setLanguage('en')">English (USA)</a>
+    </nav>
+
+    <div class="lang pt active">
+      <h1>Bem-vindo ao meu site!</h1>
+      <p>Este é um exemplo em português.</p>
+    </div>
+
+    <div class="lang en">
+      <h1>Welcome to my website!</h1>
+      <p>This is an example in English.</p>
+    </div>
+
+    <script>
+      function setLanguage(lang) {
+        document.querySelectorAll(".lang").forEach(function (el) {
+          el.classList.remove("active");
+        });
+        document.querySelector("." + lang).classList.add("active");
+      }
+    </script>
+  </body>
+</html>
