@@ -1,73 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Portfolio</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=face"
-    />
-    <link rel="icon" class="material-symbols-outlined" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
+    <meta http-equiv="refresh" content="0;url=/en/" />
   </head>
   <body>
-    <nav>
-      <a class="myButton" onclick="setLanguage('pt')">Português (Brasil)</a>
-      <a class="myButton" onclick="setLanguage('en')">English (USA)</a>
-    </nav>
-
-    <div class="lang pt active">
-      <h1>Breno Santana</h1>
-      <p>
-        **Desenvolvedor Back-End Júnior** & estudante de **Ciência da
-        Computação** na **UERJ**. Experiência com **Java**, **PostgreSQL** e
-        muito mais!
-      </p>
-      <h2>Sobre mim</h2>
-      <p>
-        Nascido em Volta Redonda e criado em Barra do Piraí, no interior do Rio
-        de Janeiro, sempre fui movido pela curiosidade de entender como a
-        tecnologia funciona. Desde criança, desmontava e remontava dispositivos,
-        buscando descobrir suas engrenagens – uma fascinação que se transformou
-        em paixão pelo desenvolvimento de software. Além do código, sou
-        entusiasta de jogos (que me ensinam resolução criativa de problemas) e
-        da música (que alimenta minha atenção aos detalhes). Estou sempre em
-        busca de **desafios complexos** e **oportunidades para aprender**,
-        acompanhando ativamente as tendências do mercado por meio de cursos,
-        comunidades tech e experimentação prática. *Vamos conversar sobre como
-        posso contribuir com seu próximo projeto?*
-      </p>
-      <h2>Habilidades e Competências</h2>
-      <ul>
-        <a
-          >Java PostgresSQL C Python PHP Git & GitHub AWS iDempiere ERP
-          Metodologias Agile Inglês</a
-        >
-      </ul>
-    </div>
-
-    <div class="lang en">
-      <h1>Welcome to my website!</h1>
-      <p>This is an example in English.</p>
-    </div>
-
     <script>
-      function setLanguage(lang) {
-        document.querySelectorAll(".lang").forEach(function (el) {
-          el.classList.remove("active");
-        });
-        document.querySelector("." + lang).classList.add("active");
+      const userLang = (
+        navigator.language || navigator.userLanguage
+      ).toLowerCase();
+      if (userLang.startsWith("pt")) {
+        window.location.href = "lang/pt-BR/";
+      } else if (userLang.startsWith("es")) {
+        window.location.href = "lang/es/";
+      } else {
+        window.location.href = "lang/en/";
       }
     </script>
+    <p>
+      Se você não for redirecionado automaticamente,
+      <a href="/en/">clique aqui</a>.
+    </p>
+    <h1>FEITO POR BRENO SANTANA</h1>
   </body>
 </html>

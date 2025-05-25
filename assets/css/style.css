@@ -1,0 +1,119 @@
+at {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: "Pixelify Sans", sans-serif;
+  color: #0429d7;
+  text-align: center;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  /*
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  font-size: 1rem;
+  */
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header,
+footer {
+  background-color: #f9f9f9;
+  padding: 1rem 0;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.myButton {
+  box-shadow: inset 0 0.1rem 0 0 #54a3f7;
+  background: linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+  border-radius: 0.25rem;
+  border: 1px solid #124d77;
+  cursor: pointer;
+  color: #fff;
+  font-size: 0.875rem;
+  padding: 0.5rem 1.5rem;
+  text-shadow: 0 0.1rem 0 #154682;
+}
+
+.myButton:hover {
+  background: linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+}
+
+.myButton:active {
+  position: relative;
+  top: 0.1rem;
+}
+
+.myButton:focus {
+  outline: 2px dashed #124d77;
+  outline-offset: 2px;
+}
+
+.lang {
+  display: none;
+}
+.lang.active {
+  display: block;
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  text-align: left;
+}
+
+.projects,
+.participations {
+  margin: 2rem 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+footer .social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.social-link .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #e0e0e0;
+  }
+  header,
+  footer {
+    background: #1e1e1e;
+  }
+}
+
+/* Desktop tweaks */
+@media (min-width: 768px) {
+  body {
+    font-size: 1.125rem;
+  }
+}
