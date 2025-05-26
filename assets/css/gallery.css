@@ -1,0 +1,27 @@
+/* gallery de imagens */
+ul.gallery {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+}
+
+ul.gallery li {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+ul.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+img.profilePicture {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}

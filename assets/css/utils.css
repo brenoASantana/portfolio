@@ -1,0 +1,12 @@
+/* Utilitários e visibilidade */
+.lang {
+  display: none;
+}
+
+.lang.active {
+  display: block;
+}
+
+.social-link .material-symbols-outlined {
+  font-size: 2rem;
+}

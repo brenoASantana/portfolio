@@ -1,0 +1,17 @@
+/* Tipografia */
+body {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  /*
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  font-size: 1rem;
+  */
+}
+
+h1,
+h2 {
+  font-family: "Pixelify Sans", sans-serif;
+  color: #0429d7;
+  text-align: center;
+}

@@ -1,0 +1,12 @@
+/* Modo escuro */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #121212;
+    color: #e0e0e0;
+  }
+
+  header,
+  footer {
+    background: #1e1e1e;
+  }
+}
