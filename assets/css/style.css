@@ -1,4 +1,5 @@
-at {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -19,6 +20,27 @@ body {
   letter-spacing: 0.03em;
   font-size: 1rem;
   */
+}
+
+ul.galeria {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+}
+
+ul.galeria li {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
+ul.galeria img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .container {
