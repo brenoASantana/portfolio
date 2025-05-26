@@ -21,7 +21,24 @@ ul.gallery img {
 }
 
 img.profilePicture {
+  width: 120px; /* Tamanho levemente reduzido para foco em identificação */
+  height: 120px;
+  border-radius: 50%; /* Torna a imagem circular */
+  object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+  border: 2px solid #ccc; /* Opcional: borda sutil para destaque */
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* Para responsividade */
+  text-align: left;
+}
+
+.profilePicture {
   width: 150px;
   height: 150px;
-  overflow: hidden;
+  border-radius: 50%; /* Foto circular */
+  object-fit: cover;
 }

@@ -2,66 +2,186 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Portfolio</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=face"
-    />
-    <link rel="icon" class="material-symbols-outlined" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breno Santana | Portfolio</title>
+
+    <!-- Google Fonts and Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Pixelify+Sans:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
     />
+
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="/assets/img/star_24dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.png"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/typography.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/buttons.css" />
+    <link rel="stylesheet" href="/assets/css/gallery.css" />
+    <link rel="stylesheet" href="/assets/css/lists.css" />
+    <link rel="stylesheet" href="/assets/css/utils.css" />
+    <link rel="stylesheet" href="/assets/css/themes.css" />
+    <link rel="stylesheet" href="/assets/css/media-queries.css" />
   </head>
+
   <body>
-    <article>
-      <h2>About Me</h2>
-      <p>
-        Born in Volta Redonda and raised in Barra do Piraí, I've always been
-        driven by curiosity to understand how technology works. Since childhood,
-        I used to take apart and reassemble devices to discover their inner
-        workings — a fascination that turned into a passion for software
-        development. Beyond code, I'm an enthusiast of games (which teach me
-        creative problem-solving) and music (which sharpens my attention to
-        detail). I'm always seeking <strong>complex challenges</strong> and
-        <strong>opportunities to learn</strong>, staying up-to-date with market
-        trends through courses, tech communities, and hands-on experimentation.
-        <em>Shall we talk about how I can contribute to your next project?</em>
-      </p>
+<header>
+  <nav class="top-bar">
+     <!-- Social media -->
+    <div class="social-links">
+      <a href="https://instagram.com/brenoasantana" target="_blank" aria-label="Instagram">
+        <span class="material-symbols-outlined">photo_camera</span>
+      </a>
+      <a href="https://linkedin.com/in/brenoasantana" target="_blank" aria-label="LinkedIn">
+        <span class="material-symbols-outlined">business_center</span>
+      </a>
+      <a href="https://github.com/brenoasantana" target="_blank" aria-label="GitHub">
+        <span class="material-symbols-outlined">code</span>
+      </a>
+      <a href="mailto:contatobrenosantana@outlook.com" aria-label="E-mail">
+        <span class="material-symbols-outlined">mail</span>
+      </a>
+      <a href="https://linktr.ee/brenoasantana" target="_blank" aria-label="Linktree">
+        <span class="material-symbols-outlined">link</span>
+      </a>
+    </div>
+
+    <!-- Language switch buttons -->
+    <div class="language-switcher">
+      <button class="langButton" onclick="setLanguage('pt-BR')" aria-pressed="true">Portuguese</button>
+      <button class="langButton" onclick="setLanguage('en')" aria-pressed="false">English</button>
+      <button class="langButton" onclick="setLanguage('es')" aria-pressed="false">Spanish</button>
+    </div>
+  </nav>
+</header>
+
+    <article class="profile">
+      <img
+        class="profilePicture"
+        src="/assets/img/profilePic.jpg"
+        alt="Profile picture"
+      />
+
+      <div class="profileText">
+        <h2>Breno Santana</h2>
+        <p>
+          <strong>Junior Back-End Developer</strong> & Computer Science student at <strong>UERJ</strong>.
+          Experienced with <strong>Java</strong>, <strong>PostgreSQL</strong>, and much more!
+        </p>
+      </div>
     </article>
 
-    <h2>Test Title</h2>
-    <p>Test Paragraph</p>
+   <section class="about-skills">
+  <article class="about">
+    <h2>About Me</h2>
+    <p>
+      Born in Volta Redonda and raised in Barra do Piraí, I have always been driven by curiosity to understand how technology works. Since childhood, I disassembled and reassembled devices to discover their inner workings — a fascination that turned into a passion for software development. Beyond code, I’m a gaming enthusiast (which teaches me creative problem solving) and a music lover (which sharpens my attention to detail). I am constantly seeking <strong>complex challenges</strong> and <strong>opportunities to learn</strong>, keeping myself updated with market trends through courses, tech communities, and hands-on experimentation.
+      <em>Shall we talk about how I can contribute to your next project?</em>
+    </p>
+  </article>
 
-    <article>
-      <h2>Skills and Competencies</h2>
-      <ul>
-        <li>Java</li>
-        <li>PostgreSQL</li>
-        <li>C</li>
-        <li>Python</li>
-        <li>PHP</li>
-        <li>Git & GitHub</li>
-        <li>AWS</li>
-        <li>iDempiere ERP</li>
-        <li>Agile Methodologies</li>
-        <li>English</li>
-      </ul>
-    </article>
+  <article class="skills">
+    <h2>Skills and Competencies</h2>
+    <ul>
+      <li>Java</li>
+      <li>PostgreSQL</li>
+      <li>C</li>
+      <li>Python</li>
+      <li>PHP</li>
+      <li>Git & GitHub</li>
+      <li>AWS</li>
+      <li>iDempiere ERP</li>
+      <li>Agile Methodologies</li>
+      <li>English</li>
+    </ul>
+  </article>
+</section>
 
     <section class="projects">
       <h2>Completed Projects</h2>
       <div class="grid">
         <article>
           <h3>Histórias Mal Contadas (DEMO)</h3>
-          <!-- project details -->
+          <ul class="gallery">
+            <li>
+              <img
+                src="/assets/img/HMC_1.jpg"
+                alt="Screenshot from Histórias Mal Contadas game 1"
+              />
+            </li>
+            <li>
+              <img
+                src="/assets/img/HMC_2.jpg"
+                alt="Screenshot from Histórias Mal Contadas game 2"
+              />
+            </li>
+            <li>
+              <img
+                src="/assets/img/HMC_3.jpg"
+                alt="Screenshot from Histórias Mal Contadas game 3"
+              />
+            </li>
+            <li>
+              <img
+                src="/assets/img/HMC_4.jpg"
+                alt="Screenshot from Histórias Mal Contadas game 4"
+              />
+            </li>
+          </ul>
+          <p>
+            <a
+              href="https://github.com/brenoASantana/Historias_Mal_Contadas_DEMO"
+              target="_blank"
+              ><strong>Histórias Mal Contadas</strong></a
+            >
+            is a horror and adventure game of the narrative-driven, experimental adventure and roguelike style. You experience the journey of a Priest who wakes up in the basement of a monastery in an unknown place, with no memory and seeking answers. With few options, he ends up releasing an ancient imprisoned evil. Now, his only choice is to survive. Recovering his faith and finding answers become his main motivation.
+          </p>
+        </article>
+        <article>
+          <h3>Kaching Software</h3>
+          <ul class="gallery">
+            <li>
+              <img
+                src="/assets/img/KachingSoftware_1.jpg"
+                alt="Screenshot of Kaching Software system 1"
+              />
+            </li>
+            <li>
+              <img
+                src="/assets/img/KachingSoftware_2.jpg"
+                alt="Screenshot of Kaching Software system 2"
+              />
+            </li>
+            <li>
+              <img
+                src="/assets/img/KachingSoftware_3.jpg"
+                alt="Screenshot of Kaching Software system 3"
+              />
+            </li>
+            <li>
+              <img
+                src="/assets/img/KachingSoftware_4.jpg"
+                alt="Screenshot of Kaching Software system 4"
+              />
+            </li>
+          </ul>
+          <p>
+            <a href="https://github.com/brenoASantana/kaching" target="_blank"
+              ><strong>Kaching Software</strong></a
+            >
+            is a full-stack inventory and management system project organized under the MVC pattern, programmed in PHP, HTML, and CSS, with CRUD for products, employees, users, and suppliers.
+          </p>
         </article>
       </div>
     </section>
@@ -71,7 +191,15 @@
       <div class="grid">
         <article>
           <h3>KachingERP</h3>
-          <!-- details -->
+          <p>
+            <strong>KachingERP</strong> is a robust and customizable business solution developed based on the open-source system <strong>iDempiere ERP</strong> and integrated with the Brazilian localization plugin <strong>LBR</strong>. The project aims to improve various areas of business management, from inventory control to operational process automation.
+          </p>
+        </article>
+        <article>
+          <h3>CineSystem</h3>
+          <p>
+            <strong>CineSystem</strong> is a complete cinema management solution developed in Java to efficiently meet the operational and strategic demands of this segment. The platform facilitates management of rooms, sessions, movies, and tickets.
+          </p>
         </article>
       </div>
     </section>
@@ -80,18 +208,48 @@
       <h2>Participations</h2>
       <div class="grid">
         <article>
-          <h3>KachingERP</h3>
+          <h3>Hack na Ilha</h3>
+          <img
+            src="/assets/img/HackNaIlha.jpg"
+            alt="Photo from the Hack na Ilha event"
+          />
+          <p>
+            I participated in <strong>Hack na Ilha</strong>, organized by <strong>CEADS/UERJ</strong> and <strong>FAPERJ</strong>, on <strong>Ilha Grande</strong>. We developed solutions for local connectivity, combining technologies such as <strong>CubeSats</strong> and <strong>MeshConnect</strong> networks with a socially integrated approach.
+          </p>
+        </article>
+        <article>
+          <h3>Programming 0</h3>
+          <img
+            src="/assets/img/Prog0.jpg"
+            alt="Photo of the Programming 0 course class"
+          />
+          <p>
+            I taught in the <strong>first edition of the “Programming 0” course</strong>, an initiative from <strong>IME/UERJ</strong>. I gave lessons about <strong>Number Systems</strong> and <strong>Decision Structures</strong>.
+          </p>
+        </article>
+        <article>
+          <h3>Chat about Databases</h3>
+          <img
+            src="/assets/img/Palestra.jpg"
+            alt="Photo from the chat about databases"
+          />
+          <p>
+            I participated in a chat with students from the <strong>Felisburgo State School</strong> about <strong>Databases in Games</strong> and technology careers.
+          </p>
+        </article>
+        <article>
+          <h3>Kraft Baterias EntregPag Software Engineering Challenge</h3>
+          <img src="/assets/img/DesafioKraft.jpg" alt="Photo from the Kraft Challenge" />
+          <p>
+            I was awarded 2nd place in the <strong>Kraft Baterias EntregPag Software Engineering Challenge</strong>, setting up iDempiere on AWS and creating windows and tables. I received a cash prize and an internship offer.
+          </p>
         </article>
       </div>
     </section>
 
-    <section class="lang en">
-      <h2>About Me</h2>
-      <p>
-        I am a Junior Back-End Developer & Computer Science student at UERJ with
-        experience in Java, PostgreSQL, and more!
-      </p>
-    </section>
-    <h1>FEITO POR BRENO SANTANA</h1>
+    <footer>
+      <p>Developed by Breno Santana</p>
+    </footer>
+    <script src="/assets/js/language-toggle.js"></script>
   </body>
 </html>

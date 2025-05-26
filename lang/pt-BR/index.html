@@ -24,69 +24,104 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/typography.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/buttons.css" />
-    <link rel="stylesheet" href="css/gallery.css" />
-    <link rel="stylesheet" href="css/lists.css" />
-    <link rel="stylesheet" href="css/utils.css" />
-    <link rel="stylesheet" href="css/themes.css" />
-    <link rel="stylesheet" href="css/media-queries.css" />
+    <link rel="stylesheet" href="/assets/css/reset.css" />
+    <link rel="stylesheet" href="/assets/css/typography.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/buttons.css" />
+    <link rel="stylesheet" href="/assets/css/gallery.css" />
+    <link rel="stylesheet" href="/assets/css/lists.css" />
+    <link rel="stylesheet" href="/assets/css/utils.css" />
+    <link rel="stylesheet" href="/assets/css/themes.css" />
+    <link rel="stylesheet" href="/assets/css/media-queries.css" />
   </head>
 
   <body>
-    <article>
+    <body>
+<header>
+  <nav class="top-bar">
+     <!-- Redes sociais -->
+    <div class="social-links">
+      <a href="https://instagram.com/brenoasantana" target="_blank" aria-label="Instagram">
+        <span class="material-symbols-outlined">photo_camera</span>
+      </a>
+      <a href="https://linkedin.com/in/brenoasantana" target="_blank" aria-label="LinkedIn">
+        <span class="material-symbols-outlined">business_center</span>
+      </a>
+      <a href="https://github.com/brenoasantana" target="_blank" aria-label="GitHub">
+        <span class="material-symbols-outlined">code</span>
+      </a>
+      <a href="mailto:contatobrenosantana@outlook.com" aria-label="E-mail">
+        <span class="material-symbols-outlined">mail</span>
+      </a>
+      <a href="https://linktr.ee/brenoasantana" target="_blank" aria-label="Linktree">
+        <span class="material-symbols-outlined">link</span>
+      </a>
+    </div>
+
+    <!-- Botões de troca de idioma -->
+    <div class="language-switcher">
+      <button class="langButton" onclick="setLanguage('pt-BR')" aria-pressed="true">Português</button>
+      <button class="langButton" onclick="setLanguage('en')" aria-pressed="false">English</button>
+      <button class="langButton" onclick="setLanguage('es')" aria-pressed="false">Español</button>
+    </div>
+  </nav>
+</header>
+
+
+    <article class="profile">
       <img
         class="profilePicture"
         src="/assets/img/profilePic.jpg"
-        alt="Imagem do jogo Histórias Mal Contadas 1"
+        alt="Foto de perfil"
       />
-      <h2>Breno Santana</h2>
-      <p>
-        <strong>Desenvolvedor Back-End Júnior</strong> & estudante de
-        <strong>Ciência da Computação</strong> na <strong>UERJ</strong>.
-        Experiência com <strong>Java</strong>, <strong>PostgreSQL</strong> e
-        muito mais!
-      </p>
-    </article>
 
-    <article>
-      <h2>Sobre Mim</h2>
-      <p>
-        Nascido em Volta Redonda e criado em Barra do Piraí, sempre fui movido
-        pela curiosidade de entender como a tecnologia funciona. Desde criança,
-        desmontava e remontava aparelhos para descobrir seu funcionamento
-        interno — uma fascinação que se transformou em paixão pelo
-        desenvolvimento de software. Além do código, sou entusiasta de jogos
-        (que me ensinam a resolver problemas de forma criativa) e música (que
-        aguça minha atenção aos detalhes). Estou sempre em busca de
-        <strong>desafios complexos</strong> e
-        <strong>oportunidades para aprender</strong>, mantendo-me atualizado com
-        as tendências do mercado por meio de cursos, comunidades de tecnologia e
-        experimentação prática.
-        <em
-          >Vamos conversar sobre como posso contribuir para o seu próximo
-          projeto?</em
-        >
-      </p>
+      <div class="profileText">
+        <h2>Breno Santana</h2>
+        <p>
+          <strong>Desenvolvedor Back-End Júnior</strong> & estudante de
+          <strong>Ciência da Computação</strong> na <strong>UERJ</strong>.
+          Experiência com <strong>Java</strong>, <strong>PostgreSQL</strong> e
+          muito mais!
+        </p>
+      </div>
     </article>
+   <section class="about-skills">
+  <article class="about">
+    <h2>Sobre Mim</h2>
+    <p>
+      Nascido em Volta Redonda e criado em Barra do Piraí, sempre fui movido
+      pela curiosidade de entender como a tecnologia funciona. Desde criança,
+      desmontava e remontava aparelhos para descobrir seu funcionamento
+      interno — uma fascinação que se transformou em paixão pelo
+      desenvolvimento de software. Além do código, sou entusiasta de jogos
+      (que me ensinam a resolver problemas de forma criativa) e música (que
+      aguça minha atenção aos detalhes). Estou sempre em busca de
+      <strong>desafios complexos</strong> e
+      <strong>oportunidades para aprender</strong>, mantendo-me atualizado com
+      as tendências do mercado por meio de cursos, comunidades de tecnologia e
+      experimentação prática.
+      <em>
+        Vamos conversar sobre como posso contribuir para o seu próximo projeto?
+      </em>
+    </p>
+  </article>
 
-    <article>
-      <h2>Habilidades e Competências</h2>
-      <ul style="list-style-type: circle">
-        <li>Java</li>
-        <li>PostgreSQL</li>
-        <li>C</li>
-        <li>Python</li>
-        <li>PHP</li>
-        <li>Git & GitHub</li>
-        <li>AWS</li>
-        <li>iDempiere ERP</li>
-        <li>Metodologias Ágeis</li>
-        <li>Inglês</li>
-      </ul>
-    </article>
+  <article class="skills">
+    <h2>Habilidades e Competências</h2>
+    <ul>
+      <li>Java</li>
+      <li>PostgreSQL</li>
+      <li>C</li>
+      <li>Python</li>
+      <li>PHP</li>
+      <li>Git & GitHub</li>
+      <li>AWS</li>
+      <li>iDempiere ERP</li>
+      <li>Metodologias Ágeis</li>
+      <li>Inglês</li>
+    </ul>
+  </article>
+</section>
 
     <section class="projects">
       <h2>Projetos Realizados</h2>
@@ -260,26 +295,8 @@
     </section>
 
     <footer>
-      <button class="langButton" data-lang="pt" onclick="setLanguage('pt')">Português</button>
-
-      <div class="social-links">
-        <a href="https://instagram.com/brenoasantana" target="_blank"
-          ><span class="material-symbols-outlined">photo_camera</span></a
-        >
-        <a href="https://linkedin.com/in/brenoasantana" target="_blank"
-          ><span class="material-symbols-outlined">business_center</span></a
-        >
-        <a href="https://github.com/brenoasantana" target="_blank"
-          ><span class="material-symbols-outlined">code</span></a
-        >
-        <a href="mailto:brenoasantana@email.com" target="_blank"
-          ><span class="material-symbols-outlined">mail</span></a
-        >
-        <a href="https://linktr.ee/brenoasantana" target="_blank"
-          ><span class="material-symbols-outlined">link</span></a
-        >
-      </div>
       <p>Desenvolvido por Breno Santana</p>
     </footer>
+    <script src="/assets/js/language-toggle.js"></script>
   </body>
 </html>
