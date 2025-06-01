@@ -1,0 +1,164 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "simpleProjects": "Other Projects",
+    "ongoing": "Ongoing",
+    "participations": "Participations",
+    "recommendations": "Recommendations",
+    "contact": "Contact"
+  },
+  "profile": {
+    "greeting": "Hello, I'm",
+    "title": "Full Stack Developer | React | JavaScript | Java | PostgreSQL",
+    "subtitle": "Computer Science | Backend Specialist | Game Developer",
+    "cta": "Let's Talk",
+    "viewLinkedIn": "View LinkedIn"
+  },
+  "about": {
+    "title": "About Me",
+    "paragraph1": "I am a Full Stack Developer with a passion for building robust, scalable systems. I specialize in backend development with a strong foundation in object-relational databases and version control, but I'm equally proficient in frontend technologies like React and modern JavaScript.",
+    "paragraph2": "Beyond code, I'm passionate about games and music—they've shaped how I approach problem-solving and attention to detail. I believe in continuous learning and staying updated with industry trends, always seeking new challenges and opportunities to expand my expertise.",
+    "paragraph3": "My technical toolkit includes Java, React, JavaScript, PostgreSQL, Git, and more. I thrive in collaborative environments and enjoy contributing to meaningful projects that solve real problems.",
+    "paragraph4": "I'm always open to collaboration, interesting projects, or a conversation about tech. Feel free to reach out!"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "current": "Current",
+    "globo": {
+      "role": "Dev Intern | Backstage Content",
+      "description": "Development of features for the Backstage Content platform using React.js and JavaScript. Contributing to content management solutions with modern frontend technologies in a collaborative environment."
+    },
+    "ducke": {
+      "role": "Technology Consultant",
+      "description": "Implementation of features in the iDempiere ERP system using Java; improvement and maintenance of existing applications; technical documentation; and client requirement alignment meetings."
+    },
+    "entregue": {
+      "role": "Software Development Intern",
+      "description": "Development and improvement of the iDempiere ERP system for business management. Responsibilities: Backend Development (Java), Database management (PostgreSQL), Version control (Git), and feature implementation."
+    },
+    "stacks": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Database",
+      "infrastructure": "Infrastructure",
+      "tools": "Tools",
+      "methodologies": "Methodologies"
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewOnGithub": "View on GitHub",
+    "hmc": {
+      "description": "is a horror and adventure game in the style of narrative-driven experimental adventure and roguelike. In it, you experience the journey of a Priest who wakes up in the basement of a monastery, in an unknown location, with no memory and searching for answers. With few options, he ends up releasing an ancient evil that was imprisoned. Now, his only choice is to survive. Recovering his faith and finding answers become his main motivation."
+    },
+    "kaching": {
+      "description": "is a Full-Stack inventory and management system project organized in MVC form, programmed in PHP, HTML and CSS with a CRUD of products, employees, users and suppliers."
+    }
+  },
+  "ongoingProjects": {
+    "title": "Ongoing Projects",
+    "kachingERP": {
+      "description": "is a robust and customizable business solution, developed from the open source iDempiere ERP system and integrated with the Brazilian localization plugin LBR. The project was designed to improve various areas of business management, from inventory control to operational process automation."
+    },
+    "cineSystem": {
+      "description": "is a complete solution for cinema management, developed in Java to efficiently meet the operational and strategic demands of this segment. The platform facilitates the management of rooms, sessions, movies and tickets."
+    }
+  },
+  "participations": {
+    "title": "Participations",
+    "hackNaIlha": {
+      "description": "I participated in Hack na Ilha, promoted by CEADS/UERJ and FAPERJ, in Ilha Grande. We developed solutions for local connectivity, combining technologies such as CubeSats and MeshConnect networks with a socially integrated approach."
+    },
+    "programacao0": {
+      "description": "I taught in the first edition of the \"Programming 0\" course, an initiative of IME/UERJ. I taught classes on Number Systems and Decision Structure."
+    },
+    "batePapoBD": {
+      "description": "I participated in a chat with students from Escola Estadual de Felisburgo about Databases in Games and career in technology."
+    },
+    "desafioKraft": {
+      "description": "I was awarded 2nd place in the Kraft Baterias EntregPag Software Engineering Challenge, configuring iDempiere on AWS and creating windows and tables. I received a cash prize and an internship position."
+    }
+  },
+  "recommendations": {
+    "title": "Recommendations",
+    "viewAllOnLinkedIn": "View All on LinkedIn",
+    "items": [
+      {
+        "author": "Raphael Zappacosta",
+        "role": "Tech Lead",
+        "company": "Ducke",
+        "relationship": "Directly supervised Breno",
+        "text": "Working with Breno at Ducke was a very positive experience. He learns fast, is dedicated and delivers consistent results, always respecting deadlines. His professionalism and collaborative spirit make him a trusted partner in any project. I highly recommend him!",
+        "date": "May 2025"
+      },
+      {
+        "author": "João Pedro Guedes",
+        "role": "Intern at BNDES",
+        "company": "BNDES",
+        "relationship": "Worked with Breno on the same team",
+        "text": "Breno is one of the most incredible people I've ever had the pleasure of working with. His vision is endowed with great analytical capacity and he knows how to find solutions in situations that are often not easy. Having him as a member of your team means having a professional who is not afraid to face challenges and who knows how to positively influence everyone on the team to do their best. I recommend Breno to everyone looking for a qualified professional who gives his heart and soul to what he does!",
+        "date": "April 2024"
+      },
+      {
+        "author": "Matheus Oliveira",
+        "role": "Computer Science Student",
+        "company": "IME - UERJ",
+        "relationship": "Worked with Breno on the same team",
+        "text": "If you think of a creative, organized, intelligent and punctual person, Breno Santana is that person! His organization and punctuality are notable aspects that make a total difference in a project's development cycle. I had the pleasure of witnessing his skills in practice on a project that brought us impressive results. He has the unique ability to understand the needs and feelings of the people around him, which makes him an excellent collaborator in collaborative work environments. His empathy not only strengthens bonds within the team, but also enables him to find creative and innovative solutions to the challenges we face. Breno is a valuable addition to any team.",
+        "date": "April 2024"
+      }
+    ]
+  },
+  "simpleProjects": {
+    "title": "Other Projects",
+    "viewOnGithub": "View on GitHub",
+    "liveDemo": "Live Demo",
+    "items": [
+      {
+        "id": "project-1",
+        "title": "Project Name 1",
+        "description": "Detailed project description, technologies used and goals achieved.",
+        "tags": ["React", "Node.js", "MongoDB"],
+        "github": "https://github.com/brenoASantana/project-1"
+      },
+      {
+        "id": "project-2",
+        "title": "Project Name 2",
+        "description": "Detailed project description, technologies used and goals achieved.",
+        "tags": ["Java", "Spring Boot", "PostgreSQL"],
+        "github": "https://github.com/brenoASantana/project-2",
+        "demo": "https://project2-demo.com"
+      }
+    ]
+  },
+  "footer": {
+    "title": "Let's Talk!",
+    "copyright": "© 2025 Breno Santana. All rights reserved."
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's Connect",
+    "description": "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hello, feel free to get in touch!",
+    "email": "Email",
+    "emailLabel": "Your Email",
+    "emailPlaceholder": "your@email.com",
+    "copy": "Copy Email",
+    "copied": "Email copied to clipboard!",
+    "linkedIn": "LinkedIn",
+    "name": "Your Name",
+    "namePlaceholder": "John Doe",
+    "message": "Message",
+    "messagePlaceholder": "Tell me about your project...",
+    "send": "Send Message",
+    "errorRequired": "Please fill in all fields",
+    "errorSubmit": "Error sending message. Please try again.",
+    "success": "Message sent successfully! I'll get back to you soon."
+  }
+}

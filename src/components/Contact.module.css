@@ -1,0 +1,256 @@
+.contactSection {
+  margin: 4rem auto;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    var(--bg-secondary) 0%,
+    var(--bg-tertiary) 100%
+  );
+  border-radius: 8px;
+  position: relative;
+  max-width: 1000px;
+}
+
+.contactSection h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.contactSection h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent-primary);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.info h3 {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.info > p {
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.method {
+  padding: 1rem;
+  background: rgba(201, 164, 59, 0.1);
+  border-left: 3px solid var(--accent-primary);
+  border-radius: 4px;
+}
+
+.method h4 {
+  color: var(--accent-primary);
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.emailLink,
+.socialLink {
+  color: var(--text-secondary);
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.3s ease;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.emailLink:hover,
+.socialLink:hover {
+  color: var(--accent-primary);
+}
+
+.copyButton {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.copyButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.formGroup input,
+.formGroup textarea {
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--accent-primary);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.formGroup input:focus,
+.formGroup textarea:focus {
+  outline: none;
+  border-color: var(--accent-hover);
+  box-shadow: 0 0 0 3px rgba(201, 164, 59, 0.1);
+}
+
+.formGroup textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.9rem;
+  padding: 1rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 4px;
+  border-left: 3px solid #ff6b6b;
+}
+
+.success {
+  color: #51cf66;
+  font-size: 0.9rem;
+  padding: 1rem;
+  background: rgba(81, 207, 102, 0.1);
+  border-radius: 4px;
+  border-left: 3px solid #51cf66;
+}
+
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submitButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contactSection {
+    margin: 2rem 0;
+    padding: 1.5rem;
+  }
+
+  .contactSection h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .form {
+    padding: 1.5rem;
+  }
+
+  .methods {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contactSection {
+    margin: 2rem 0;
+    padding: 1rem;
+  }
+
+  .contactSection h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contactSection h2::after {
+    width: 50px;
+    height: 2px;
+  }
+
+  .container {
+    padding: 0;
+  }
+
+  .contentWrapper {
+    gap: 1.5rem;
+  }
+
+  .info h3 {
+    font-size: 1.25rem;
+  }
+
+  .methods {
+    gap: 0.75rem;
+  }
+
+  .method {
+    padding: 0.75rem;
+  }
+
+  .form {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .copyButton,
+  .submitButton {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+  }
+}

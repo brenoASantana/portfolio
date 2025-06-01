@@ -1,0 +1,321 @@
+/* Estilo do contêiner do perfil - Hero Section */
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  min-height: calc(100vh - 80px);
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(61, 42, 109, 0.2) 0%,
+    rgba(90, 42, 130, 0.1) 100%
+  );
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(201, 164, 59, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(201, 164, 59, 0.2);
+}
+
+.profile::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(201, 164, 59, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
+
+.imageContainer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Estilo da imagem de perfil */
+.profilePicture {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 0 40px rgba(201, 164, 59, 0.4);
+  transition: all 0.3s ease;
+  animation: fadeInScale 0.8s ease-out;
+  flex-shrink: 0;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.profilePicture:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 60px rgba(201, 164, 59, 0.6);
+}
+
+/* Estilo da seção de texto */
+.profileText {
+  flex: 1;
+  max-width: 500px;
+  text-align: left;
+  z-index: 2;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.greeting {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  animation: fadeInUp 0.8s ease-out 0.1s both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.profileText h1 {
+  font-size: 3.5rem;
+  color: var(--white);
+  margin: 0;
+  line-height: 1.1;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.title {
+  font-size: 1.3rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.cta {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  animation: fadeInUp 0.8s ease-out 0.5s both;
+}
+
+.ctaButton,
+.ctaButtonSecondary {
+  padding: 0.875rem 1.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  text-align: center;
+}
+
+.ctaButton {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+.ctaButton:hover {
+  background: var(--accent-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(201, 164, 59, 0.3);
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+}
+
+.ctaButtonSecondary:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  transform: translateY(-3px);
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .profile {
+    gap: 2rem;
+    min-height: auto;
+    padding: 2rem;
+  }
+
+  .profilePicture {
+    width: 240px;
+    height: 240px;
+    flex-shrink: 0;
+  }
+
+  .profileText h1 {
+    font-size: 2.8rem;
+  }
+
+  .title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    min-height: auto;
+    border: 1px solid rgba(201, 164, 59, 0.2);
+  }
+
+  .profile::before {
+    top: -50%;
+    right: -50%;
+    width: 300px;
+    height: 300px;
+    opacity: 0.5;
+  }
+
+  .imageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profileText {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .profileText h1 {
+    font-size: 2.2rem;
+  }
+
+  .title {
+    font-size: 1.1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .cta {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .profilePicture {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile {
+    gap: 1.25rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(201, 164, 59, 0.15);
+  }
+
+  .profileText h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .greeting {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .title {
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .cta {
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+    flex: 0 1 calc(50% - 0.25rem);
+    min-width: unset;
+  }
+
+  .profilePicture {
+    width: 160px;
+    height: 160px;
+    border-width: 2px;
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .profileText h1 {
+    font-size: 1.5rem;
+  }
+
+  .profilePicture {
+    width: 140px;
+    height: 140px;
+  }
+
+  .cta {
+    flex-direction: column;
+  }
+}
