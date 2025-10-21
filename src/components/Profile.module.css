@@ -1,22 +1,128 @@
+/* Estilo do contêiner do perfil - Hero Section */
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  min-height: calc(100vh - 80px);
+  padding: 2rem 0;
+}
+
 /* Estilo da imagem de perfil */
 .profilePicture {
-  width: 150px;              /* Largura da imagem */
-  height: 150px;             /* Altura da imagem */
-  border-radius: 50%;        /* Deixa a imagem circular */
-  object-fit: cover;         /* Garante que a imagem preencha o espaço sem distorcer */
-  border: 2px solid #ccc;    /* Borda sutil para destacar a imagem */
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Estilo do contêiner do perfil */
-.profile {
-  display: flex;             /* Organiza os elementos em um container flexível */
-  flex-direction: column;    /* Empilha os itens verticalmente */
-  align-items: center;       /* Alinha a imagem e o bloco de texto no centro (horizontalmente) */
-  gap: 1rem;                 /* Espaçamento de 16px entre a imagem e o texto */
-  text-align: center;        /* Opcional: Centraliza o H2 e o parágrafo */
+.profilePicture:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(100, 255, 218, 0.5);
 }
 
-/* Estilo da seção de texto ao lado da imagem */
+/* Estilo da seção de texto */
 .profileText {
-  flex: 1;                   /* Ocupa o espaço restante disponível */
+  flex: 1;
+  max-width: 600px;
+  text-align: left;
+}
+
+.profileText h2 {
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+.profileText p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.profileText strong {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .profile {
+    gap: 2.5rem;
+  }
+
+  .profilePicture {
+    width: 240px;
+    height: 240px;
+  }
+
+  .profileText h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+    gap: 2rem;
+    padding: 1.5rem 0;
+  }
+
+  .profileText {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .profileText h2 {
+    font-size: 2rem;
+  }
+
+  .profileText p {
+    font-size: 1rem;
+  }
+
+  .profilePicture {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile {
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .profileText h2 {
+    font-size: 1.75rem;
+  }
+
+  .profileText p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .profilePicture {
+    width: 160px;
+    height: 160px;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 360px) {
+  .profileText h2 {
+    font-size: 1.5rem;
+  }
+
+  .profilePicture {
+    width: 140px;
+    height: 140px;
+  }
 }

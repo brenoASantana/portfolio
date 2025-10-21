@@ -1,24 +1,32 @@
 // React
-import React from "react";
+import { useTranslation } from 'react-i18next';
 
-//Module CSS
+// Data
+import { profileData } from "../data/profileData";
+
+// Module CSS
 import styles from "./Profile.module.css";
 
 export default function Profile() {
+  const { t } = useTranslation();
+
   return (
     <article className={styles.profile}>
       <img
         className={styles.profilePicture}
-        src={`https://github.com/brenoASantana.png`}
+        src="https://github.com/brenoASantana.png"
         alt="Foto de perfil"
       />
       <div className={styles.profileText}>
-        <h2>Breno Santana</h2>
+        <p style={{ fontSize: '1.2rem', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>
+          {t('profile.greeting')}
+        </p>
+        <h2>{profileData.name}</h2>
         <p>
-          <strong>Desenvolvedor Back-End Júnior</strong> & estudante de{" "}
-          <strong>Ciência da Computação</strong> na <strong>UERJ</strong>.{" "}
-          Experiência com <strong>Java</strong>, <strong>PostgreSQL</strong> e
-          muito mais!
+          <strong>{t('profile.title')}</strong>
+        </p>
+        <p>
+          {t('profile.subtitle')}
         </p>
       </div>
     </article>

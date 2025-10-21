@@ -1,5 +1,5 @@
 // React
-import React from "react";
+import { useTranslation } from 'react-i18next';
 
 // Components
 import SocialLinks from "./SocialLinks";
@@ -8,14 +8,13 @@ import SocialLinks from "./SocialLinks";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer>
-      <h2>Contato</h2>
-      <SocialLinks />
-      <p>
-        &copy; {new Date().getFullYear()} Breno Santana. Todos os direitos
-        reservados.
-      </p>
+      <h2>{t('footer.title')}</h2>
+      <SocialLinks className={styles.socialLinks} />
+      <p>{t('footer.copyright').replace('2025', new Date().getFullYear())}</p>
     </footer>
   );
 }

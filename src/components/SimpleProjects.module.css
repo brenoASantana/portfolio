@@ -1,0 +1,230 @@
+.simpleProjects {
+  padding: 4rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.simpleProjects h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.simpleProjects h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 164, 59, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(201, 164, 59, 0.2);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.header h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(201, 164, 59, 0.15);
+  color: var(--accent-primary);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(201, 164, 59, 0.3);
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin: 0;
+  flex: 1;
+  text-align: justify;
+}
+
+.footer {
+  display: flex;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(201, 164, 59, 0.1);
+}
+
+.githubLink,
+.demoLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.githubLink {
+  background: rgba(201, 164, 59, 0.1);
+  color: var(--accent-primary);
+  border: 1px solid rgba(201, 164, 59, 0.3);
+  flex: 1;
+}
+
+.githubLink:hover {
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(201, 164, 59, 0.3);
+}
+
+.demoLink {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(201, 164, 59, 0.2);
+}
+
+.demoLink:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+.githubLink svg,
+.demoLink svg {
+  flex-shrink: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .simpleProjects {
+    padding: 3rem 1.5rem;
+  }
+
+  .simpleProjects h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .header h3 {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .githubLink,
+  .demoLink {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .simpleProjects {
+    padding: 2rem 1rem;
+  }
+
+  .simpleProjects h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .grid {
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .header h3 {
+    font-size: 1.1rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .githubLink,
+  .demoLink {
+    font-size: 0.85rem;
+    padding: 0.65rem 1rem;
+  }
+}

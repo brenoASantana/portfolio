@@ -1,5 +1,10 @@
 # Portfólio - Breno Santana
 
+![CI](https://github.com/brenoASantana/portfolio_reactjs/workflows/CI/badge.svg)
+![Deploy](https://github.com/brenoASantana/portfolio_reactjs/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
+![Code Quality](https://github.com/brenoASantana/portfolio_reactjs/workflows/Code%20Quality/badge.svg)
+![Security](https://github.com/brenoASantana/portfolio_reactjs/workflows/Security/badge.svg)
+
 Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi desenvolvido com o objetivo de apresentar meus trabalhos, experiências e contatos de forma profissional e visualmente agradável.
 
 ## ✨ Tecnologias Utilizadas
@@ -27,8 +32,60 @@ Cores principais:
 - ✅ **Participações e experiências** exibidas em cards
 - ✅ **Redes sociais com ícones personalizados**
 - ✅ **Design responsivo** adaptável para mobile, tablet e desktop
+- ✅ **Internacionalização** (PT-BR 🇧🇷 / EN-US 🇺🇸)
+- ✅ **CI/CD automatizado** com GitHub Actions
+
+## 🚀 Desenvolvimento
+
+### Instalação
+
+```bash
+npm install --legacy-peer-deps
+```
+
+### Executar localmente
+
+```bash
+npm start
+```
 
 A aplicação estará disponível em `http://localhost:3000`.
+
+### Build de produção
+
+```bash
+npm run build
+```
+
+### Deploy
+
+```bash
+npm run deploy
+```
+
+O deploy é feito automaticamente via GitHub Actions quando há push para `master`.
+
+## 🔧 Scripts Disponíveis
+
+- `npm start` - Inicia o servidor de desenvolvimento
+- `npm test` - Executa os testes
+- `npm run build` - Cria build de produção
+- `npm run lint` - Executa verificação de lint com Biome
+- `npm run format` - Formata o código com Biome
+- `npm run check` - Executa verificação completa com Biome
+- `npm run deploy` - Faz deploy para GitHub Pages
+
+## 📋 CI/CD
+
+Este projeto utiliza GitHub Actions para automação completa. Para mais detalhes, veja [PIPELINES.md](./PIPELINES.md).
+
+**Pipelines configuradas:**
+- ✅ CI: Testes, lint e build em múltiplas versões do Node
+- ✅ Deploy: Deploy automático para GitHub Pages
+- ✅ Code Quality: Verificações de qualidade e bundle size
+- ✅ Security: Auditoria de segurança e CodeQL
+- ✅ Dependabot: Atualizações automáticas de dependências
+- ✅ Stale Bot: Gerenciamento de issues/PRs inativos
 
 ## 📬 Contato
 

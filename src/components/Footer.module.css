@@ -1,25 +1,139 @@
-/* Estilo geral do rodapé */
 footer {
-  padding: 1rem 0;
+  background: var(--bg-secondary);
+  padding: 4rem 2rem 2rem;
   text-align: center;
-  color: #F582A7; /* Texto em rosa claro para contraste */
-  border-top: 2px solid #711A75; /* Linha superior decorativa */
+  border-top: 1px solid rgba(100, 255, 218, 0.1);
+  margin-top: 6rem;
 }
 
-/* Estilo dos links sociais */
+footer h2 {
+  color: var(--white);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+footer p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 3rem;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
 .socialLinks a {
-  margin-left: 0.5rem;
+  color: var(--text-secondary);
   font-size: 1.5rem;
-  color: #F10086; /* Rosa vibrante */
-  text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
 }
 
 .socialLinks a:hover {
-  color: #F582A7; /* Rosa claro no hover */
+  color: var(--accent-primary);
+  background: var(--bg-primary);
+  transform: translateY(-4px);
 }
 
-/* Ícones dentro dos links sociais */
-.socialLink .materialSymbolsOutlined {
-  font-size: 2rem;
+.socialLinks img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) saturate(100%) invert(63%) sepia(10%) saturate(800%) hue-rotate(160deg) brightness(96%) contrast(94%);
+  transition: filter 0.3s ease;
+}
+
+.socialLinks a:hover img {
+  filter: brightness(0) saturate(100%) invert(81%) sepia(56%) saturate(3108%) hue-rotate(114deg) brightness(101%) contrast(101%);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  footer {
+    padding: 3rem 1.5rem 1.5rem;
+    margin-top: 4rem;
+  }
+
+  footer h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  footer p {
+    font-size: 0.85rem;
+    margin-top: 2.5rem;
+  }
+
+  .socialLinks {
+    gap: 1.25rem;
+  }
+
+  .socialLinks a {
+    width: 45px;
+    height: 45px;
+  }
+
+  .socialLinks img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  footer {
+    padding: 2.5rem 1rem 1.25rem;
+    margin-top: 3rem;
+  }
+
+  footer h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  footer p {
+    font-size: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .socialLinks {
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .socialLinks a {
+    width: 42px;
+    height: 42px;
+  }
+
+  .socialLinks img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .socialLinks {
+    gap: 0.75rem;
+  }
+
+  .socialLinks a {
+    width: 40px;
+    height: 40px;
+    padding: 0.6rem;
+  }
+
+  .socialLinks img {
+    width: 16px;
+    height: 16px;
+  }
 }

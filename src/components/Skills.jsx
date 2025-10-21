@@ -1,28 +1,24 @@
-import React from "react";
+// React
+import { useTranslation } from 'react-i18next';
 
+// Data
+import { profileData } from "../data/profileData";
+
+// CSS
 import styles from "./Skills.module.css";
 
 export default function Skills() {
+  const { t } = useTranslation();
+
   return (
     <article className={styles.ul}>
       <div className={styles.skillsContainer}>
-        <h2>Habilidades e Competências</h2>
-
-          <strong>
-            <div className={styles.paragraph}>
-          <p>Java</p>
-          <p>PostgreSQL</p>
-          <p>C</p>
-          <p>Python</p>
-          <p>PHP</p>
-          <p>Git & GitHub</p>
-          <p>AWS</p>
-          <p>iDempiere ERP</p>
-          <p>Metodologias Ágeis</p>
-          <p>Inglês</p>
-          </div>
-          </strong>
-
+        <h2>{t('skills.title')}</h2>
+        <div className={styles.paragraph}>
+          {profileData.skills.map((skill) => (
+            <p key={skill}>{skill}</p>
+          ))}
+        </div>
       </div>
     </article>
   );

@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "experience": "Experiência",
+    "projects": "Projetos",
+    "simpleProjects": "Outros Projetos",
+    "ongoing": "Em Andamento",
+    "participations": "Participações",
+    "recommendations": "Recomendações",
+    "contact": "Contato"
+  },
+  "profile": {
+    "greeting": "Olá, eu sou",
+    "title": "Estagiário na Globo | React | JavaScript | Java | iDempiere | PostgreSQL",
+    "subtitle": "Estudante de Ciência da Computação na UERJ"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "paragraph1": "Sou um desenvolvedor Back-End curioso e um eterno estudante, atualmente cursando Ciência da Computação na UERJ. Tenho experiência na criação e manutenção de sistemas em ambientes corporativos, com foco em bancos de dados objeto-relacionais, como PostgreSQL, e controle de versão com Git.",
+    "paragraph2": "Além disso, sou apaixonado por jogos (que me ensinam resolução criativa de problemas) e música (que alimenta minha atenção aos detalhes), sempre em busca de desafios empolgantes e novas oportunidades de aprendizado.",
+    "paragraph3": "Estou constantemente atualizando minhas habilidades para acompanhar as tendências do mercado e novas tecnologias. Algumas das tecnologias que domino incluem Java, React, JavaScript, PHP, C, Python, Git & GitHub, e muito mais!",
+    "paragraph4": "Se você está interessado em colaboração ou tem alguma oportunidade, sinta-se à vontade para me enviar uma mensagem."
+  },
+  "skills": {
+    "title": "Habilidades"
+  },
+  "experience": {
+    "title": "Experiência Profissional",
+    "current": "Atual",
+    "globo": {
+      "role": "Estag Dev | Backstage Conteúdo",
+      "description": "Desenvolvimento de funcionalidades para a plataforma Backstage Content usando React.js e JavaScript. Trabalhando em ambiente híbrido no Rio de Janeiro, contribuindo para soluções de gerenciamento de conteúdo."
+    },
+    "ducke": {
+      "role": "Consultor de Tecnologia",
+      "description": "Implementação de novas funcionalidades no sistema ERP iDempiere com Java; melhoria e manutenção de aplicações existentes; organização e produção de documentos técnicos e relatórios; participação em reuniões com clientes para alinhar e definir requisitos."
+    },
+    "entregue": {
+      "role": "Estagiário de Desenvolvimento de Software",
+      "description": "Desenvolvimento e melhoria do sistema ERP iDempiere usado na gestão empresarial. Principais responsabilidades: Desenvolvimento Back-End (Java), Gerenciamento de banco de dados (PostgreSQL), Controle de versão (Git), Implementação de funcionalidades e Correção de bugs."
+    },
+    "stacks": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "database": "Banco de Dados",
+      "infrastructure": "Infraestrutura",
+      "tools": "Ferramentas",
+      "methodologies": "Metodologias"
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "viewOnGithub": "Ver no GitHub",
+    "hmc": {
+      "description": "é um jogo de terror e aventura do estilo narrative-driven experimental adventure e roguelike. Nele, você vivencia a jornada de um Padre que desperta no porão de um monastério, em um local desconhecido, sem memória e em busca de respostas. Sem muitas opções, ele acaba libertando um antigo mal aprisionado. Agora, sua única escolha é sobreviver. Recuperar sua fé e encontrar respostas se tornam sua principal motivação."
+    },
+    "kaching": {
+      "description": "é um projeto Full-Stack de sistema de inventário e gestão organizado de forma MVC programado em PHP, HTML e CSS com um CRUD de produtos, funcionários, usuários e fornecedores."
+    }
+  },
+  "ongoingProjects": {
+    "title": "Projetos em Andamento",
+    "kachingERP": {
+      "description": "é uma solução empresarial robusta e customizável, desenvolvida a partir do sistema open source iDempiere ERP e integrada ao plugin de localização brasileira LBR. O projeto foi concebido para aprimorar diversas áreas da gestão empresarial, desde o controle de estoques até a automação de processos operacionais."
+    },
+    "cineSystem": {
+      "description": "é uma solução completa para a gestão de cinemas, desenvolvida em Java para atender com eficiência as demandas operacionais e estratégicas desse segmento. A plataforma facilita o gerenciamento de salas, sessões, filmes e ingressos."
+    }
+  },
+  "participations": {
+    "title": "Participações",
+    "hackNaIlha": {
+      "description": "Participei do Hack na Ilha, promovido pelo CEADS/UERJ e FAPERJ, em Ilha Grande. Desenvolvemos soluções para conectividade local, aliando tecnologias como CubeSats e redes MeshConnects a uma abordagem socialmente integrada."
+    },
+    "programacao0": {
+      "description": "Lecionei na primeira edição do curso \"Programação 0\", iniciativa do IME/UERJ. Ministrei aulas sobre Sistemas de Numeração e Estrutura de Decisão."
+    },
+    "batePapoBD": {
+      "description": "Participei de um bate-papo com alunos da Escola Estadual de Felisburgo sobre Banco de Dados em Jogos e carreira em tecnologia."
+    },
+    "desafioKraft": {
+      "description": "Fui premiado com o 2º lugar no Desafio de Engenharia de Software Kraft Baterias EntregPag, configurando o iDempiere na AWS e criando janelas e tabelas. Recebi prêmio em dinheiro e vaga de estágio."
+    }
+  },
+  "recommendations": {
+    "title": "Recomendações",
+    "viewAllOnLinkedIn": "Ver Todas no LinkedIn",
+    "items": [
+      {
+        "author": "Raphael Zappacosta",
+        "role": "Tech Lead",
+        "company": "Ducke",
+        "relationship": "Supervisionou Breno diretamente",
+        "text": "Trabalhar com o Breno na Ducke foi uma experiência muito positiva. Ele aprende rápido, é dedicado e entrega resultados consistentes, sempre respeitando prazos. Seu profissionalismo e espírito colaborativo fazem dele um parceiro de confiança em qualquer projeto. Recomendo de coração!",
+        "date": "Maio 2025"
+      },
+      {
+        "author": "João Pedro Guedes",
+        "role": "Estagiário em BNDES",
+        "company": "BNDES",
+        "relationship": "Trabalhou com Breno na mesma equipe",
+        "text": "Breno é uma das pessoas mais incríveis com quem já tive o prazer de trabalhar. Sua visão é dotada de grande capacidade analítica e sabe encontrar soluções em situações que em muitas das vezes não é fácil. Ter ele como um colaborador de sua equipe é ter um profissional que não tem medo de encarar desafios e que sabe como influenciar positivamente todos da equipe em fazerem o seu melhor. Recomendo o Breno para todos que buscam um profissional qualificado e que se entrega de corpo e alma ao que faz!",
+        "date": "Abril 2024"
+      },
+      {
+        "author": "Matheus Oliveira",
+        "role": "Estudante de Ciência da Computação",
+        "company": "IME - UERJ",
+        "relationship": "Trabalhou com Breno na mesma equipe",
+        "text": "Se você pensa em uma pessoa criativa, organizada, inteligente e pontual, Breno Santana é essa pessoa! Sua organização e pontualidade são aspectos notórios e que fazem total diferença no ciclo de desenvolvimento de um projeto. Tive o prazer de atestar suas habilidades em prática em um projeto que nos trouxe resultados impressionantes. Ele possui a habilidade única de entender as necessidades e sentimentos das pessoas ao seu redor, o que o torna um excelente colaborador em ambientes de trabalho colaborativos. Sua empatia não apenas fortalece os laços dentro da equipe, mas também o capacita a encontrar soluções criativas e inovadoras para os desafios que enfrentamos. Breno é uma adição valiosa a qualquer equipe.",
+        "date": "Abril 2024"
+      }
+    ]
+  },
+  "simpleProjects": {
+    "title": "Outros Projetos",
+    "viewOnGithub": "Ver no GitHub",
+    "liveDemo": "Demo",
+    "items": [
+      {
+        "id": "projeto-1",
+        "title": "Nome do Projeto 1",
+        "description": "Descrição detalhada do projeto, tecnologias utilizadas e objetivos alcançados.",
+        "tags": ["React", "Node.js", "MongoDB"],
+        "github": "https://github.com/brenoASantana/projeto-1"
+      },
+      {
+        "id": "projeto-2",
+        "title": "Nome do Projeto 2",
+        "description": "Descrição detalhada do projeto, tecnologias utilizadas e objetivos alcançados.",
+        "tags": ["Java", "Spring Boot", "PostgreSQL"],
+        "github": "https://github.com/brenoASantana/projeto-2",
+        "demo": "https://projeto2-demo.com"
+      }
+    ]
+  },
+  "footer": {
+    "title": "Vamos Conversar!",
+    "copyright": "© 2025 Breno Santana. Todos os direitos reservados."
+  }
+}

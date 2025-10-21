@@ -1,71 +1,276 @@
-/* Seção de Participações */
 .participations {
-  margin: 2rem 0;
+  margin: 4rem 0;
+}
+
+.participations h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.participations h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent-primary);
+}
+
+/* Carousel Styles */
+.participationsSwiper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+}
+
+.participationCard {
+  background: var(--bg-secondary);
   padding: 2rem;
-  border-radius: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center; /* ← ESTA É A CORREÇÃO */
 }
 
-/* O título agora será centralizado pelo flex container,
-   mas manter text-align não prejudica. */
-.participations h2 {
-  color: #F10086;
-  text-align: center;
-  margin-bottom: 2rem;
+.participationCard:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(100, 255, 218, 0.2);
 }
 
-/* Grid responsivo dos cards */
+.participationCard h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 250px;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border: 2px solid var(--accent-primary);
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.participationCard p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: left;
+  flex: 1;
+}
+
+.participationCard strong {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Grid Styles (mantido para compatibilidade) */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  width: 100%; /* Garante que o grid ocupe todo o espaço disponível */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-/* Estilo dos cards */
 .grid article {
-  background: #711A75;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  transition: all 0.3s ease;
   text-align: center;
-  color: #F582A7;
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Adicionada transição para o shadow */
 }
 
 .grid article:hover {
-  transform: scale(1.02);
-  box-shadow: 0 4px 16px rgba(241, 0, 134, 0.3);
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(100, 255, 218, 0.2);
 }
 
-/* Imagens dos cards */
+.grid article h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
 .grid img {
   width: 100%;
-  max-width: 250px;
-  height: auto;
+  height: 250px;
   border-radius: 8px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   object-fit: cover;
-  border: 2px solid #F10086;
+  border: 2px solid var(--accent-primary);
 }
 
-/* Texto em destaque dentro dos cards */
+.grid article p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: left;
+}
+
 .grid strong {
-  color: #F10086;
+  color: var(--accent-primary);
+  font-weight: 600;
 }
 
-/* Responsividade adicional para telas pequenas */
-@media (max-width: 600px) {
-  .participations {
-    padding: 1rem;
+/* Responsividade */
+@media (max-width: 1024px) {
+  .participationsSwiper {
+    padding: 0.75rem 0 2.5rem;
+  }
+
+  .participationCard {
+    padding: 1.75rem;
+  }
+
+  .imageWrapper {
+    height: 220px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
   }
 
   .grid img {
-    max-width: 200px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .participations {
+    margin: 3rem 0;
+  }
+
+  .participations h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .participations h2::after {
+    width: 70px;
+  }
+
+  .participationsSwiper {
+    padding: 0.5rem 0 2rem;
+  }
+
+  .participationCard {
+    padding: 1.5rem;
+  }
+
+  .participationCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+
+  .participationCard p {
+    font-size: 0.95rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .grid article {
+    padding: 1.5rem;
+  }
+
+  .grid article h3 {
+    font-size: 1.2rem;
+  }
+
+  .grid img {
+    height: 200px;
+  }
+
+  .grid article p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .participations {
+    margin: 2rem 0;
+  }
+
+  .participations h2 {
+    font-size: 1.5rem;
+  }
+
+  .participations h2::after {
+    width: 60px;
+    height: 2px;
+  }
+
+  .participationsSwiper {
+    padding: 0.25rem 0 1.5rem;
+  }
+
+  .participationCard {
+    padding: 1.25rem;
+  }
+
+  .participationCard h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .imageWrapper {
+    height: 180px;
+    margin-bottom: 1.25rem;
+    border-width: 1px;
+  }
+
+  .participationCard p {
+    font-size: 0.9rem;
+  }
+
+  .grid {
+    gap: 1.25rem;
+  }
+
+  .grid article {
+    padding: 1.25rem;
+  }
+
+  .grid article h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .grid img {
+    height: 180px;
+    margin-bottom: 1.25rem;
+    border-width: 1px;
+  }
+
+  .grid article p {
+    font-size: 0.9rem;
   }
 }

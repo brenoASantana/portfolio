@@ -1,0 +1,136 @@
+.ongoingProjects {
+  margin: 4rem 0 0;
+}
+
+.ongoingProjects h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ongoingProjects h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid article {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  padding: 2rem;
+  border: 1px solid rgba(100, 255, 218, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.grid article:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(100, 255, 218, 0.2);
+}
+
+.grid article h3 {
+  color: var(--white);
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+  font-weight: 600;
+}
+
+.grid article p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  text-align: left;
+}
+
+.grid article strong {
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ongoingProjects {
+    margin: 3rem 0 0;
+  }
+
+  .ongoingProjects h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .ongoingProjects h2::after {
+    width: 70px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .grid article {
+    padding: 1.5rem;
+  }
+
+  .grid article h3 {
+    font-size: 1.35rem;
+  }
+
+  .grid article p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ongoingProjects {
+    margin: 2rem 0 0;
+  }
+
+  .ongoingProjects h2 {
+    font-size: 1.5rem;
+  }
+
+  .ongoingProjects h2::after {
+    width: 60px;
+    height: 2px;
+  }
+
+  .grid {
+    gap: 1.5rem;
+  }
+
+  .grid article {
+    padding: 1.25rem;
+  }
+
+  .grid article h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .grid article p {
+    font-size: 0.9rem;
+  }
+}

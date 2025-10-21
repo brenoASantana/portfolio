@@ -1,53 +1,215 @@
-/* Estilos existentes do seu componente */
 .projects {
-  margin: 2rem 0;
-
-  /* Adicionado: Variáveis de cor para os ícones do Swiper */
-  --swiper-navigation-color: #F10086; /* Cor das setas */
-  --swiper-pagination-color: #F10086;  /* Cor da bolinha de paginação ativa */
+  margin: 4rem 0;
+  padding: 0 2rem;
+  --swiper-navigation-color: var(--accent-primary);
+  --swiper-pagination-color: var(--accent-primary);
 }
 
+.projects h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.projects h2::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent-primary);
+}
+
+/* Grid de projetos sem imagens */
 .grid {
   display: grid;
-  /* Você pode manter este grid se precisar, ou remover se cada projeto
-     for um item separado na vertical. Para o carrossel, ele não é essencial. */
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem; /* Aumentei um pouco o gap para dar mais respiro */
-}
-
-
-/* =============================================== */
-/* Estilos para o Carrossel (Swiper)          */
-/* =============================================== */
-
-/* Estilo para as bolinhas de paginação INATIVAS.
-  Usamos :global() para atingir as classes da biblioteca Swiper.
-*/
-.projects :global(.swiper-pagination-bullet) {
-  background: #F10086;
-  opacity: 0.5; /* Deixa a bolinha inativa mais fraca */
-}
-
-/* Estilo para a bolinha de paginação ATIVA.
-*/
-.projects :global(.swiper-pagination-bullet-active) {
-  opacity: 1; /* Opacidade total para a bolinha selecionada */
-}
-
-/*
-  Ajuste opcional no tamanho das setas.
-*/
-.projects :global(.swiper-button-next),
-.projects :global(.swiper-button-prev) {
-  width: 30px;
-  height: 30px;
-}
-
-.projects img {
-  width: 100%;
-  height: auto;
-  max-height: 300px; /* Ajuste esse valor conforme necessário */
-  object-fit: contain; /* Mantém a imagem inteira, sem cortar */
-  display: block;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.card {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(201, 164, 59, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card:hover {
+  border-color: var(--accent-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(201, 164, 59, 0.2);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.header h3 {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(201, 164, 59, 0.15);
+  color: var(--accent-primary);
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(201, 164, 59, 0.3);
+}
+
+.description {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+  flex: 1;
+  text-align: justify;
+}
+
+.githubButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 2rem;
+  background: var(--accent-primary);
+  color: var(--bg-primary);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 2px solid var(--accent-primary);
+}
+
+.githubButton:hover {
+  background: transparent;
+  color: var(--accent-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(201, 164, 59, 0.4);
+}
+
+.githubButton svg {
+  flex-shrink: 0;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.75rem;
+  }
+
+  .projects {
+    padding: 0 1.5rem;
+  }
+
+  .card {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    margin: 3rem 0;
+    padding: 0 1rem;
+  }
+
+  .projects h2 {
+    font-size: 1.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .projects h2::after {
+    width: 70px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .header h3 {
+    font-size: 1.25rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .githubButton {
+    font-size: 1rem;
+    padding: 0.9rem 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects {
+    margin: 2rem 0;
+    padding: 0 0.5rem;
+  }
+
+  .projects h2 {
+    font-size: 1.5rem;
+  }
+
+  .projects h2::after {
+    width: 60px;
+    height: 2px;
+  }
+
+  .grid {
+    gap: 1.25rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .header h3 {
+    font-size: 1.15rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .githubButton {
+    font-size: 0.95rem;
+    padding: 0.85rem 1.5rem;
+  }
 }
