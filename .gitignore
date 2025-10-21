@@ -59,6 +59,8 @@ lighthouse-results.json
 # Optional npm cache directory
 .npm
 
+.npmrc
+
 # Optional eslint cache
 .eslintcache
 
