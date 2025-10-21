@@ -1,0 +1,77 @@
+### Gitignore otimizado para projeto React + Biome
+# Referência: https://github.com/github/gitignore
+
+## Dependências e gerenciadores
+node_modules/
+/.pnp
+.pnp.js
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+## Build e produção
+build/
+dist/
+*.log
+*.tgz
+
+## Testes e cobertura
+coverage/
+.nyc_output/
+
+## Ambiente (.env) - nunca versionar segredos
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+## Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+## IDE / Editor
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+## SO / Arquivos temporários
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+## Performance / caches
+.cache/
+.biome-cache/
+.eslintcache
+.node_repl_history
+.npm/
+.npmrc
+
+## Lighthouse
+.lighthouseci/
+lighthouse-results.json
+
+## Source maps (opcional: gerar no CI apenas)
+*.map
+
+## Temporários
+*.tmp
+*.temp
+
