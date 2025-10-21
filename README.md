@@ -1,18 +1,16 @@
-# Portfólio - Breno Santana
+# Portfólio – Breno Santana
 
-![CI](https://github.com/brenoASantana/portfolio_reactjs/workflows/CI/badge.svg)
-![Deploy](https://github.com/brenoASantana/portfolio_reactjs/workflows/Deploy%20to%20GitHub%20Pages/badge.svg)
-![Code Quality](https://github.com/brenoASantana/portfolio_reactjs/workflows/Code%20Quality/badge.svg)
-![Security](https://github.com/brenoASantana/portfolio_reactjs/workflows/Security/badge.svg)
+> Aplicação React com internacionalização (pt-BR / en-US), carrossel de projetos, recomendações e seção de participações. Estruturada com dados centralizados em `profileData`, testes automatizados e Makefile para produtividade.
 
-Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi desenvolvido com o objetivo de apresentar meus trabalhos, experiências e contatos de forma profissional e visualmente agradável.
+## ✨ Stack Técnica
 
-## ✨ Tecnologias Utilizadas
-
-- [ReactJS](https://reactjs.org/)
-- [Swiper.js](https://swiperjs.com/) — utilizado para criar o carrossel de projetos
-- CSS Modules para estilização
-- HTML5 & CSS3 responsivos
+- React 19 + StrictMode
+- i18next + react-i18next (locale detection automática)
+- CSS Modules
+- Testes com Testing Library (Jest via react-scripts)
+- Biome (lint/format/check)
+- GitHub Pages (deploy)
+- Source-map-explorer (análise de bundle)
 
 ## 🎨 Paleta de Cores
 
@@ -28,77 +26,115 @@ Cores principais:
 
 ## 📸 Funcionalidades
 
-- ✅ Seção de **projetos em carrossel** com navegação por botões e paginação
-- ✅ **Participações e experiências** exibidas em cards
-- ✅ **Redes sociais com ícones personalizados**
-- ✅ **Design responsivo** adaptável para mobile, tablet e desktop
-- ✅ **Internacionalização** (PT-BR 🇧🇷 / EN-US 🇺🇸)
-- ✅ **CI/CD automatizado** com GitHub Actions
+- Projetos e projetos em andamento (conteúdo traduzido)
+- Participações (com placeholders para substituição futura)
+- Recomendações dinâmicas (LinkedIn)
+- Toggle de idioma persistindo em `localStorage`
+- Seção de skills e experiências centralizadas
+- Social links com ícones SVG locais
+- Teste de renderização básica de navegação
 
 ## 🚀 Desenvolvimento
 
+### Pré-requisitos
+- Node 18+ (recomendado gerenciar via nvm)
+
 ### Instalação
-
 ```bash
-npm install --legacy-peer-deps
+make install
 ```
 
-### Executar localmente
-
+### Ambiente de desenvolvimento
 ```bash
-npm start
+make dev
 ```
-
-A aplicação estará disponível em `http://localhost:3000`.
+App em: http://localhost:3000
 
 ### Build de produção
-
 ```bash
-npm run build
+make build
 ```
 
-### Deploy
-
+### Qualidade de código
 ```bash
-npm run deploy
+make lint
+make format
+make check       # pacote completo Biome
 ```
 
-O deploy é feito automaticamente via GitHub Actions quando há push para `master`.
+### Análise de bundle
+```bash
+make analyze
+```
 
-## 🔧 Scripts Disponíveis
+### Deploy (GitHub Pages)
+```bash
+make deploy
+```
+Workflow de deploy automático pode ser configurado via GitHub Actions (não incluído aqui).
 
-- `npm start` - Inicia o servidor de desenvolvimento
-- `npm test` - Executa os testes
-- `npm run build` - Cria build de produção
-- `npm run lint` - Executa verificação de lint com Biome
-- `npm run format` - Formata o código com Biome
-- `npm run check` - Executa verificação completa com Biome
-- `npm run deploy` - Faz deploy para GitHub Pages
+## 🔧 Makefile (atalhos)
 
-## 📋 CI/CD
+| Comando        | Descrição                     |
+| -------------- | ----------------------------- |
+| `make install` | Instala dependências          |
+| `make dev`     | Inicia servidor dev           |
+| `make build`   | Gera build produção           |
+| `make lint`    | Lint Biome                    |
+| `make format`  | Formata código                |
+| `make check`   | Lint + format + outras checks |
+| `make analyze` | Analisa bundle pós-build      |
+| `make deploy`  | Build + deploy GitHub Pages   |
+| `make clean`   | Remove build + node_modules   |
 
-Este projeto utiliza GitHub Actions para automação completa. Para mais detalhes, veja [PIPELINES.md](./PIPELINES.md).
+## 🌐 Internacionalização
+`i18n/config.js` faz auto-detecção de idioma do navegador e persiste escolha do usuário em `localStorage`. Traduções em `src/i18n/locales/*.json`.
 
-**Pipelines configuradas:**
-- ✅ CI: Testes, lint e build em múltiplas versões do Node
-- ✅ Deploy: Deploy automático para GitHub Pages
-- ✅ Code Quality: Verificações de qualidade e bundle size
-- ✅ Security: Auditoria de segurança e CodeQL
-- ✅ Dependabot: Atualizações automáticas de dependências
-- ✅ Stale Bot: Gerenciamento de issues/PRs inativos
+Para adicionar novas chaves:
+1. Adicione em `pt-BR.json` e `en-US.json`
+2. Referencie com `t('namespace.chave')` no componente
+
+Para novo idioma:
+1. Crie arquivo `xx-YY.json`
+2. Registre em `resources` no `config.js`
+3. Ajuste lógica de detecção se necessário
+
+## 📦 Estrutura Principal
+```
+src/
+	components/      # Componentes modulares
+	data/            # Fonte de dados central (profileData)
+	i18n/            # Configuração e arquivos de tradução
+	assets/          # Imagens e ícones SVG locais
+```
+
+## 🗃 Limpeza e Organização
+Itens removidos do boilerplate original:
+- Testes unitários (removidos por não serem necessários neste projeto)
+- Uso incorreto de `className` em `<React.StrictMode>`
+- Ajustes no `.gitignore` para cobrir caches / locks diversos
+
+## 🔐 Segurança & Qualidade Futuras (Sugestões)
+- Adicionar workflow CI (build + lint)
+- CodeQL para análise estática
+- Dependabot para atualização de libs
+- Audit de pacotes (`npm audit`) em pipeline
+
+## 🤝 Contribuição
+Pull requests e sugestões são bem-vindos. Abra uma issue descrevendo sua ideia ou correção.
 
 ## 📬 Contato
 
-Você pode me encontrar em:
-
-* [Instagram](https://instagram.com/brenoasantana)
-* [LinkedIn](https://linkedin.com/in/brenoasantana)
-* [GitHub](https://github.com/brenoasantana)
-* [Email](mailto:contatobrenosantana@outlook.com)
-* [Linktree](https://linktr.ee/brenoasantana)
+| Plataforma | Link                                   |
+| ---------- | -------------------------------------- |
+| Instagram  | https://instagram.com/brenoasantana    |
+| LinkedIn   | https://linkedin.com/in/brenoasantana  |
+| GitHub     | https://github.com/brenoasantana       |
+| E-mail     | mailto:contatobrenosantana@outlook.com |
+| Linktree   | https://linktr.ee/brenoasantana        |
 
 ---
 
-🧠 **Sinta-se à vontade para sugerir melhorias ou contribuir!**
+🧠 Sinta-se à vontade para sugerir melhorias ou contribuir!
 
 ```

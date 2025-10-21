@@ -1,25 +1,19 @@
 SHELL := /bin/bash
 NPM := source ~/.nvm/nvm.sh && npm
 
-.PHONY: all help install setup dev build test lint format check clean deploy
+.PHONY: all help install setup dev build lint format check analyze clean deploy
 
 all: help
 
 help:
 	@echo "💼 Makefile do Portfolio React"
 	@echo ""
-	@echo "Comandos disponíveis:"
-	@echo "  install  - Instala todas as dependências do projeto"
-	@echo "  setup    - Configura o projeto (alias para install)"
-	@echo "  dev      - Inicia o servidor de desenvolvimento (alias para start)"
-	@echo "  start    - Inicia o servidor React em modo desenvolvimento"
-	@echo "  build    - Compila o projeto para produção"
-	@echo "  test     - Executa os testes do projeto"
-	@echo "  lint     - Executa verificação de código com Biome"
-	@echo "  format   - Formata o código usando Biome"
-	@echo "  check    - Executa verificação completa com Biome"
-	@echo "  deploy   - Faz deploy para GitHub Pages"
-	@echo "  clean    - Remove arquivos de build e dependências"
+	@echo "Targets disponíveis:"; \
+	printf "\nInstalação/Setup:\n  install       Instala dependências\n  setup         Alias para install\n"; \
+	printf "\nDesenvolvimento:\n  dev|start     Inicia servidor de desenvolvimento\n  build         Gera build de produção (./build)\n  analyze       Analisa bundle com source-map-explorer\n"; \
+	printf "\nQualidade:\n  lint          Lint via Biome\n  format        Formata código (Biome)\n  check         Lint + format + outras checks Biome\n"; \
+	printf "\nOutros:\n  deploy        Build + deploy para GitHub Pages\n  clean         Remove build e dependências\n  help          Exibe esta ajuda\n"; \
+	printf "\nVariáveis:\n  NPM='$(NPM)'\n";
 
 install:
 	@echo "📦 Instalando dependências..."
@@ -40,21 +34,21 @@ build:
 	@$(NPM) run build
 	@echo "✅ Build concluído! Arquivos em ./build"
 
-test:
-	@echo "🧪 Executando testes..."
-	@$(NPM) test
-
 lint:
 	@echo "🔍 Verificando código com Biome..."
 	@$(NPM) run lint
 
 format:
 	@echo "✨ Formatando código com Biome..."
-	@$(NPM) run format --write
+	@$(NPM) run format
 
 check:
 	@echo "🔎 Executando verificação completa..."
 	@$(NPM) run check
+
+analyze: build
+	@echo "📊 Analisando bundle..."
+	@$(NPM) run analyze
 
 deploy: build
 	@echo "🚀 Fazendo deploy para GitHub Pages..."

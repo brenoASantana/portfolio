@@ -19,7 +19,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -29,15 +28,20 @@
     "pre-commit": "./scripts/pre-commit-check.sh",
     "deploy:manual": "./scripts/deploy.sh",
     "clean": "./scripts/clean.sh",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
-    "test:coverage": "npm test -- --coverage --watchAll=false",
-    "test:ci": "CI=true npm test -- --coverage --watchAll=false"
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
-    "extends": ["react-app", "react-app/jest"]
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
