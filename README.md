@@ -1,6 +1,6 @@
 # Portfólio – Breno Santana
 
-> Aplicação React com internacionalização (pt-BR / en-US), carrossel de projetos, recomendações e seção de participações. Estruturada com dados centralizados em `profileData` e Makefile para produtividade.
+> Portfólio profissional moderno e atemporal com React, internacionalização (pt-BR / en-US), timeline de experiências, formulário de contato e design responsivo com glassmorphism.
 
 **🔗 Acesse:** https://brenoasantana.github.io/portfolio/
 
@@ -8,20 +8,42 @@
 
 - React 19 + StrictMode
 - i18next + react-i18next (locale detection automática)
-- CSS Modules
+- CSS Modules com design responsivo
 - Biome (lint/format/check)
 - GitHub Pages (deploy)
+- GitHub Actions (CI/CD pipeline)
+- Formspree (backend de formulário)
+- Intersection Observer API (lazy loading)
 - Source-map-explorer (análise de bundle)
 
 ## 📸 Funcionalidades
 
-- ✅ Projetos e projetos em andamento (conteúdo traduzido)
-- ✅ Participações (com placeholders para substituição futura)
-- ✅ Recomendações dinâmicas (LinkedIn)
-- ✅ Toggle de idioma persistindo em `localStorage`
-- ✅ Seção de skills e experiências centralizadas
-- ✅ Social links com ícones SVG locais
-- ✅ Design responsivo para mobile, tablet e desktop
+### Hero Section
+- ✅ Profile com glassmorphism e animações
+- ✅ Foto de perfil do GitHub
+- ✅ CTAs para contato e LinkedIn
+- ✅ Menu mobile hamburger responsivo
+
+### Conteúdo
+- ✅ Seção About com 4 parágrafos informativos
+- ✅ Skills grid responsivo com hover effects
+- ✅ Timeline de experiências profissionais com setas e layout alternado
+- ✅ Integração Spotify com lazy loading (Intersection Observer)
+- ✅ Formulário de contato com Formspree.io
+- ✅ Copy-to-clipboard para email
+- ✅ Footer com links sociais
+
+### Internacionalização
+- ✅ Toggle PT-BR / EN-US persistindo em localStorage
+- ✅ Auto-detecção de idioma do navegador
+- ✅ Todas as seções traduzidas
+
+### Performance & SEO
+- ✅ Lazy loading de componentes pesados
+- ✅ CSS Modules para escopos isolados
+- ✅ Design responsivo (360px - 1400px+)
+- ✅ GitHub Actions CI/CD automático
+- ✅ Meta tags e semântica HTML
 
 ## 🚀 Desenvolvimento
 
@@ -88,9 +110,10 @@ Para novo idioma:
 3. Ajuste lógica de detecção se necessário
 
 ## 📦 Estrutura Principal
+
 ```
 src/
-  components/      # Componentes modulares (About, Profile, Projects, etc.)
+  components/      # Componentes modulares (About, Profile, Experience, Contact, Skills, Footer)
   data/            # Fonte de dados central (profileData.js)
   i18n/            # Configuração i18next e arquivos de tradução (pt-BR, en-US)
   assets/          # Imagens e ícones SVG locais
@@ -98,12 +121,13 @@ src/
 
 ## 🎨 Paleta de Cores
 
-Inspirada em: [ColorHunt Palette](https://colorhunt.co/palette/180a0a711a75f10086f582a7)
+Baseada em tons de roxo, azul e dourado para um design moderno e elegante:
 
-- `#180A0A` – Preto escuro (background/contraste)
-- `#711A75` – Roxo profundo (detalhes e títulos)
-- `#F10086` – Rosa vibrante (realces e ícones)
-- `#F582A7` – Rosa claro (tons de apoio)
+- `#1a1a1c` – Background primário (preto escuro)
+- `#3d2a6d` – Roxo profundo (detalhes principais)
+- `#2a3f6f` – Azul escuro (gradientes)
+- `#c9a43b` – Dourado (acentos e highlights)
+- `#f4f1e6` – Branco suave (texto primário)
 
 ## 📬 Contato
 
