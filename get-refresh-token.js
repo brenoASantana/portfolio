@@ -2,8 +2,11 @@ const express = require("express");
 const axios = require("axios");
 
 // COLE SUAS CREDENCIAIS AQUI (obtidas do Spotify Dashboard)
-const CLIENT_ID = "a3293fc3442044c8b544c22fc2b350a3";
-const CLIENT_SECRET = "5305919fc3e842a6bca8a3104f1a91f7";
+// ⚠️ NUNCA commite as credenciais! Use apenas localmente
+// Obtenha no: https://developer.spotify.com/dashboard/applications
+const CLIENT_ID = process.env.SPOTIFY_CLIENT_ID || "SEU_CLIENT_ID_AQUI";
+const CLIENT_SECRET =
+  process.env.SPOTIFY_CLIENT_SECRET || "SEU_CLIENT_SECRET_AQUI";
 const REDIRECT_URI = "https://brenoasantana.github.io/portfolio/callback";
 
 const app = express();

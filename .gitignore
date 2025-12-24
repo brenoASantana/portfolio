@@ -9,6 +9,14 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 
+## Variáveis de ambiente (NUNCA commitar!)
+.env
+.env.local
+.env.*.local
+
+## Scripts de credenciais (uso local apenas)
+get-refresh-token.js
+
 ## Build e produção
 build/
 dist/

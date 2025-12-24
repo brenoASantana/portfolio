@@ -131,6 +131,16 @@ Baseada em tons de roxo, azul e dourado para um design moderno e elegante:
 
 ## 🎵 Integração com Spotify
 
+### ⚠️ IMPORTANTE: Segurança
+
+Este é um **repositório público** - nunca commita o arquivo `.env` com credenciais!
+
+- ✅ `.env` está no `.gitignore` (protegido)
+- ❌ Nunca coloque credenciais no código
+- 🔒 Use GitHub Secrets ou Vercel Secrets em produção
+
+Veja [SECURITY.md](./SECURITY.md) para instruções de segurança.
+
 ### Passo 1: Criar Aplicação no Spotify
 
 1. Acesse [Spotify for Developers](https://developer.spotify.com/dashboard)
@@ -143,20 +153,23 @@ Baseada em tons de roxo, azul e dourado para um design moderno e elegante:
 
 ### Passo 2: Obter Refresh Token
 
-Execute o script incluído no projeto:
+Execute o script incluído (use variáveis de ambiente):
 
 ```bash
+# Configurar credenciais localmente (NÃO commitar!)
+export SPOTIFY_CLIENT_ID="seu_client_id"
+export SPOTIFY_CLIENT_SECRET="seu_client_secret"
+
 # Instalar dependências
 npm install express axios --legacy-peer-deps
 
-# Editar get-refresh-token.js com suas credenciais
 # Executar script
 node get-refresh-token.js
 
 # Acessar http://localhost:8888/login e autorizar
 ```
 
-### Passo 3: Configurar .env
+### Passo 3: Configurar .env (local apenas)
 
 Crie `.env` na raiz:
 
@@ -166,13 +179,33 @@ REACT_APP_SPOTIFY_CLIENT_SECRET=seu_client_secret
 REACT_APP_SPOTIFY_REFRESH_TOKEN=seu_refresh_token
 ```
 
+⚠️ **Importante:** Este arquivo é ignorado pelo Git. Nunca será commitado.
+
 ### Passo 4: Reiniciar
 
 ```bash
 npm start
 ```
 
-⚠️ **Importante:** Nunca commite o `.env` - já está no gitignore
+### Para Produção (Vercel recomendado)
+
+Mude para [Vercel](https://vercel.com) para deployment seguro com environment variables:
+
+```bash
+npm install -g vercel
+vercel
+```
+
+Veja [SECURITY.md](./SECURITY.md) para mais detalhes.
+
+## 🔐 Segurança
+
+Veja [SECURITY.md](./SECURITY.md) para:
+- Como proteger credenciais em produção
+- Configurar GitHub Secrets
+- Usar Vercel com secrets seguros
+
+## 🎵 Integração com Spotify
 
 ## 📬 Contato
 
