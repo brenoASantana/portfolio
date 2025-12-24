@@ -9,6 +9,7 @@
     "ongoing": "Ongoing",
     "participations": "Participations",
     "recommendations": "Recommendations",
+    "game": "Game",
     "contact": "Contact"
   },
   "profile": {
@@ -160,5 +161,21 @@
     "errorRequired": "Please fill in all fields",
     "errorSubmit": "Error sending message. Please try again.",
     "success": "Message sent successfully! I'll get back to you soon."
+  },
+  "spotify": {
+    "nowPlaying": "NOW PLAYING",
+    "notPlaying": "I'm not listening to anything right now :(",
+    "notPlayingHint": "That's why there's no info being displayed here!"
+  },
+  "rpg": {
+    "title": "DEVELOPER STATUS",
+    "characterInfo": "CHARACTER INFO",
+    "class": "Full Stack Developer",
+    "statistics": "STATISTICS",
+    "daysStreak": "Days Streak",
+    "linesOfCode": "Lines of Code",
+    "coffeeCups": "Coffee Cups",
+    "bugsFixed": "Bugs Fixed",
+    "skillTree": "SKILL TREE"
   }
 }

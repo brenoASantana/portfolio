@@ -9,6 +9,7 @@
     "ongoing": "Em Andamento",
     "participations": "Participações",
     "recommendations": "Recomendações",
+    "game": "Jogo",
     "contact": "Contato"
   },
   "profile": {
@@ -160,5 +161,21 @@
     "errorRequired": "Por favor, preencha todos os campos",
     "errorSubmit": "Erro ao enviar mensagem. Por favor, tente novamente.",
     "success": "Mensagem enviada com sucesso! Voltarei a entrar em contato em breve."
+  },
+  "spotify": {
+    "nowPlaying": "TOCANDO AGORA",
+    "notPlaying": "Não estou ouvindo nada no momento :(",
+    "notPlayingHint": "Por isso não há informações sendo exibidas aqui!"
+  },
+  "rpg": {
+    "title": "STATUS DO DESENVOLVEDOR",
+    "characterInfo": "INFORMAÇÕES DO PERSONAGEM",
+    "class": "Desenvolvedor Full Stack",
+    "statistics": "ESTATÍSTICAS",
+    "daysStreak": "Dias Seguidos",
+    "linesOfCode": "Linhas de Código",
+    "coffeeCups": "Xícaras de Café",
+    "bugsFixed": "Bugs Corrigidos",
+    "skillTree": "ÁRVORE DE HABILIDADES"
   }
 }

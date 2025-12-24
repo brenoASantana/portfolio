@@ -9,6 +9,12 @@ import LanguageToggle from "./components/LanguageToggle";
 import Profile from "./components/Profile";
 import Skills from "./components/Skills";
 
+// New Cyberpunk Components
+import CyberCursor from "./components/CyberCursor";
+import PixelSnakeGame from "./components/PixelSnakeGame";
+import RPGDashboard from "./components/RPGDashboard";
+import SpotifyNowPlaying from "./components/SpotifyNowPlaying";
+
 // CSS
 import "./App.css";
 
@@ -43,6 +49,12 @@ function App() {
 
   return (
     <>
+      {/* Cyberpunk Cursor */}
+      <CyberCursor />
+
+      {/* Floating Components */}
+      <SpotifyNowPlaying />
+
       <LanguageToggle />
 
       <button
@@ -73,6 +85,9 @@ function App() {
         <a href="#experience" onClick={handleNavClick}>
           {t("nav.experience")}
         </a>
+        <a href="#game" onClick={handleNavClick}>
+          {t("nav.game") || "Game"}
+        </a>
         <a href="#contact" onClick={handleNavClick}>
           {t("nav.contact")}
         </a>
@@ -81,6 +96,10 @@ function App() {
       <main id="top">
         <Profile />
 
+        {/* RPG Dashboard */}
+        <RPGDashboard />
+
+        {/* Spotify Playlist Section */}
         <section id="spotify-section">
           {spotifyLoaded && (
             <iframe
@@ -114,6 +133,11 @@ function App() {
         </section>
 
         <Experience />
+
+        {/* Pixel Snake Game */}
+        <section id="game">
+          <PixelSnakeGame />
+        </section>
 
         <Contact />
       </main>

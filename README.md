@@ -129,6 +129,51 @@ Baseada em tons de roxo, azul e dourado para um design moderno e elegante:
 - `#c9a43b` – Dourado (acentos e highlights)
 - `#f4f1e6` – Branco suave (texto primário)
 
+## 🎵 Integração com Spotify
+
+### Passo 1: Criar Aplicação no Spotify
+
+1. Acesse [Spotify for Developers](https://developer.spotify.com/dashboard)
+2. Faça login e clique em "Create an App"
+3. Preencha:
+   - **App name**: portfolio-listening-now
+   - **App description**: Widget Now Playing
+   - **Redirect URI**: `https://brenoasantana.github.io/portfolio/callback`
+4. Anote o **Client ID** e **Client Secret**
+
+### Passo 2: Obter Refresh Token
+
+Execute o script incluído no projeto:
+
+```bash
+# Instalar dependências
+npm install express axios --legacy-peer-deps
+
+# Editar get-refresh-token.js com suas credenciais
+# Executar script
+node get-refresh-token.js
+
+# Acessar http://localhost:8888/login e autorizar
+```
+
+### Passo 3: Configurar .env
+
+Crie `.env` na raiz:
+
+```env
+REACT_APP_SPOTIFY_CLIENT_ID=seu_client_id
+REACT_APP_SPOTIFY_CLIENT_SECRET=seu_client_secret
+REACT_APP_SPOTIFY_REFRESH_TOKEN=seu_refresh_token
+```
+
+### Passo 4: Reiniciar
+
+```bash
+npm start
+```
+
+⚠️ **Importante:** Nunca commite o `.env` - já está no gitignore
+
 ## 📬 Contato
 
 | Plataforma | Link                                  |

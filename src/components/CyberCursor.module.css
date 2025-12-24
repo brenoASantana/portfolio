@@ -1,0 +1,105 @@
+.cursor,
+.trail {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+.cursor {
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor.clicking {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.cursorInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent-primary), 0 0 30px var(--accent-primary);
+  animation: cursorPulse 2s infinite;
+}
+
+@keyframes cursorPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 15px var(--accent-primary), 0 0 30px var(--accent-primary);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--accent-primary), 0 0 40px var(--accent-primary);
+  }
+}
+
+.cursorRing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-primary);
+  animation: cursorRotate 3s linear infinite;
+}
+
+@keyframes cursorRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.trail {
+  width: 20px;
+  height: 20px;
+  background: var(--neon-cyan);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--neon-cyan);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hide default cursor */
+body {
+  cursor: none !important;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  cursor: none !important;
+}
+
+/* Responsivo - Show default cursor on mobile */
+@media (max-width: 768px), (hover: none) {
+  .cursor,
+  .trail {
+    display: none;
+  }
+
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    cursor: auto !important;
+  }
+}
