@@ -37,6 +37,29 @@ export default function RPGDashboard() {
           age--;
         }
 
+        // Calcular progresso até o próximo aniversário
+        let nextBirthday = new Date(today.getFullYear(), 3, 6);
+        if (today > nextBirthday) {
+          nextBirthday = new Date(today.getFullYear() + 1, 3, 6);
+        }
+
+        const lastBirthday = new Date(today.getFullYear(), 3, 6);
+        if (today < lastBirthday) {
+          lastBirthday.setFullYear(lastBirthday.getFullYear() - 1);
+        }
+
+        const daysUntilBirthday = Math.ceil(
+          (nextBirthday - today) / (1000 * 60 * 60 * 24)
+        );
+        const daysSinceBirthday = Math.ceil(
+          (today - lastBirthday) / (1000 * 60 * 60 * 24)
+        );
+        const totalDaysInYear = 365;
+        const birthdayProgressPercent = Math.min(
+          (daysSinceBirthday / totalDaysInYear) * 100,
+          100
+        );
+
         // Mapear linguagens do GitHub para skills com cores
         const languageColors = {
           JavaScript: "#f7df1e",
@@ -62,10 +85,16 @@ export default function RPGDashboard() {
         }
 
         // Stats baseados em dados reais do GitHub
+        // XP aumenta conforme o aniversário se aproxima
+        const baseExperience = githubStats?.totalStars * 100 || 3200;
+        const birthdayBonus = Math.round(
+          (birthdayProgressPercent / 100) * 5000
+        );
+
         const targetStats = {
           level: age,
-          experience: githubStats?.totalStars * 100 || 3200,
-          nextLevel: 5000,
+          experience: Math.min(baseExperience + birthdayBonus, 10000),
+          nextLevel: 10000,
           codingStreak: activity?.activeDays || 42,
           linesOfCode: activity?.recentCommits * 50 || 48000,
           coffeeConsumed: Math.floor(activity?.activeDays * 2.5) || 287,
