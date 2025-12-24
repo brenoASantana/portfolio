@@ -1,22 +1,37 @@
 {
-  "name": "meu-portfolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://brenoASantana.github.io/portfolio",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.13.2",
+    "express": "^5.2.1",
+    "i18next": "^25.6.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-i18next": "^16.1.3",
     "react-scripts": "5.0.1",
+    "swiper": "^11.2.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "lint": "biome lint .",
+    "format": "biome format .",
+    "check": "biome check .",
+    "pre-commit": "./scripts/pre-commit-check.sh",
+    "deploy:manual": "./scripts/deploy.sh",
+    "clean": "./scripts/clean.sh",
+    "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
     "extends": [
@@ -35,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.3",
+    "gh-pages": "^6.3.0"
   }
 }

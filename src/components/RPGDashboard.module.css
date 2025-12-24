@@ -1,0 +1,448 @@
+.dashboardSection {
+  padding: 5rem 2rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.mainTitle {
+  font-family: "Press Start 2P", monospace;
+  font-size: 2rem;
+  color: var(--accent-primary);
+  text-shadow: 0 0 20px var(--accent-primary);
+  text-align: center;
+  margin-bottom: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pixel {
+  animation: pixelBounce 1s infinite;
+}
+
+.pixel:last-child {
+  animation-delay: 0.5s;
+}
+
+@keyframes pixelBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(0, 18, 11, 0.95);
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 0 30px rgba(194, 0, 251, 0.5),
+    inset 0 0 30px rgba(194, 0, 251, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 50px rgba(194, 0, 251, 0.8),
+    inset 0 0 50px rgba(194, 0, 251, 0.2);
+}
+
+.cardHeader {
+  background: linear-gradient(
+    135deg,
+    rgba(194, 0, 251, 0.3),
+    rgba(194, 0, 251, 0.1)
+  );
+  border-bottom: 2px solid var(--accent-primary);
+  padding: 1.5rem;
+}
+
+.cardHeader h3 {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  text-shadow: 0 0 15px var(--accent-primary);
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+
+.cardBody {
+  padding: 2rem;
+}
+
+/* Character Card */
+.avatar {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto 2rem;
+}
+
+.avatarFrame {
+  width: 150px;
+  height: 150px;
+  border: 4px solid var(--accent-primary);
+  box-shadow: 0 0 30px rgba(194, 0, 251, 0.6),
+    inset 0 0 20px rgba(194, 0, 251, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.avatarFrame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+  filter: contrast(1.2);
+}
+
+.levelBadge {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  background: var(--accent-primary);
+  border: 3px solid var(--bg-primary);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px var(--accent-primary);
+  animation: badgePulse 2s infinite;
+}
+
+@keyframes badgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.levelText {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.5rem;
+  color: #000;
+}
+
+.levelNumber {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.2rem;
+  color: #000;
+  font-weight: bold;
+}
+
+.characterInfo {
+  text-align: center;
+}
+
+.name {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.class {
+  font-family: "VT323", monospace;
+  font-size: 1.2rem;
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary);
+  margin-bottom: 1.5rem;
+}
+
+.xpBar {
+  width: 100%;
+}
+
+.xpLabel {
+  display: flex;
+  justify-content: space-between;
+  font-family: "VT323", monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.xpProgress {
+  width: 100%;
+  height: 20px;
+  background: rgba(194, 0, 251, 0.2);
+  border: 2px solid var(--accent-primary);
+  overflow: hidden;
+  position: relative;
+}
+
+.xpCountdown {
+  margin-top: 0.5rem;
+  font-family: "VT323", monospace;
+  font-size: 1rem;
+  color: var(--text-secondary, #b7b7c0);
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  letter-spacing: 0.02em;
+}
+
+.xpCountdown span:first-child {
+  filter: drop-shadow(0 0 6px var(--accent-primary));
+}
+
+.xpFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--purple-medium),
+    var(--accent-primary)
+  );
+  box-shadow: 0 0 15px var(--accent-primary);
+  transition: width 2s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.xpFill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Stats Card */
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.statItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(194, 0, 251, 0.1);
+  border: 2px solid var(--accent-primary);
+  transition: all 0.3s ease;
+}
+
+.statItem:hover {
+  background: rgba(194, 0, 251, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(194, 0, 251, 0.5);
+}
+
+.statIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.3rem;
+  color: var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary);
+}
+
+.statLabel {
+  font-family: "VT323", monospace;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+/* Skills Card */
+.skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.skillItem {
+  width: 100%;
+}
+
+.skillHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.skillName {
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  text-shadow: 0 0 5px var(--text-primary);
+}
+
+.skillLevel {
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  color: var(--accent-primary);
+}
+
+.skillBar {
+  width: 100%;
+  height: 12px;
+  background: rgba(194, 0, 251, 0.2);
+  border: 2px solid var(--accent-primary);
+  overflow: hidden;
+}
+
+.skillFill {
+  height: 100%;
+  transition: width 2s ease-out;
+  position: relative;
+}
+
+.skillFill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    rgba(0, 0, 0, 0.2) 2px,
+    rgba(0, 0, 0, 0.2) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+/* Achievements Card */
+.achievementGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.achievement {
+  padding: 1rem;
+  border: 2px solid var(--accent-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.achievement.unlocked {
+  background: rgba(194, 0, 251, 0.2);
+  box-shadow: 0 0 15px rgba(194, 0, 251, 0.5);
+}
+
+.achievement.locked {
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0.5;
+  filter: grayscale(100%);
+}
+
+.achievement.unlocked:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(194, 0, 251, 0.8);
+}
+
+.achievementIcon {
+  font-size: 2rem;
+  filter: drop-shadow(0 0 10px currentColor);
+}
+
+.achievementTitle {
+  font-family: "VT323", monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.achievement.locked .achievementTitle {
+  color: #666;
+}
+
+/* Scanline effect */
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(194, 0, 251, 0.5);
+  animation: scanlineMove 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes scanlineMove {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 1.2rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .statGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievementGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardBody {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,86 @@
+.toggleButton {
+  position: fixed;
+  top: 100px;
+  right: 2rem;
+  z-index: 1001;
+  background: var(--bg-secondary);
+  border: 3px solid var(--accent-primary);
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(194, 0, 251, 0.5);
+  image-rendering: pixelated;
+}
+
+.toggleButton:hover {
+  background: var(--accent-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--accent-primary), 0 6px 20px rgba(194, 0, 251, 0.6);
+}
+
+.toggleButton:active {
+  transform: translateY(0);
+}
+
+.flag {
+  width: 28px;
+  height: 18px;
+  border-radius: 0;
+  border: 2px solid var(--accent-primary);
+  box-shadow: 0 0 5px rgba(194, 0, 251, 0.5);
+  image-rendering: pixelated;
+}
+
+.langText {
+  color: var(--text-primary);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+  text-shadow: 0 0 5px var(--text-primary);
+}
+
+.toggleButton:hover .langText {
+  color: var(--bg-primary);
+  text-shadow: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .toggleButton {
+    top: 80px;
+    right: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .flag {
+    width: 24px;
+    height: 16px;
+  }
+
+  .langText {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .toggleButton {
+    top: 70px;
+    right: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .flag {
+    width: 20px;
+    height: 14px;
+  }
+
+  .langText {
+    font-size: 0.7rem;
+  }
+}
