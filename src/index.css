@@ -5,32 +5,92 @@ html {
 }
 
 body {
-  /* Fundo com degradê claro da paleta roxa/azul/dourada */
-  background-color: #2a1f4d;
-  background-image: linear-gradient(
-    135deg,
-    #3d2a6d 0%,
-    #4a3a8a 25%,
-    #2a3f6f 50%,
-    #5a4a7f 75%,
-    #4a2f6d 100%
-  );
+  /* Fundo cyberpunk com grid e scanlines */
+  background-color: #00120b;
+  background-image: repeating-linear-gradient(
+      0deg,
+      rgba(194, 0, 251, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(194, 0, 251, 0.03) 3px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 255, 65, 0.03) 0px,
+      transparent 1px,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 3px
+    ),
+    linear-gradient(
+      135deg,
+      #00120b 0%,
+      #001a10 25%,
+      #8000b3 50%,
+      #001a10 75%,
+      #00120b 100%
+    );
   background-attachment: fixed;
+  background-size: cover, auto, auto, auto;
+  background-position: center, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat, repeat, repeat, no-repeat;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Tipografia global */
+/* Camada de overlay para controlar opacidade */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 18, 11, 0.15);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scanlines effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15) 0px,
+    transparent 1px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 3px
+  );
+  pointer-events: none;
+  z-index: 9998;
+  animation: scanlines 10s linear infinite;
+}
+
+@keyframes scanlines {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+/* Tipografia global - Cyberpunk Pixel */
 body,
 p {
-  color: #dfcb91;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-  font-size: 1rem;
+  color: #00ff41;
+  font-family: "VT323", monospace;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -41,19 +101,21 @@ code {
     monospace;
 }
 
-/* Títulos principais */
+/* Títulos principais - Cyberpunk */
 h1,
 h2 {
-  color: #f4f1e6;
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  font-weight: 700;
+  color: #c200fb;
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
   text-align: left;
+  text-shadow: 0 0 10px #c200fb, 0 0 20px #c200fb;
+  letter-spacing: 0.1em;
 }
 
-/* Links e destaques */
+/* Links e destaques - Neon Style */
 a,
 strong {
-  color: #c9a43b;
+  color: #c200fb;
   font-weight: 600;
+  text-shadow: 0 0 5px #c200fb;
 }

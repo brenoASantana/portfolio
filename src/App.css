@@ -2,20 +2,23 @@
    Estilos Globais e Paleta de Cores
    ========================================================================== */
 
-/* Variáveis de cores - Paleta Roxa/Dourada */
+/* Variáveis de cores - Paleta Cyberpunk Pixel Art */
 :root {
-  --bg-primary: #1a1a1c;
-  --bg-secondary: #1d223a;
-  --bg-tertiary: #1f2a57;
-  --purple-dark: #3d2a6d;
-  --purple-medium: #5a2a82;
-  --purple-light: #764971;
-  --brown-accent: #92675f;
-  --text-primary: #f4f1e6;
-  --text-secondary: #dfcb91;
-  --accent-primary: #c9a43b;
-  --accent-hover: #dfcb91;
-  --white: #f4f1e6;
+  --bg-primary: #00120b;
+  --bg-secondary: #001a10;
+  --bg-tertiary: #002415;
+  --purple-dark: #8000b3;
+  --purple-medium: #a000d9;
+  --purple-light: #c200fb;
+  --purple-accent: #e066ff;
+  --text-primary: #00ff41;
+  --text-secondary: #00ff41;
+  --accent-primary: #c200fb;
+  --accent-hover: #e066ff;
+  --white: #ffffff;
+  --neon-cyan: #00ffff;
+  --neon-pink: #ff00ff;
+  --grid-color: rgba(194, 0, 251, 0.1);
 }
 
 /* Reset básico e fundo escuro sólido */
@@ -32,47 +35,87 @@ body {
   overflow-x: hidden;
 }
 
-/* Tipografia global */
+/* Tipografia global - Cyberpunk Pixel Style */
 body,
 p {
   color: var(--text-secondary);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-  font-size: 1rem;
+  font-family: "VT323", "Press Start 2P", monospace;
+  line-height: 1.8;
+  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Títulos principais */
+/* Títulos principais - Cyberpunk Pixel Style */
 h1,
 h2 {
-  color: var(--white);
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
+  color: var(--accent-primary);
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
   margin: 0;
+  text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary),
+    0 0 30px var(--accent-primary);
+  image-rendering: pixelated;
+  letter-spacing: 0.1em;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
+  animation: glitch 3s infinite;
 }
 
-/* Links e destaques */
+@keyframes glitch {
+  0%,
+  90%,
+  100% {
+    transform: translate(0);
+  }
+  92% {
+    transform: translate(-2px, 2px);
+  }
+  94% {
+    transform: translate(2px, -2px);
+  }
+  96% {
+    transform: translate(-2px, -2px);
+  }
+  98% {
+    transform: translate(2px, 2px);
+  }
+}
+
+/* Links e destaques - Cyberpunk Style */
 a {
   color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px var(--accent-primary);
+  position: relative;
 }
 
 a:hover {
   color: var(--accent-hover);
+  text-shadow: 0 0 10px var(--accent-hover), 0 0 20px var(--accent-hover);
+  animation: flicker 0.1s infinite;
+}
+
+@keyframes flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 strong {
-  color: var(--text-primary);
-  font-weight: 600;
+  color: var(--neon-cyan);
+  font-weight: 700;
+  text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 /* ==========================================================================
@@ -85,6 +128,8 @@ main {
   padding: 0 1rem;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 section {
@@ -92,6 +137,8 @@ section {
   min-height: auto;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 #spotify-section {
@@ -140,7 +187,7 @@ section {
 }
 
 /* ==========================================================================
-   Navegação Fixa no Topo
+   Navegação Fixa no Topo - Cyberpunk Style
    ========================================================================== */
 
 nav {
@@ -148,26 +195,33 @@ nav {
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(10, 25, 47, 0.95);
+  background: rgba(0, 18, 11, 0.95);
   backdrop-filter: blur(10px);
   padding: 1.5rem 2rem;
   z-index: 1000;
-  box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+  box-shadow: 0 0 20px rgba(194, 0, 251, 0.5),
+    0 10px 30px -10px rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  border-bottom: 2px solid var(--accent-primary);
+  image-rendering: pixelated;
 }
 
 nav a {
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  padding: 0.75rem 1rem;
+  border: 2px solid transparent;
+  border-radius: 0;
   transition: all 0.3s ease;
   position: relative;
+  text-shadow: 0 0 5px var(--text-secondary);
+  image-rendering: pixelated;
 }
 
 nav a::after {
@@ -179,12 +233,17 @@ nav a::after {
   width: 0;
   height: 2px;
   background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
   transition: width 0.3s ease;
 }
 
 nav a:hover,
 nav a:focus {
   color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-primary),
+    inset 0 0 15px rgba(194, 0, 251, 0.2);
+  text-shadow: 0 0 10px var(--accent-primary);
 }
 
 nav a:hover::after {

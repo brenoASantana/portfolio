@@ -4,21 +4,22 @@
   right: 2rem;
   z-index: 1001;
   background: var(--bg-secondary);
-  border: 2px solid var(--accent-primary);
-  border-radius: 50px;
+  border: 3px solid var(--accent-primary);
+  border-radius: 0;
   padding: 0.5rem 1rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(194, 0, 251, 0.5);
+  image-rendering: pixelated;
 }
 
 .toggleButton:hover {
   background: var(--accent-primary);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(201, 164, 59, 0.4);
+  box-shadow: 0 0 30px var(--accent-primary), 0 6px 20px rgba(194, 0, 251, 0.6);
 }
 
 .toggleButton:active {
@@ -28,20 +29,25 @@
 .flag {
   width: 28px;
   height: 18px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 0;
+  border: 2px solid var(--accent-primary);
+  box-shadow: 0 0 5px rgba(194, 0, 251, 0.5);
+  image-rendering: pixelated;
 }
 
 .langText {
   color: var(--text-primary);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
   transition: color 0.3s ease;
+  text-shadow: 0 0 5px var(--text-primary);
 }
 
 .toggleButton:hover .langText {
   color: var(--bg-primary);
+  text-shadow: none;
 }
 
 /* Responsividade */

@@ -8,6 +8,10 @@
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  text-shadow: 0 0 20px var(--accent-primary);
 }
 
 .experienceSection h2::after {
@@ -19,6 +23,7 @@
   width: 80px;
   height: 3px;
   background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
 }
 
 /* Timeline container */
@@ -37,9 +42,10 @@
   transform: translateX(-50%);
   top: 0;
   bottom: 0;
-  width: 0;
-  border-left: 2px dashed var(--accent-primary);
-  opacity: 0.5;
+  width: 3px;
+  border-left: 3px dashed var(--accent-primary);
+  opacity: 0.8;
+  box-shadow: 0 0 10px var(--accent-primary);
 }
 
 .item {

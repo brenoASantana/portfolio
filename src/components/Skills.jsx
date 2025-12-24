@@ -1,5 +1,5 @@
 // React
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
 
 // Data
 import { profileData } from "../data/profileData";
@@ -13,7 +13,7 @@ export default function Skills() {
   return (
     <article className={styles.ul}>
       <div className={styles.skillsContainer}>
-        <h2>{t('skills.title')}</h2>
+        <h2>{t("skills.title")}</h2>
         <div className={styles.paragraph}>
           {profileData.skills.map((skill) => (
             <p key={skill}>{skill}</p>

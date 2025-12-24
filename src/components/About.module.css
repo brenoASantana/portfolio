@@ -1,19 +1,23 @@
 .about {
   background: var(--bg-secondary);
   padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 0;
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 0 30px rgba(194, 0, 251, 0.5), 0 10px 30px rgba(0, 0, 0, 0.3);
   text-align: left;
   height: 100%;
+  image-rendering: pixelated;
 }
 
 .about h2 {
-  color: var(--white);
+  color: var(--accent-primary);
+  font-family: "Press Start 2P", monospace;
   text-align: left;
   margin-bottom: 1.5rem;
-  font-size: 2rem;
+  font-size: 1.2rem;
   position: relative;
   padding-bottom: 0.5rem;
+  text-shadow: 0 0 10px var(--accent-primary);
 }
 
 .about h2::after {
@@ -24,21 +28,27 @@
   width: 50px;
   height: 3px;
   background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
 }
 
 .about p {
   color: var(--text-secondary);
+  font-family: "VT323", monospace;
+  font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1rem;
+  text-shadow: 0 0 5px rgba(0, 255, 65, 0.3);
 }
 
 .about strong {
-  color: var(--accent-primary);
+  color: var(--neon-cyan);
+  text-shadow: 0 0 5px var(--neon-cyan);
 }
 
 .about em {
-  color: var(--text-primary);
+  color: var(--neon-pink);
   font-style: italic;
+  text-shadow: 0 0 5px var(--neon-pink);
 }
 
 /* Responsividade */
