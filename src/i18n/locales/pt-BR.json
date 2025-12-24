@@ -165,7 +165,8 @@
   "spotify": {
     "nowPlaying": "TOCANDO AGORA",
     "notPlaying": "Não estou ouvindo nada no momento :(",
-    "notPlayingHint": "Por isso não há informações sendo exibidas aqui!"
+    "notPlayingHint": "Por isso não há informações sendo exibidas aqui!",
+    "favoritePlaylist": "Minha Playlist Favorita do Momento"
   },
   "rpg": {
     "title": "STATUS DO DESENVOLVEDOR",

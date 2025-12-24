@@ -165,7 +165,8 @@
   "spotify": {
     "nowPlaying": "NOW PLAYING",
     "notPlaying": "I'm not listening to anything right now :(",
-    "notPlayingHint": "That's why there's no info being displayed here!"
+    "notPlayingHint": "That's why there's no info being displayed here!",
+    "favoritePlaylist": "My Current Favorite Playlist"
   },
   "rpg": {
     "title": "DEVELOPER STATUS",

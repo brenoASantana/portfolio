@@ -102,23 +102,39 @@ function App() {
         {/* Spotify Playlist Section */}
         <section id="spotify-section">
           {spotifyLoaded && (
-            <iframe
-              data-testid="embed-iframe"
-              title="Spotify Playlist"
-              style={{
-                borderRadius: "12px",
-                maxWidth: "100%",
-                height: "auto",
-                minHeight: "352px",
-              }}
-              src="https://open.spotify.com/embed/playlist/6FVmv2a8ioXWCy74rPI6Do?utm_source=generator"
-              width="100%"
-              height="352"
-              frameBorder="0"
-              allowFullScreen=""
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-              loading="lazy"
-            />
+            <>
+              <h2
+                style={{
+                  textAlign: "center",
+                  marginBottom: "1rem",
+                  fontFamily: '"Press Start 2P", monospace',
+                  fontSize: "1.2rem",
+                  color: "var(--accent-primary)",
+                  textShadow: "0 0 10px rgba(194, 0, 251, 0.6)",
+                }}
+              >
+                🎵{" "}
+                {t("spotify.favoritePlaylist") ||
+                  "Minha Playlist Favorita do Momento"}
+              </h2>
+              <iframe
+                data-testid="embed-iframe"
+                title="Spotify Playlist"
+                style={{
+                  borderRadius: "12px",
+                  maxWidth: "100%",
+                  height: "auto",
+                  minHeight: "352px",
+                }}
+                src="https://open.spotify.com/embed/playlist/6FVmv2a8ioXWCy74rPI6Do?utm_source=generator"
+                width="100%"
+                height="352"
+                frameBorder="0"
+                allowFullScreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </>
           )}
         </section>
 
