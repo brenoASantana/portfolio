@@ -22,6 +22,34 @@ export default function PixelSnakeGame() {
   const [speed, setSpeed] = useState(INITIAL_SPEED);
   const directionRef = useRef(direction);
   const directionQueueRef = useRef([]);
+  const touchStartRef = useRef({ x: 0, y: 0 });
+
+  const handleDirectionChange = useCallback((newDirection) => {
+    const currentDir = directionRef.current;
+    const queuedDir =
+      directionQueueRef.current.length > 0
+        ? directionQueueRef.current[directionQueueRef.current.length - 1]
+        : currentDir;
+
+    // Verificar se não é direção oposta
+    const isOpposite =
+      (newDirection.x === 1 && queuedDir.x === -1) ||
+      (newDirection.x === -1 && queuedDir.x === 1) ||
+      (newDirection.y === 1 && queuedDir.y === -1) ||
+      (newDirection.y === -1 && queuedDir.y === 1);
+
+    if (!isOpposite && directionQueueRef.current.length < 2) {
+      const lastQueued =
+        directionQueueRef.current[directionQueueRef.current.length - 1];
+      if (
+        !lastQueued ||
+        lastQueued.x !== newDirection.x ||
+        lastQueued.y !== newDirection.y
+      ) {
+        directionQueueRef.current.push(newDirection);
+      }
+    }
+  }, []);
 
   const generateFood = useCallback((currentSnake) => {
     const getRandomPosition = () => ({
@@ -132,36 +160,19 @@ export default function PixelSnakeGame() {
       if (!isPlaying && !gameOver) return;
 
       const { key } = e;
-      const currentDir = directionRef.current;
-      const queuedDir =
-        directionQueueRef.current.length > 0
-          ? directionQueueRef.current[directionQueueRef.current.length - 1]
-          : currentDir;
 
       let newDirection = null;
 
-      if (
-        (key === "ArrowUp" || key === "w" || key === "W") &&
-        queuedDir.y !== 1
-      ) {
+      if (key === "ArrowUp" || key === "w" || key === "W") {
         e.preventDefault();
         newDirection = { x: 0, y: -1 };
-      } else if (
-        (key === "ArrowDown" || key === "s" || key === "S") &&
-        queuedDir.y !== -1
-      ) {
+      } else if (key === "ArrowDown" || key === "s" || key === "S") {
         e.preventDefault();
         newDirection = { x: 0, y: 1 };
-      } else if (
-        (key === "ArrowLeft" || key === "a" || key === "A") &&
-        queuedDir.x !== 1
-      ) {
+      } else if (key === "ArrowLeft" || key === "a" || key === "A") {
         e.preventDefault();
         newDirection = { x: -1, y: 0 };
-      } else if (
-        (key === "ArrowRight" || key === "d" || key === "D") &&
-        queuedDir.x !== -1
-      ) {
+      } else if (key === "ArrowRight" || key === "d" || key === "D") {
         e.preventDefault();
         newDirection = { x: 1, y: 0 };
       } else if (key === " " || key === "Enter") {
@@ -171,23 +182,58 @@ export default function PixelSnakeGame() {
         }
       }
 
-      // Adicionar direção à fila apenas se for diferente da última
-      if (newDirection && directionQueueRef.current.length < 2) {
-        const lastQueued =
-          directionQueueRef.current[directionQueueRef.current.length - 1];
-        if (
-          !lastQueued ||
-          lastQueued.x !== newDirection.x ||
-          lastQueued.y !== newDirection.y
-        ) {
-          directionQueueRef.current.push(newDirection);
-        }
+      if (newDirection) {
+        handleDirectionChange(newDirection);
       }
     };
 
     window.addEventListener("keydown", handleKeyPress);
     return () => window.removeEventListener("keydown", handleKeyPress);
-  }, [isPlaying, gameOver, resetGame]);
+  }, [isPlaying, gameOver, resetGame, handleDirectionChange]);
+
+  // Touch/Swipe support
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      const touch = e.touches[0];
+      touchStartRef.current = { x: touch.clientX, y: touch.clientY };
+    };
+
+    const handleTouchEnd = (e) => {
+      if (!isPlaying || gameOver) return;
+
+      const touch = e.changedTouches[0];
+      const deltaX = touch.clientX - touchStartRef.current.x;
+      const deltaY = touch.clientY - touchStartRef.current.y;
+      const minSwipeDistance = 30;
+
+      if (
+        Math.abs(deltaX) > minSwipeDistance ||
+        Math.abs(deltaY) > minSwipeDistance
+      ) {
+        let newDirection = null;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY)) {
+          // Horizontal swipe
+          newDirection = deltaX > 0 ? { x: 1, y: 0 } : { x: -1, y: 0 };
+        } else {
+          // Vertical swipe
+          newDirection = deltaY > 0 ? { x: 0, y: 1 } : { x: 0, y: -1 };
+        }
+
+        if (newDirection) {
+          handleDirectionChange(newDirection);
+        }
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isPlaying, gameOver, handleDirectionChange]);
 
   return (
     <section className={styles.gameSection}>
@@ -321,6 +367,47 @@ export default function PixelSnakeGame() {
             )}
 
             <div className={styles.scanlineEffect} />
+          </div>
+
+          {/* Mobile Controls */}
+          <div className={styles.mobileControls}>
+            <div className={styles.dpadContainer}>
+              <button
+                type="button"
+                className={`${styles.dpadButton} ${styles.dpadUp}`}
+                onClick={() => handleDirectionChange({ x: 0, y: -1 })}
+                aria-label="Move up"
+              >
+                ▲
+              </button>
+              <div className={styles.dpadMiddle}>
+                <button
+                  type="button"
+                  className={`${styles.dpadButton} ${styles.dpadLeft}`}
+                  onClick={() => handleDirectionChange({ x: -1, y: 0 })}
+                  aria-label="Move left"
+                >
+                  ◀
+                </button>
+                <div className={styles.dpadCenter} />
+                <button
+                  type="button"
+                  className={`${styles.dpadButton} ${styles.dpadRight}`}
+                  onClick={() => handleDirectionChange({ x: 1, y: 0 })}
+                  aria-label="Move right"
+                >
+                  ▶
+                </button>
+              </div>
+              <button
+                type="button"
+                className={`${styles.dpadButton} ${styles.dpadDown}`}
+                onClick={() => handleDirectionChange({ x: 0, y: 1 })}
+                aria-label="Move down"
+              >
+                ▼
+              </button>
+            </div>
           </div>
 
           <div className={styles.gameInfo}>
