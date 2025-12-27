@@ -7,6 +7,7 @@ export default function CyberCursor() {
   const [trailing, setTrailing] = useState([]);
 
   useEffect(() => {
+    let trailCounter = 0;
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
 
@@ -14,7 +15,7 @@ export default function CyberCursor() {
       setTrailing((prev) => {
         const newTrail = [
           ...prev,
-          { x: e.clientX, y: e.clientY, id: Date.now() },
+          { x: e.clientX, y: e.clientY, id: `${Date.now()}-${trailCounter++}` },
         ];
         return newTrail.slice(-8); // Keep only last 8 positions
       });
