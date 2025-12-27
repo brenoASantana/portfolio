@@ -46,7 +46,9 @@ export default function CyberCursor() {
             left: `${point.x}px`,
             top: `${point.y}px`,
             opacity: (index + 1) / trailing.length,
-            transform: `scale(${(index + 1) / trailing.length})`,
+            transform: `translate(-50%, -50%) scale(${
+              (index + 1) / trailing.length
+            })`,
           }}
         />
       ))}
