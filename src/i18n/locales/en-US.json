@@ -179,5 +179,24 @@
     "bugsFixed": "Bugs Fixed",
     "skillTree": "SKILL TREE",
     "daysToLevel": "Level up in {{count}} days"
+  },
+  "game": {
+    "title": "CYBER SNAKE",
+    "score": "SCORE:",
+    "high": "HIGH:",
+    "gameOver": "GAME OVER",
+    "finalScore": "SCORE: {{score}}",
+    "newRecord": "NEW RECORD! 🏆",
+    "pressStart": "PRESS START",
+    "readyPlayer": "READY PLAYER ONE",
+    "useKeys": "USE ARROW KEYS OR WASD",
+    "insertCoin": "INSERT COIN",
+    "howToPlay": "HOW TO PLAY",
+    "moveInstruction": "Use arrow keys or WASD to move",
+    "eatFood": "Eat the food (🟣) to grow",
+    "noWalls": "Don't hit the walls",
+    "noBite": "Don't bite yourself",
+    "points": "Each food = +10 points",
+    "speedUp": "Speed increases as you play"
   }
 }

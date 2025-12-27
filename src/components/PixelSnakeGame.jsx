@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import styles from "./PixelSnakeGame.module.css";
 
 const GRID_SIZE = 20;
@@ -8,6 +9,7 @@ const INITIAL_DIRECTION = { x: 1, y: 0 };
 const INITIAL_SPEED = 150;
 
 export default function PixelSnakeGame() {
+  const { t } = useTranslation();
   const [snake, setSnake] = useState(INITIAL_SNAKE);
   const [direction, setDirection] = useState(INITIAL_DIRECTION);
   const [food, setFood] = useState({ x: 15, y: 15 });
@@ -168,13 +170,13 @@ export default function PixelSnakeGame() {
           </h2>
           <div className={styles.scoreBoard}>
             <div className={styles.scoreItem}>
-              <span className={styles.label}>SCORE:</span>
+              <span className={styles.label}>{t("game.score")}</span>
               <span className={styles.value}>
                 {score.toString().padStart(4, "0")}
               </span>
             </div>
             <div className={styles.scoreItem}>
-              <span className={styles.label}>HIGH:</span>
+              <span className={styles.label}>{t("game.high")}</span>
               <span className={styles.value}>
                 {highScore.toString().padStart(4, "0")}
               </span>
@@ -244,17 +246,19 @@ export default function PixelSnakeGame() {
             {gameOver && (
               <div className={styles.gameOverlay}>
                 <div className={styles.gameOverContent}>
-                  <h3 className={styles.gameOverTitle}>GAME OVER</h3>
-                  <p className={styles.finalScore}>SCORE: {score}</p>
+                  <h3 className={styles.gameOverTitle}>{t("game.gameOver")}</h3>
+                  <p className={styles.finalScore}>
+                    {t("game.finalScore", { score })}
+                  </p>
                   {score === highScore && score > 0 && (
-                    <p className={styles.newRecord}>NEW RECORD! 🏆</p>
+                    <p className={styles.newRecord}>{t("game.newRecord")}</p>
                   )}
                   <button
                     type="button"
                     className={styles.restartButton}
                     onClick={resetGame}
                   >
-                    PRESS START
+                    {t("game.pressStart")}
                   </button>
                 </div>
               </div>
@@ -263,9 +267,9 @@ export default function PixelSnakeGame() {
             {!isPlaying && !gameOver && (
               <div className={styles.gameOverlay}>
                 <div className={styles.gameOverContent}>
-                  <h3 className={styles.startTitle}>READY PLAYER ONE</h3>
+                  <h3 className={styles.startTitle}>{t("game.readyPlayer")}</h3>
                   <div className={styles.controls}>
-                    <p>USE ARROW KEYS OR WASD</p>
+                    <p>{t("game.useKeys")}</p>
                     <div className={styles.keyboardGuide}>
                       <div className={styles.keyRow}>
                         <div className={styles.key}>↑</div>
@@ -282,7 +286,7 @@ export default function PixelSnakeGame() {
                     className={styles.startButton}
                     onClick={resetGame}
                   >
-                    INSERT COIN
+                    {t("game.insertCoin")}
                   </button>
                 </div>
               </div>
@@ -293,14 +297,14 @@ export default function PixelSnakeGame() {
 
           <div className={styles.gameInfo}>
             <div className={styles.infoBox}>
-              <h3>HOW TO PLAY</h3>
+              <h3>{t("game.howToPlay")}</h3>
               <ul>
-                <li>Use setas ou WASD para mover</li>
-                <li>Coma a comida (🟣) para crescer</li>
-                <li>Não bata nas paredes</li>
-                <li>Não morda você mesmo</li>
-                <li>Cada comida = +10 pontos</li>
-                <li>Velocidade aumenta conforme você joga</li>
+                <li>{t("game.moveInstruction")}</li>
+                <li>{t("game.eatFood")}</li>
+                <li>{t("game.noWalls")}</li>
+                <li>{t("game.noBite")}</li>
+                <li>{t("game.points")}</li>
+                <li>{t("game.speedUp")}</li>
               </ul>
             </div>
             <div className={styles.arcadeFrame}>

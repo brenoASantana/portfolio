@@ -28,10 +28,10 @@ export default function Experience() {
     >
       <h2 id="experience-heading">{t("experience.title")}</h2>
       <div className={styles.timeline}>
-        {profileData.experiences.map((exp) => {
+        {profileData.experiences.map((exp, index) => {
           const translationKey = getTranslationKey(exp.company);
           return (
-            <article key={`${exp.role}-${exp.company}`} className={styles.item}>
+            <article key={`${exp.company}-${index}`} className={styles.item}>
               <div className={styles.bulletWrapper} aria-hidden="true">
                 <span className={styles.bullet} />
               </div>
@@ -54,7 +54,6 @@ export default function Experience() {
                   >
                     {exp.company}
                   </a>
-                  <span className={styles.period}>{exp.period}</span>
                 </header>
                 <p className={styles.description}>
                   {t(`experience.${translationKey}.description`)}

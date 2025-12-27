@@ -179,5 +179,24 @@
     "bugsFixed": "Bugs Corrigidos",
     "skillTree": "ÁRVORE DE HABILIDADES",
     "daysToLevel": "Faltam {{count}} dias para upar"
+  },
+  "game": {
+    "title": "CYBER SNAKE",
+    "score": "PONTOS:",
+    "high": "RECORDE:",
+    "gameOver": "GAME OVER",
+    "finalScore": "PONTOS: {{score}}",
+    "newRecord": "NOVO RECORDE! 🏆",
+    "pressStart": "PRESSIONE START",
+    "readyPlayer": "JOGADOR PRONTO",
+    "useKeys": "USE SETAS OU WASD",
+    "insertCoin": "INSIRA A MOEDA",
+    "howToPlay": "COMO JOGAR",
+    "moveInstruction": "Use setas ou WASD para mover",
+    "eatFood": "Coma a comida (🟣) para crescer",
+    "noWalls": "Não bata nas paredes",
+    "noBite": "Não morda você mesmo",
+    "points": "Cada comida = +10 pontos",
+    "speedUp": "Velocidade aumenta conforme você joga"
   }
 }
