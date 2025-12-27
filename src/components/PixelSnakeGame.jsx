@@ -21,6 +21,7 @@ export default function PixelSnakeGame() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [speed, setSpeed] = useState(INITIAL_SPEED);
   const directionRef = useRef(direction);
+  const directionQueueRef = useRef([]);
 
   const generateFood = useCallback((currentSnake) => {
     const getRandomPosition = () => ({
@@ -46,6 +47,7 @@ export default function PixelSnakeGame() {
     setSnake(INITIAL_SNAKE);
     setDirection(INITIAL_DIRECTION);
     directionRef.current = INITIAL_DIRECTION;
+    directionQueueRef.current = [];
     setFood(generateFood(INITIAL_SNAKE));
     setGameOver(false);
     setScore(0);
@@ -55,6 +57,13 @@ export default function PixelSnakeGame() {
 
   const moveSnake = useCallback(() => {
     if (gameOver || !isPlaying) return;
+
+    // Processar próxima direção da fila, se houver
+    if (directionQueueRef.current.length > 0) {
+      const nextDir = directionQueueRef.current.shift();
+      directionRef.current = nextDir;
+      setDirection(nextDir);
+    }
 
     setSnake((prevSnake) => {
       const head = prevSnake[0];
@@ -124,35 +133,54 @@ export default function PixelSnakeGame() {
 
       const { key } = e;
       const currentDir = directionRef.current;
+      const queuedDir =
+        directionQueueRef.current.length > 0
+          ? directionQueueRef.current[directionQueueRef.current.length - 1]
+          : currentDir;
+
+      let newDirection = null;
 
       if (
         (key === "ArrowUp" || key === "w" || key === "W") &&
-        currentDir.y === 0
+        queuedDir.y !== 1
       ) {
         e.preventDefault();
-        setDirection({ x: 0, y: -1 });
+        newDirection = { x: 0, y: -1 };
       } else if (
         (key === "ArrowDown" || key === "s" || key === "S") &&
-        currentDir.y === 0
+        queuedDir.y !== -1
       ) {
         e.preventDefault();
-        setDirection({ x: 0, y: 1 });
+        newDirection = { x: 0, y: 1 };
       } else if (
         (key === "ArrowLeft" || key === "a" || key === "A") &&
-        currentDir.x === 0
+        queuedDir.x !== 1
       ) {
         e.preventDefault();
-        setDirection({ x: -1, y: 0 });
+        newDirection = { x: -1, y: 0 };
       } else if (
         (key === "ArrowRight" || key === "d" || key === "D") &&
-        currentDir.x === 0
+        queuedDir.x !== -1
       ) {
         e.preventDefault();
-        setDirection({ x: 1, y: 0 });
+        newDirection = { x: 1, y: 0 };
       } else if (key === " " || key === "Enter") {
         e.preventDefault();
         if (gameOver) {
           resetGame();
+        }
+      }
+
+      // Adicionar direção à fila apenas se for diferente da última
+      if (newDirection && directionQueueRef.current.length < 2) {
+        const lastQueued =
+          directionQueueRef.current[directionQueueRef.current.length - 1];
+        if (
+          !lastQueued ||
+          lastQueued.x !== newDirection.x ||
+          lastQueued.y !== newDirection.y
+        ) {
+          directionQueueRef.current.push(newDirection);
         }
       }
     };
