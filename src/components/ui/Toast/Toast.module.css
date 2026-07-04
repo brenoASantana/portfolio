@@ -1,0 +1,136 @@
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 0.75rem;
+    background: var(--bg-secondary, #1a1a25);
+    border: 2px solid;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    pointer-events: auto;
+    animation: slideIn 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.message {
+    margin: 0;
+    font-family: "VT323", monospace;
+    font-size: 0.9rem;
+    color: var(--text-primary, #fff);
+    flex: 1;
+    line-height: 1.4;
+}
+
+.closeButton {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.closeButton:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Variants */
+.success {
+    border-color: #00ff41;
+    box-shadow: 0 0 12px rgba(0, 255, 65, 0.3), inset 0 0 8px rgba(0, 255, 65, 0.05);
+}
+
+.success .icon {
+    color: #00ff41;
+}
+
+.error {
+    border-color: #ff0055;
+    box-shadow: 0 0 12px rgba(255, 0, 85, 0.3), inset 0 0 8px rgba(255, 0, 85, 0.05);
+}
+
+.error .icon {
+    color: #ff0055;
+}
+
+.warning {
+    border-color: #ffd700;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.3), inset 0 0 8px rgba(255, 215, 0, 0.05);
+}
+
+.warning .icon {
+    color: #ffd700;
+}
+
+.info {
+    border-color: #00bfff;
+    box-shadow: 0 0 12px rgba(0, 191, 255, 0.3), inset 0 0 8px rgba(0, 191, 255, 0.05);
+}
+
+.info .icon {
+    color: #00bfff;
+}
+
+@media (max-width: 768px) {
+    .toast {
+        width: 100%;
+        padding: 0.75rem 1rem;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+}
