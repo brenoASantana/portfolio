@@ -11,7 +11,7 @@ import LanguageToggle from "./components/ui/LanguageToggle";
 import PixelSnakeGame from "./components/widgets/PixelSnakeGame";
 import SpotifyNowPlaying from "./components/widgets/SpotifyNowPlaying";
 import Profile from "./features/about/Profile";
-import Contact from "./features/contact/Contact";
+import Contact from "./features/contact/Contact"; // Note: will convert to TSX in next lote
 
 function App() {
   const { t } = useTranslation();
