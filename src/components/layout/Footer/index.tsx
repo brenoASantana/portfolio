@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-// Icons
+// Assets
 import emailIcon from "../../../assets/icons/social/email.svg";
 import githubIcon from "../../../assets/icons/social/github.svg";
 import instagramIcon from "../../../assets/icons/social/instagram.svg";

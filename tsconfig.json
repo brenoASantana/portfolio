@@ -52,6 +52,9 @@
             "@api/*": [
                 "src/api/*"
             ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
             "@styles/*": [
                 "src/styles/*"
             ]
