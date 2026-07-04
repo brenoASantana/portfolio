@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./App.css";
 import About from "./components/About";
-import Contact from "./components/Contact";
 import CyberCursor from "./components/CyberCursor";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
 import LanguageToggle from "./components/LanguageToggle";
 import PixelSnakeGame from "./components/PixelSnakeGame";
-import Profile from "./components/Profile";
 import RPGDashboard from "./components/RPGDashboard";
 import Skills from "./components/Skills";
 import SpotifyNowPlaying from "./components/SpotifyNowPlaying";
+import Profile from "./features/about/Profile";
+import Contact from "./features/contact/Contact";
 
 function App() {
   const { t } = useTranslation();

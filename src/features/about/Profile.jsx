@@ -2,7 +2,7 @@
 import { useTranslation } from "react-i18next";
 
 // Data
-import { profileData } from "../data/profileData";
+import { profileData } from "../../data/profileData";
 
 // Module CSS
 import styles from "./Profile.module.css";
