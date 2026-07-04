@@ -3,13 +3,6 @@
   "outputDirectory": "build",
   "devCommand": "npm start",
   "installCommand": "npm install",
-  "env": {
-    "REACT_APP_SPOTIFY_CLIENT_ID": "@spotify_client_id",
-    "REACT_APP_SPOTIFY_CLIENT_SECRET": "@spotify_client_secret",
-    "REACT_APP_SPOTIFY_REFRESH_TOKEN": "@spotify_refresh_token",
-    "REACT_APP_GITHUB_USERNAME": "@github_username",
-    "REACT_APP_GITHUB_TOKEN": "@github_token"
-  },
   "rewrites": [
     {
       "source": "/api/:path*",
