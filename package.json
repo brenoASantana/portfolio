@@ -1,8 +1,7 @@
 {
   "name": "portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://brenoASantana.github.io/portfolio",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -27,7 +26,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "lint": "biome lint .",
     "format": "biome format .",
     "check": "biome check .",
@@ -61,7 +59,6 @@
     "@biomejs/biome": "^1.9.3",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.1.0",
-    "gh-pages": "^6.3.0",
     "husky": "^9.1.7",
     "source-map-explorer": "^2.5.3"
   }

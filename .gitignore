@@ -72,10 +72,6 @@ Thumbs.db
 .npm/
 .npmrc
 
-## Lighthouse
-.lighthouseci/
-lighthouse-results.json
-
 ## Source maps (opcional: gerar no CI apenas)
 *.map
 
