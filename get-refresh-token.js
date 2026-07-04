@@ -14,7 +14,7 @@ const app = express();
 app.get("/login", (req, res) => {
   const scope = "user-read-currently-playing user-read-playback-state";
   const authUrl = `https://accounts.spotify.com/authorize?client_id=${CLIENT_ID}&response_type=code&redirect_uri=${encodeURIComponent(
-    REDIRECT_URI
+    REDIRECT_URI,
   )}&scope=${encodeURIComponent(scope)}`;
 
   console.log("\n🎵 Redirecionando para autenticação do Spotify...\n");
@@ -43,10 +43,10 @@ app.get("/callback", async (req, res) => {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           Authorization: `Basic ${Buffer.from(
-            `${CLIENT_ID}:${CLIENT_SECRET}`
+            `${CLIENT_ID}:${CLIENT_SECRET}`,
           ).toString("base64")}`,
         },
-      }
+      },
     );
 
     const refreshToken = response.data.refresh_token;
@@ -134,7 +134,7 @@ REACT_APP_SPOTIFY_REFRESH_TOKEN=${refreshToken}</pre>
       <pre>${JSON.stringify(
         error.response?.data || error.message,
         null,
-        2
+        2,
       )}</pre>
     `);
   }

@@ -15,4 +15,3 @@ export type { ErrorBoundaryProps } from "./ErrorBoundary/types";
 export type { ModalProps } from "./Modal/types";
 export type { SkeletonProps, SkeletonVariant } from "./Skeleton/types";
 export type { ToastProps } from "./Toast/types";
-

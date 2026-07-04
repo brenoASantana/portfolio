@@ -4,7 +4,11 @@
     "enabled": true
   },
   "files": {
-    "ignore": ["build", "node_modules"]
+    "ignore": [
+      "build",
+      "node_modules",
+      "coverage"
+    ]
   },
   "formatter": {
     "enabled": true,

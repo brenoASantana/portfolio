@@ -1,8 +1,11 @@
-import React, { ErrorInfo } from "react";
+import React, { type ErrorInfo } from "react";
 import styles from "./ErrorBoundary.module.css";
-import { ErrorBoundaryProps, ErrorBoundaryState } from "./types";
+import type { ErrorBoundaryProps, ErrorBoundaryState } from "./types";
 
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<
+    ErrorBoundaryProps,
+    ErrorBoundaryState
+> {
     constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = {
@@ -44,10 +47,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
                             <summary>Detalhes Técnicos</summary>
                             <pre className={styles.errorStack}>{this.state.error.stack}</pre>
                         </details>
-                        <button
-                            onClick={this.handleReset}
-                            className={styles.resetButton}
-                        >
+                        <button type="button" onClick={this.handleReset} className={styles.resetButton}>
                             Tentar Novamente
                         </button>
                     </div>

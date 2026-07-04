@@ -55,7 +55,7 @@ export const getGitHubRepos = async () => {
 
   try {
     const response = await fetch(
-      `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`
+      `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`,
     );
     const data = await response.json();
 
@@ -117,7 +117,7 @@ export const getGitHubStats = async () => {
 
     // Calcular dias desde a criação da conta
     const accountAge = Math.floor(
-      (Date.now() - new Date(user.createdAt).getTime()) / (1000 * 60 * 60 * 24)
+      (Date.now() - new Date(user.createdAt).getTime()) / (1000 * 60 * 60 * 24),
     );
 
     cache.stats = {
@@ -142,7 +142,7 @@ export const getGitHubStats = async () => {
 export const getRecentActivity = async () => {
   try {
     const response = await fetch(
-      `${GITHUB_API}/users/${GITHUB_USERNAME}/events/public?per_page=100`
+      `${GITHUB_API}/users/${GITHUB_USERNAME}/events/public?per_page=100`,
     );
     const events = await response.json();
 

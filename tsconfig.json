@@ -22,6 +22,12 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
+        /* Types */
+        "types": [
+            "jest",
+            "@testing-library/jest-dom",
+            "node"
+        ],
         /* Path mapping */
         "baseUrl": ".",
         "paths": {
@@ -61,7 +67,8 @@
         }
     },
     "include": [
-        "src"
+        "src",
+        "src/__tests__"
     ],
     "references": [
         {

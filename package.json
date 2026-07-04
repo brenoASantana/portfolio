@@ -34,7 +34,10 @@
     "pre-commit": "./scripts/pre-commit-check.sh",
     "deploy:manual": "./scripts/deploy.sh",
     "clean": "./scripts/clean.sh",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "test:coverage": "react-scripts test --coverage --watchAll=false --passWithNoTests",
+    "postinstall": "husky install",
+    "prepare": "husky"
   },
   "eslintConfig": {
     "extends": [
@@ -56,6 +59,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
-    "gh-pages": "^6.3.0"
+    "@types/jest": "^30.0.0",
+    "@types/node": "^26.1.0",
+    "gh-pages": "^6.3.0",
+    "husky": "^9.1.7",
+    "source-map-explorer": "^2.5.3"
   }
 }

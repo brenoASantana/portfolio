@@ -1,6 +1,6 @@
-import React from "react";
+import type React from "react";
 import styles from "./Skeleton.module.css";
-import { SkeletonProps } from "./types";
+import type { SkeletonProps } from "./types";
 
 const Skeleton: React.FC<SkeletonProps> = ({
     variant = "text",
@@ -19,7 +19,7 @@ const Skeleton: React.FC<SkeletonProps> = ({
 
     const skeletons = Array.from({ length: count }).map((_, index) => (
         <div
-            key={index}
+            key={`skeleton-${index}-${Date.now()}`}
             className={skeletonClasses}
             style={{
                 width: widthValue,

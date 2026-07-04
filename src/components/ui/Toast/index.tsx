@@ -1,8 +1,14 @@
-import React, { useEffect } from "react";
+import type React from "react";
+import { useEffect } from "react";
 import styles from "./Toast.module.css";
-import { ToastProps } from "./types";
+import type { ToastProps } from "./types";
 
-const ToastComponent: React.FC<ToastProps> = ({ message, type, onClose, duration = 3000 }) => {
+const ToastComponent: React.FC<ToastProps> = ({
+    message,
+    type,
+    onClose,
+    duration = 3000,
+}) => {
     useEffect(() => {
         if (duration > 0) {
             const timer = setTimeout(onClose, duration);
@@ -22,6 +28,7 @@ const ToastComponent: React.FC<ToastProps> = ({ message, type, onClose, duration
             <span className={styles.icon}>{iconMap[type]}</span>
             <p className={styles.message}>{message}</p>
             <button
+                type="button"
                 className={styles.closeButton}
                 onClick={onClose}
                 aria-label="Fechar notificação"

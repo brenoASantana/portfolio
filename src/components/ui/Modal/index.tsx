@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import type React from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "./Modal.module.css";
-import { ModalProps } from "./types";
+import type { ModalProps } from "./types";
 
 const Modal: React.FC<ModalProps> = ({
     isOpen,
@@ -49,12 +50,22 @@ const Modal: React.FC<ModalProps> = ({
     };
 
     const modalContent = (
-        <div className={styles.backdrop} onClick={handleBackdropClick}>
+        <div
+            className={styles.backdrop}
+            onClick={handleBackdropClick}
+            onKeyDown={(e) => e.key === "Escape" && onClose()}
+            role="presentation"
+        >
             <div className={`${styles.modal} ${styles[size]}`}>
                 {title && (
                     <div className={styles.header}>
                         <h2 className={styles.title}>{title}</h2>
-                        <button className={styles.closeButton} onClick={onClose} aria-label="Fechar">
+                        <button
+                            type="button"
+                            className={styles.closeButton}
+                            onClick={onClose}
+                            aria-label="Fechar"
+                        >
                             ✕
                         </button>
                     </div>

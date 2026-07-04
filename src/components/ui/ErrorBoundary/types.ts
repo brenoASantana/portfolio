@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 export interface ErrorBoundaryProps {
-    children: ReactNode;
-    fallback?: (error: Error, reset: () => void) => ReactNode;
+  children: ReactNode;
+  fallback?: (error: Error, reset: () => void) => ReactNode;
 }
 
 export interface ErrorBoundaryState {
-    hasError: boolean;
-    error: Error | null;
+  hasError: boolean;
+  error: Error | null;
 }

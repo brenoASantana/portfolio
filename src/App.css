@@ -55,8 +55,8 @@ h2 {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   margin: 0;
-  text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary),
-    0 0 30px var(--accent-primary);
+  text-shadow: 0 0 10px var(--accent-primary), 0 0 20px var(--accent-primary), 0
+    0 30px var(--accent-primary);
   image-rendering: pixelated;
   letter-spacing: 0.1em;
 }
@@ -199,8 +199,8 @@ nav {
   backdrop-filter: blur(10px);
   padding: 1.5rem 2rem;
   z-index: 1000;
-  box-shadow: 0 0 20px rgba(194, 0, 251, 0.5),
-    0 10px 30px -10px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 20px rgba(194, 0, 251, 0.5), 0 10px 30px -10px
+    rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,8 +247,8 @@ nav button.navLink:hover,
 nav button.navLink:focus {
   color: var(--accent-primary);
   border: 2px solid var(--accent-primary);
-  box-shadow: 0 0 15px var(--accent-primary),
-    inset 0 0 15px rgba(194, 0, 251, 0.2);
+  box-shadow: 0 0 15px var(--accent-primary), inset 0 0 15px
+    rgba(194, 0, 251, 0.2);
   text-shadow: 0 0 10px var(--accent-primary);
 }
 

@@ -1,347 +1,346 @@
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { getGitHubStats, getRecentActivity } from "../../../services/github";
 import styles from "./RPGDashboard.module.css";
 
 interface CharacterStats {
-    level: number;
-    experience: number;
-    nextLevel: number;
-    daysUntilBirthday: number;
-    codingStreak: number;
-    linesOfCode: number;
-    coffeeConsumed: number;
-    bugsFixed: number;
+  level: number;
+  experience: number;
+  nextLevel: number;
+  daysUntilBirthday: number;
+  codingStreak: number;
+  linesOfCode: number;
+  coffeeConsumed: number;
+  bugsFixed: number;
 }
 
 interface SkillItem {
-    name: string;
-    level: number;
-    color: string;
+  name: string;
+  level: number;
+  color: string;
 }
 
 const RPGDashboard: React.FC = () => {
-    const { t } = useTranslation();
-    const [stats, setStats] = useState<CharacterStats>({
-        level: 0,
-        experience: 0,
-        nextLevel: 100,
-        daysUntilBirthday: 0,
-        codingStreak: 0,
-        linesOfCode: 0,
-        coffeeConsumed: 0,
-        bugsFixed: 0,
-    });
-    const [skills, setSkills] = useState<SkillItem[]>([]);
+  const { t } = useTranslation();
+  const [stats, setStats] = useState<CharacterStats>({
+    level: 0,
+    experience: 0,
+    nextLevel: 100,
+    daysUntilBirthday: 0,
+    codingStreak: 0,
+    linesOfCode: 0,
+    coffeeConsumed: 0,
+    bugsFixed: 0,
+  });
+  const [skills, setSkills] = useState<SkillItem[]>([]);
 
-    useEffect(() => {
-        const fetchGitHubData = async (): Promise<void> => {
-            try {
-                const [githubStats, activity] = await Promise.all([
-                    getGitHubStats(),
-                    getRecentActivity(),
-                ]);
+  useEffect(() => {
+    const fetchGitHubData = async (): Promise<void> => {
+      try {
+        const [githubStats, activity] = await Promise.all([
+          getGitHubStats(),
+          getRecentActivity(),
+        ]);
 
-                const birthDate = new Date(2005, 3, 6);
-                const today = new Date();
-                let age = today.getFullYear() - birthDate.getFullYear();
-                const monthDiff = today.getMonth() - birthDate.getMonth();
+        const birthDate = new Date(2005, 3, 6);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
 
-                if (
-                    monthDiff < 0 ||
-                    (monthDiff === 0 && today.getDate() < birthDate.getDate())
-                ) {
-                    age--;
-                }
+        if (
+          monthDiff < 0 ||
+          (monthDiff === 0 && today.getDate() < birthDate.getDate())
+        ) {
+          age--;
+        }
 
-                let nextBirthday = new Date(today.getFullYear(), 3, 6);
-                if (today > nextBirthday) {
-                    nextBirthday = new Date(today.getFullYear() + 1, 3, 6);
-                }
+        let nextBirthday = new Date(today.getFullYear(), 3, 6);
+        if (today > nextBirthday) {
+          nextBirthday = new Date(today.getFullYear() + 1, 3, 6);
+        }
 
-                const lastBirthday = new Date(today.getFullYear(), 3, 6);
-                if (today < lastBirthday) {
-                    lastBirthday.setFullYear(lastBirthday.getFullYear() - 1);
-                }
+        const lastBirthday = new Date(today.getFullYear(), 3, 6);
+        if (today < lastBirthday) {
+          lastBirthday.setFullYear(lastBirthday.getFullYear() - 1);
+        }
 
-                const daysUntilBirthday = Math.ceil(
-                    (nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-                );
-                const totalDaysInYear = 365;
+        const daysUntilBirthday = Math.ceil(
+          (nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24),
+        );
+        const totalDaysInYear = 365;
 
-                // Map GitHub languages to skills with colors
-                const languageColors: Record<string, string> = {
-                    JavaScript: "#f7df1e",
-                    TypeScript: "#3178c6",
-                    React: "#61dafb",
-                    Java: "#007396",
-                    Python: "#3776ab",
-                    HTML: "#e34c26",
-                    CSS: "#563d7c",
-                    Shell: "#89e051",
-                    Dockerfile: "#384d54",
-                    Makefile: "#427819",
-                };
-
-                if (githubStats?.topLanguages) {
-                    const totalRepos = githubStats.totalRepos;
-                    const githubSkills: SkillItem[] = githubStats.topLanguages.map(
-                        (lang: { name: string; count: number }) => ({
-                            name: lang.name,
-                            level: Math.min(
-                                Math.round((lang.count / totalRepos) * 100),
-                                95
-                            ),
-                            color: languageColors[lang.name] || "#00ff41",
-                        })
-                    );
-                    setSkills(githubSkills);
-                }
-
-                const targetStats: CharacterStats = {
-                    level: age,
-                    // XP is proportional to time since last birthday
-                    experience: Math.min(
-                        totalDaysInYear - daysUntilBirthday,
-                        totalDaysInYear
-                    ),
-                    nextLevel: totalDaysInYear,
-                    daysUntilBirthday,
-                    codingStreak: (activity?.activeDays as number) || 42,
-                    linesOfCode: ((activity?.recentCommits as number) * 50) || 48000,
-                    coffeeConsumed: Math.floor(((activity?.activeDays as number) || 0) * 2.5) || 287,
-                    bugsFixed: ((githubStats?.totalRepos as number) * 15) || 534,
-                };
-
-                // Animate stats
-                const animateStats = (
-                    key: keyof CharacterStats,
-                    target: number,
-                    duration: number = 2000
-                ): void => {
-                    const start = 0;
-                    const increment = target / (duration / 50);
-                    let current = start;
-
-                    const interval = setInterval(() => {
-                        current += increment;
-                        if (current >= target) {
-                            current = target;
-                            clearInterval(interval);
-                        }
-                        setStats((prev) => ({
-                            ...prev,
-                            [key]: Math.floor(current),
-                        }));
-                    }, 50);
-                };
-
-                setTimeout(() => {
-                    for (const [key, value] of Object.entries(targetStats)) {
-                        animateStats(key as keyof CharacterStats, value as number);
-                    }
-                }, 500);
-            } catch (error) {
-                console.error("Error fetching GitHub data:", error);
-
-                const birthDate = new Date(2005, 3, 6);
-                const today = new Date();
-                let age = today.getFullYear() - birthDate.getFullYear();
-                const monthDiff = today.getMonth() - birthDate.getMonth();
-
-                if (
-                    monthDiff < 0 ||
-                    (monthDiff === 0 && today.getDate() < birthDate.getDate())
-                ) {
-                    age--;
-                }
-
-                const nextBirthday = new Date(today.getFullYear(), 3, 6);
-                if (today > nextBirthday) {
-                    nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
-                }
-                const daysUntilBirthday = Math.ceil(
-                    (nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
-                );
-                const totalDaysInYear = 365;
-
-                const fallbackStats: CharacterStats = {
-                    level: age,
-                    experience: Math.min(
-                        totalDaysInYear - daysUntilBirthday,
-                        totalDaysInYear
-                    ),
-                    nextLevel: totalDaysInYear,
-                    daysUntilBirthday,
-                    codingStreak: 42,
-                    linesOfCode: 48000,
-                    coffeeConsumed: 287,
-                    bugsFixed: 534,
-                };
-
-                setStats(fallbackStats);
-                setSkills([
-                    { name: "JavaScript", level: 85, color: "#f7df1e" },
-                    { name: "React", level: 82, color: "#61dafb" },
-                    { name: "Java", level: 78, color: "#007396" },
-                    { name: "PostgreSQL", level: 75, color: "#336791" },
-                    { name: "Node.js", level: 70, color: "#339933" },
-                    { name: "Python", level: 65, color: "#3776ab" },
-                    { name: "Git/GitHub", level: 80, color: "#f05032" },
-                    { name: "AWS", level: 60, color: "#ff9900" },
-                ]);
-            }
+        // Map GitHub languages to skills with colors
+        const languageColors: Record<string, string> = {
+          JavaScript: "#f7df1e",
+          TypeScript: "#3178c6",
+          React: "#61dafb",
+          Java: "#007396",
+          Python: "#3776ab",
+          HTML: "#e34c26",
+          CSS: "#563d7c",
+          Shell: "#89e051",
+          Dockerfile: "#384d54",
+          Makefile: "#427819",
         };
 
-        fetchGitHubData();
-    }, []);
+        if (githubStats?.topLanguages) {
+          const totalRepos = githubStats.totalRepos;
+          const githubSkills: SkillItem[] = githubStats.topLanguages.map(
+            (lang: { name: string; count: number }) => ({
+              name: lang.name,
+              level: Math.min(Math.round((lang.count / totalRepos) * 100), 95),
+              color: languageColors[lang.name] || "#00ff41",
+            }),
+          );
+          setSkills(githubSkills);
+        }
 
-    const experiencePercent = (stats.experience / stats.nextLevel) * 100;
+        const targetStats: CharacterStats = {
+          level: age,
+          // XP is proportional to time since last birthday
+          experience: Math.min(
+            totalDaysInYear - daysUntilBirthday,
+            totalDaysInYear,
+          ),
+          nextLevel: totalDaysInYear,
+          daysUntilBirthday,
+          codingStreak: (activity?.activeDays as number) || 42,
+          linesOfCode: (activity?.recentCommits as number) * 50 || 48000,
+          coffeeConsumed:
+            Math.floor(((activity?.activeDays as number) || 0) * 2.5) || 287,
+          bugsFixed: (githubStats?.totalRepos as number) * 15 || 534,
+        };
 
-    return (
-        <section className={styles.dashboardSection}>
-            <div className={styles.container}>
-                <h2 className={styles.mainTitle}>
-                    <span className={styles.pixel}>▲</span> {t("rpg.title")}{" "}
-                    <span className={styles.pixel}>▲</span>
-                </h2>
+        // Animate stats
+        const animateStats = (
+          key: keyof CharacterStats,
+          target: number,
+          duration = 2000,
+        ): void => {
+          const start = 0;
+          const increment = target / (duration / 50);
+          let current = start;
 
-                <div className={styles.grid}>
-                    {/* Character Card */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h3>{t("rpg.characterInfo")}</h3>
-                        </div>
-                        <div className={styles.cardBody}>
-                            <div className={styles.avatar}>
-                                <div className={styles.avatarFrame}>
-                                    <img
-                                        src="https://github.com/brenoASantana.png"
-                                        alt="Developer Avatar"
-                                    />
-                                </div>
-                                <div className={styles.levelBadge}>
-                                    <span className={styles.levelText}>LVL</span>
-                                    <span className={styles.levelNumber}>{stats.level}</span>
-                                </div>
-                            </div>
-                            <div className={styles.characterInfo}>
-                                <p className={styles.name}>BRENO SANTANA</p>
-                                <p className={styles.class}>{t("rpg.class")}</p>
-                                <div className={styles.xpBar}>
-                                    <div className={styles.xpLabel}>
-                                        <span>XP</span>
-                                        <span>
-                                            {stats.experience.toLocaleString()} /{" "}
-                                            {stats.nextLevel.toLocaleString()}
-                                        </span>
-                                    </div>
-                                    <div className={styles.xpProgress}>
-                                        <div
-                                            className={styles.xpFill}
-                                            style={{ width: `${experiencePercent}%` }}
-                                        />
-                                    </div>
-                                    <div className={styles.xpCountdown}>
-                                        <span aria-hidden="true">⏳</span>
-                                        <span>
-                                            {t("rpg.daysToLevel", { count: stats.daysUntilBirthday })}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+          const interval = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              current = target;
+              clearInterval(interval);
+            }
+            setStats((prev) => ({
+              ...prev,
+              [key]: Math.floor(current),
+            }));
+          }, 50);
+        };
 
-                    {/* Stats Card */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h3>{t("rpg.statistics")}</h3>
-                        </div>
-                        <div className={styles.cardBody}>
-                            <div className={styles.statGrid}>
-                                <div className={styles.statItem}>
-                                    <div className={styles.statIcon}>🔥</div>
-                                    <div className={styles.statInfo}>
-                                        <span className={styles.statValue}>
-                                            {stats.codingStreak}
-                                        </span>
-                                        <span className={styles.statLabel}>
-                                            {t("rpg.daysStreak")}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className={styles.statItem}>
-                                    <div className={styles.statIcon}>💻</div>
-                                    <div className={styles.statInfo}>
-                                        <span className={styles.statValue}>
-                                            {(stats.linesOfCode / 1000).toFixed(1)}K
-                                        </span>
-                                        <span className={styles.statLabel}>
-                                            {t("rpg.linesOfCode")}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className={styles.statItem}>
-                                    <div className={styles.statIcon}>☕</div>
-                                    <div className={styles.statInfo}>
-                                        <span className={styles.statValue}>
-                                            {stats.coffeeConsumed}
-                                        </span>
-                                        <span className={styles.statLabel}>
-                                            {t("rpg.coffeeCups")}
-                                        </span>
-                                    </div>
-                                </div>
-                                <div className={styles.statItem}>
-                                    <div className={styles.statIcon}>🐛</div>
-                                    <div className={styles.statInfo}>
-                                        <span className={styles.statValue}>
-                                            {stats.bugsFixed.toLocaleString()}
-                                        </span>
-                                        <span className={styles.statLabel}>
-                                            {t("rpg.bugsFixed")}
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        setTimeout(() => {
+          for (const [key, value] of Object.entries(targetStats)) {
+            animateStats(key as keyof CharacterStats, value as number);
+          }
+        }, 500);
+      } catch (error) {
+        console.error("Error fetching GitHub data:", error);
 
-                    {/* Skills Card */}
-                    <div className={styles.card}>
-                        <div className={styles.cardHeader}>
-                            <h3>{t("rpg.skillTree")}</h3>
-                        </div>
-                        <div className={styles.cardBody}>
-                            <div className={styles.skillsList}>
-                                {skills.map((skill) => (
-                                    <div key={skill.name} className={styles.skillItem}>
-                                        <div className={styles.skillHeader}>
-                                            <span className={styles.skillName}>{skill.name}</span>
-                                            <span className={styles.skillLevel}>{skill.level}%</span>
-                                        </div>
-                                        <div className={styles.skillBar}>
-                                            <div
-                                                className={styles.skillFill}
-                                                style={{
-                                                    width: `${skill.level}%`,
-                                                    background: `linear-gradient(90deg, ${skill.color}, ${skill.color}dd)`,
-                                                    boxShadow: `0 0 10px ${skill.color}`,
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        const birthDate = new Date(2005, 3, 6);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDiff = today.getMonth() - birthDate.getMonth();
 
-                <div className={styles.scanline} />
+        if (
+          monthDiff < 0 ||
+          (monthDiff === 0 && today.getDate() < birthDate.getDate())
+        ) {
+          age--;
+        }
+
+        const nextBirthday = new Date(today.getFullYear(), 3, 6);
+        if (today > nextBirthday) {
+          nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+        }
+        const daysUntilBirthday = Math.ceil(
+          (nextBirthday.getTime() - today.getTime()) / (1000 * 60 * 60 * 24),
+        );
+        const totalDaysInYear = 365;
+
+        const fallbackStats: CharacterStats = {
+          level: age,
+          experience: Math.min(
+            totalDaysInYear - daysUntilBirthday,
+            totalDaysInYear,
+          ),
+          nextLevel: totalDaysInYear,
+          daysUntilBirthday,
+          codingStreak: 42,
+          linesOfCode: 48000,
+          coffeeConsumed: 287,
+          bugsFixed: 534,
+        };
+
+        setStats(fallbackStats);
+        setSkills([
+          { name: "JavaScript", level: 85, color: "#f7df1e" },
+          { name: "React", level: 82, color: "#61dafb" },
+          { name: "Java", level: 78, color: "#007396" },
+          { name: "PostgreSQL", level: 75, color: "#336791" },
+          { name: "Node.js", level: 70, color: "#339933" },
+          { name: "Python", level: 65, color: "#3776ab" },
+          { name: "Git/GitHub", level: 80, color: "#f05032" },
+          { name: "AWS", level: 60, color: "#ff9900" },
+        ]);
+      }
+    };
+
+    fetchGitHubData();
+  }, []);
+
+  const experiencePercent = (stats.experience / stats.nextLevel) * 100;
+
+  return (
+    <section className={styles.dashboardSection}>
+      <div className={styles.container}>
+        <h2 className={styles.mainTitle}>
+          <span className={styles.pixel}>▲</span> {t("rpg.title")}{" "}
+          <span className={styles.pixel}>▲</span>
+        </h2>
+
+        <div className={styles.grid}>
+          {/* Character Card */}
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <h3>{t("rpg.characterInfo")}</h3>
             </div>
-        </section>
-    );
+            <div className={styles.cardBody}>
+              <div className={styles.avatar}>
+                <div className={styles.avatarFrame}>
+                  <img
+                    src="https://github.com/brenoASantana.png"
+                    alt="Developer Avatar"
+                  />
+                </div>
+                <div className={styles.levelBadge}>
+                  <span className={styles.levelText}>LVL</span>
+                  <span className={styles.levelNumber}>{stats.level}</span>
+                </div>
+              </div>
+              <div className={styles.characterInfo}>
+                <p className={styles.name}>BRENO SANTANA</p>
+                <p className={styles.class}>{t("rpg.class")}</p>
+                <div className={styles.xpBar}>
+                  <div className={styles.xpLabel}>
+                    <span>XP</span>
+                    <span>
+                      {stats.experience.toLocaleString()} /{" "}
+                      {stats.nextLevel.toLocaleString()}
+                    </span>
+                  </div>
+                  <div className={styles.xpProgress}>
+                    <div
+                      className={styles.xpFill}
+                      style={{ width: `${experiencePercent}%` }}
+                    />
+                  </div>
+                  <div className={styles.xpCountdown}>
+                    <span aria-hidden="true">⏳</span>
+                    <span>
+                      {t("rpg.daysToLevel", { count: stats.daysUntilBirthday })}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Stats Card */}
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <h3>{t("rpg.statistics")}</h3>
+            </div>
+            <div className={styles.cardBody}>
+              <div className={styles.statGrid}>
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>🔥</div>
+                  <div className={styles.statInfo}>
+                    <span className={styles.statValue}>
+                      {stats.codingStreak}
+                    </span>
+                    <span className={styles.statLabel}>
+                      {t("rpg.daysStreak")}
+                    </span>
+                  </div>
+                </div>
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>💻</div>
+                  <div className={styles.statInfo}>
+                    <span className={styles.statValue}>
+                      {(stats.linesOfCode / 1000).toFixed(1)}K
+                    </span>
+                    <span className={styles.statLabel}>
+                      {t("rpg.linesOfCode")}
+                    </span>
+                  </div>
+                </div>
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>☕</div>
+                  <div className={styles.statInfo}>
+                    <span className={styles.statValue}>
+                      {stats.coffeeConsumed}
+                    </span>
+                    <span className={styles.statLabel}>
+                      {t("rpg.coffeeCups")}
+                    </span>
+                  </div>
+                </div>
+                <div className={styles.statItem}>
+                  <div className={styles.statIcon}>🐛</div>
+                  <div className={styles.statInfo}>
+                    <span className={styles.statValue}>
+                      {stats.bugsFixed.toLocaleString()}
+                    </span>
+                    <span className={styles.statLabel}>
+                      {t("rpg.bugsFixed")}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Skills Card */}
+          <div className={styles.card}>
+            <div className={styles.cardHeader}>
+              <h3>{t("rpg.skillTree")}</h3>
+            </div>
+            <div className={styles.cardBody}>
+              <div className={styles.skillsList}>
+                {skills.map((skill) => (
+                  <div key={skill.name} className={styles.skillItem}>
+                    <div className={styles.skillHeader}>
+                      <span className={styles.skillName}>{skill.name}</span>
+                      <span className={styles.skillLevel}>{skill.level}%</span>
+                    </div>
+                    <div className={styles.skillBar}>
+                      <div
+                        className={styles.skillFill}
+                        style={{
+                          width: `${skill.level}%`,
+                          background: `linear-gradient(90deg, ${skill.color}, ${skill.color}dd)`,
+                          boxShadow: `0 0 10px ${skill.color}`,
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.scanline} />
+      </div>
+    </section>
+  );
 };
 
 export default RPGDashboard;

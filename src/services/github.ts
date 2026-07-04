@@ -67,8 +67,7 @@ const CACHE_DURATION = 5 * 60 * 1000; // 5 minutos
 
 const isCacheValid = (): boolean => {
     return (
-        cache.lastFetch !== null &&
-        Date.now() - cache.lastFetch < CACHE_DURATION
+        cache.lastFetch !== null && Date.now() - cache.lastFetch < CACHE_DURATION
     );
 };
 
@@ -112,24 +111,51 @@ export const getGitHubRepos = async (): Promise<GitHubRepo[]> => {
 
     try {
         const response = await fetch(
-            `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`
+            `${GITHUB_API}/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=100`,
         );
         const data = await response.json();
 
         cache.repos = data
-            .filter((repo: any) => !repo.fork) // Ignorar forks
-            .map((repo: any) => ({
-                name: repo.name,
-                description: repo.description,
-                stars: repo.stargazers_count,
-                forks: repo.forks_count,
-                language: repo.language,
-                url: repo.html_url,
-                homepage: repo.homepage,
-                topics: repo.topics,
-                createdAt: repo.created_at,
-                updatedAt: repo.updated_at,
-            }))
+            .filter(
+                (repo: {
+                    fork?: boolean;
+                    stargazers_count: number;
+                    forks_count: number;
+                    html_url: string;
+                    name: string;
+                    description: string;
+                    language?: string;
+                    homepage?: string;
+                    topics?: string[];
+                    created_at: string;
+                    updated_at: string;
+                }) => !repo.fork,
+            ) // Ignorar forks
+            .map(
+                (repo: {
+                    name: string;
+                    description: string;
+                    language?: string;
+                    stargazers_count: number;
+                    forks_count: number;
+                    html_url: string;
+                    homepage?: string;
+                    topics?: string[];
+                    created_at: string;
+                    updated_at: string;
+                }) => ({
+                    name: repo.name,
+                    description: repo.description,
+                    stars: repo.stargazers_count,
+                    forks: repo.forks_count,
+                    language: repo.language,
+                    url: repo.html_url,
+                    homepage: repo.homepage,
+                    topics: repo.topics,
+                    createdAt: repo.created_at,
+                    updatedAt: repo.updated_at,
+                }),
+            )
             .sort((a: GitHubRepo, b: GitHubRepo) => b.stars - a.stars); // Ordenar por estrelas
 
         cache.lastFetch = Date.now();
@@ -174,7 +200,7 @@ export const getGitHubStats = async (): Promise<GitHubStats | null> => {
 
         // Calcular dias desde a criação da conta
         const accountAge = Math.floor(
-            (Date.now() - new Date(user.createdAt).getTime()) / (1000 * 60 * 60 * 24)
+            (Date.now() - new Date(user.createdAt).getTime()) / (1000 * 60 * 60 * 24),
         );
 
         cache.stats = {
@@ -199,13 +225,13 @@ export const getGitHubStats = async (): Promise<GitHubStats | null> => {
 export const getRecentActivity = async (): Promise<GitHubActivity> => {
     try {
         const response = await fetch(
-            `${GITHUB_API}/users/${GITHUB_USERNAME}/events/public?per_page=100`
+            `${GITHUB_API}/users/${GITHUB_USERNAME}/events/public?per_page=100`,
         );
         const events = await response.json();
 
         // Contar commits (eventos do tipo PushEvent)
-        const pushEvents = events.filter((e: any) => e.type === "PushEvent");
-        const totalCommits = pushEvents.reduce((sum: number, event: any) => {
+        const pushEvents = events.filter((e: { type: string }) => e.type === "PushEvent");
+        const totalCommits = pushEvents.reduce((sum: number, event: { payload: { commits?: { length?: number }[] } }) => {
             return sum + (event.payload.commits?.length || 0);
         }, 0);
 

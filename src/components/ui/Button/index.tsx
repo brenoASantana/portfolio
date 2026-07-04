@@ -1,43 +1,43 @@
-import React from "react";
+import type React from "react";
 import styles from "./Button.module.css";
-import { ButtonProps } from "./types";
+import type { ButtonProps } from "./types";
 
 const Button: React.FC<ButtonProps> = ({
-    variant = "primary",
-    size = "md",
-    isLoading = false,
-    disabled = false,
-    children,
-    className,
-    ...props
+  variant = "primary",
+  size = "md",
+  isLoading = false,
+  disabled = false,
+  children,
+  className,
+  ...props
 }) => {
-    const buttonClasses = [
-        styles.button,
-        styles[variant],
-        styles[size],
-        isLoading && styles.loading,
-        disabled && styles.disabled,
-        className,
-    ]
-        .filter(Boolean)
-        .join(" ");
+  const buttonClasses = [
+    styles.button,
+    styles[variant],
+    styles[size],
+    isLoading && styles.loading,
+    disabled && styles.disabled,
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
-    return (
-        <button
-            className={buttonClasses}
-            disabled={disabled || isLoading}
-            {...props}
-        >
-            {isLoading ? (
-                <>
-                    <span className={styles.spinner}></span>
-                    <span className={styles.loadingText}>{children}</span>
-                </>
-            ) : (
-                children
-            )}
-        </button>
-    );
+  return (
+    <button
+      className={buttonClasses}
+      disabled={disabled || isLoading}
+      {...props}
+    >
+      {isLoading ? (
+        <>
+          <span className={styles.spinner} />
+          <span className={styles.loadingText}>{children}</span>
+        </>
+      ) : (
+        children
+      )}
+    </button>
+  );
 };
 
 export default Button;

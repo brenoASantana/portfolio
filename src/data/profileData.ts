@@ -6,90 +6,90 @@
  */
 
 interface ExperienceStack {
-    frontend?: string[];
-    backend?: string[];
-    database?: string[];
-    infrastructure?: string[];
-    tools?: string[];
-    methodologies?: string[];
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+  infrastructure?: string[];
+  tools?: string[];
+  methodologies?: string[];
 }
 
 interface Experience {
-    company: string;
-    companyUrl: string;
-    stacks: ExperienceStack;
+  company: string;
+  companyUrl: string;
+  stacks: ExperienceStack;
 }
 
 interface ProfileData {
-    name: string;
-    location: string;
-    experiences: Experience[];
-    skills: string[];
+  name: string;
+  location: string;
+  experiences: Experience[];
+  skills: string[];
 }
 
 export const profileData: ProfileData = {
-    // Informações básicas
-    name: "Breno Santana",
-    location: "Rio de Janeiro, Brasil",
+  // Informações básicas
+  name: "Breno Santana",
+  location: "Rio de Janeiro, Brasil",
 
-    // Experiências profissionais
-    experiences: [
-        {
-            company: "Entregue Comércio e Serviços Ltda",
-            companyUrl: "#",
-            stacks: {
-                backend: ["Java", "iDempiere ERP"],
-                database: ["PostgreSQL", "SQL"],
-                infrastructure: ["AWS", "Git"],
-                tools: ["Eclipse", "DBeaver"],
-                methodologies: ["Agile"],
-            },
-        },
-        {
-            company: "Ducke: Excelência em Tecnologia",
-            companyUrl: "https://www.ducke.com.br",
-            stacks: {
-                backend: ["Java", "iDempiere ERP"],
-                database: ["PostgreSQL", "SQL"],
-                infrastructure: ["AWS", "Git", "GitHub"],
-                tools: ["VS Code", "Eclipse", "Trello", "JIRA"],
-                methodologies: ["Agile", "Scrum"],
-            },
-        },
-        {
-            company: "Globo",
-            companyUrl: "https://www.globo.com",
-            stacks: {
-                frontend: ["React.js", "JavaScript", "HTML", "CSS"],
-                backend: ["Node.js", "API REST"],
-                tools: ["Git", "JIRA", "VS Code"],
-                methodologies: ["Agile", "Scrum"],
-            },
-        },
-    ],
+  // Experiências profissionais
+  experiences: [
+    {
+      company: "Entregue Comércio e Serviços Ltda",
+      companyUrl: "#",
+      stacks: {
+        backend: ["Java", "iDempiere ERP"],
+        database: ["PostgreSQL", "SQL"],
+        infrastructure: ["AWS", "Git"],
+        tools: ["Eclipse", "DBeaver"],
+        methodologies: ["Agile"],
+      },
+    },
+    {
+      company: "Ducke: Excelência em Tecnologia",
+      companyUrl: "https://www.ducke.com.br",
+      stacks: {
+        backend: ["Java", "iDempiere ERP"],
+        database: ["PostgreSQL", "SQL"],
+        infrastructure: ["AWS", "Git", "GitHub"],
+        tools: ["VS Code", "Eclipse", "Trello", "JIRA"],
+        methodologies: ["Agile", "Scrum"],
+      },
+    },
+    {
+      company: "Globo",
+      companyUrl: "https://www.globo.com",
+      stacks: {
+        frontend: ["React.js", "JavaScript", "HTML", "CSS"],
+        backend: ["Node.js", "API REST"],
+        tools: ["Git", "JIRA", "VS Code"],
+        methodologies: ["Agile", "Scrum"],
+      },
+    },
+  ],
 
-    // Habilidades técnicas
-    skills: [
-        "React.js",
-        "JavaScript",
-        "Java",
-        "PostgreSQL",
-        "iDempiere ERP",
-        "Git & GitHub",
-        "HTML",
-        "CSS",
-        "Node.js",
-        "API REST",
-        "SQL",
-        "AWS",
-        "Python",
-        "PHP",
-        "C",
-        "JIRA",
-        "Trello",
-        "VS Code",
-        "Eclipse",
-        "Agile",
-        "Scrum",
-    ],
+  // Habilidades técnicas
+  skills: [
+    "React.js",
+    "JavaScript",
+    "Java",
+    "PostgreSQL",
+    "iDempiere ERP",
+    "Git & GitHub",
+    "HTML",
+    "CSS",
+    "Node.js",
+    "API REST",
+    "SQL",
+    "AWS",
+    "Python",
+    "PHP",
+    "C",
+    "JIRA",
+    "Trello",
+    "VS Code",
+    "Eclipse",
+    "Agile",
+    "Scrum",
+  ],
 };

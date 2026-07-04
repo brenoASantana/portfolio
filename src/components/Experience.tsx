@@ -1,4 +1,5 @@
-import React, { useCallback } from "react";
+import type React from "react";
+import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
 // Data
@@ -8,83 +9,83 @@ import { profileData } from "../data/profileData";
 import styles from "./Experience.module.css";
 
 interface CompanyMap {
-    [key: string]: string;
+  [key: string]: string;
 }
 
 const Experience: React.FC = () => {
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
-    // Map company IDs to translation keys
-    const getTranslationKey = useCallback((company: string): string => {
-        const companyMap: CompanyMap = {
-            Globo: "globo",
-            "Ducke: Excelência em Tecnologia": "ducke",
-            "Entregue Comércio e Serviços Ltda": "entregue",
-        };
-        return companyMap[company] || "globo";
-    }, []);
+  // Map company IDs to translation keys
+  const getTranslationKey = useCallback((company: string): string => {
+    const companyMap: CompanyMap = {
+      Globo: "globo",
+      "Ducke: Excelência em Tecnologia": "ducke",
+      "Entregue Comércio e Serviços Ltda": "entregue",
+    };
+    return companyMap[company] || "globo";
+  }, []);
 
-    return (
-        <section
-            id="experience"
-            className={styles.experienceSection}
-            aria-labelledby="experience-heading"
-        >
-            <h2 id="experience-heading">{t("experience.title")}</h2>
-            <div className={styles.timeline}>
-                {profileData.experiences.map((exp, index) => {
-                    const translationKey = getTranslationKey(exp.company);
-                    return (
-                        <article key={`${exp.company}-${index}`} className={styles.item}>
-                            <div className={styles.bulletWrapper} aria-hidden="true">
-                                <span className={styles.bullet} />
-                            </div>
-                            <div className={styles.content}>
-                                <header className={styles.header}>
-                                    <h3 className={styles.role}>
-                                        {t(`experience.${translationKey}.role`)}
-                                    </h3>
-                                    <a
-                                        href={exp.companyUrl}
-                                        target={
-                                            exp.companyUrl.startsWith("#") ? undefined : "_blank"
-                                        }
-                                        rel={
-                                            exp.companyUrl.startsWith("#")
-                                                ? undefined
-                                                : "noopener noreferrer"
-                                        }
-                                        className={styles.companyLink}
-                                    >
-                                        {exp.company}
-                                    </a>
-                                </header>
-                                <p className={styles.description}>
-                                    {t(`experience.${translationKey}.description`)}
-                                </p>
-                                <div className={styles.techGroups}>
-                                    {Object.entries(exp.stacks).map(([groupName, tags]) => (
-                                        <div key={groupName} className={styles.group}>
-                                            <h4>
-                                                {t(`experience.stacks.${groupName.toLowerCase()}`)}
-                                            </h4>
-                                            <ul className={styles.tags}>
-                                                {(tags as string[]).map((tag) => (
-                                                    <li key={tag} className={styles.tag}>
-                                                        {tag}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </article>
-                    );
-                })}
-            </div>
-        </section>
-    );
+  return (
+    <section
+      id="experience"
+      className={styles.experienceSection}
+      aria-labelledby="experience-heading"
+    >
+      <h2 id="experience-heading">{t("experience.title")}</h2>
+      <div className={styles.timeline}>
+        {profileData.experiences.map((exp, index) => {
+          const translationKey = getTranslationKey(exp.company);
+          return (
+            <article key={`${exp.company}-${index}`} className={styles.item}>
+              <div className={styles.bulletWrapper} aria-hidden="true">
+                <span className={styles.bullet} />
+              </div>
+              <div className={styles.content}>
+                <header className={styles.header}>
+                  <h3 className={styles.role}>
+                    {t(`experience.${translationKey}.role`)}
+                  </h3>
+                  <a
+                    href={exp.companyUrl}
+                    target={
+                      exp.companyUrl.startsWith("#") ? undefined : "_blank"
+                    }
+                    rel={
+                      exp.companyUrl.startsWith("#")
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
+                    className={styles.companyLink}
+                  >
+                    {exp.company}
+                  </a>
+                </header>
+                <p className={styles.description}>
+                  {t(`experience.${translationKey}.description`)}
+                </p>
+                <div className={styles.techGroups}>
+                  {Object.entries(exp.stacks).map(([groupName, tags]) => (
+                    <div key={groupName} className={styles.group}>
+                      <h4>
+                        {t(`experience.stacks.${groupName.toLowerCase()}`)}
+                      </h4>
+                      <ul className={styles.tags}>
+                        {(tags as string[]).map((tag) => (
+                          <li key={tag} className={styles.tag}>
+                            {tag}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
 };
 
 export default Experience;

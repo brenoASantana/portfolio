@@ -42,8 +42,8 @@
   width: 350px;
   background: rgba(0, 18, 11, 0.95);
   border: 3px solid var(--accent-primary);
-  box-shadow: 0 0 30px rgba(194, 0, 251, 0.6),
-    inset 0 0 30px rgba(194, 0, 251, 0.1);
+  box-shadow: 0 0 30px rgba(194, 0, 251, 0.6), inset 0 0 30px
+    rgba(194, 0, 251, 0.1);
   padding: 1.5rem;
   z-index: 1000;
   animation: slideIn 0.5s ease-out;

@@ -4,7 +4,7 @@ import { useAsync } from "../../hooks/useAsync";
 describe("useAsync Hook", () => {
     it("returns initial loading state", () => {
         const { result } = renderHook(() =>
-            useAsync(() => Promise.resolve("data"))
+            useAsync(() => Promise.resolve("data")),
         );
 
         expect(result.current.isLoading).toBe(true);
@@ -39,9 +39,7 @@ describe("useAsync Hook", () => {
     it("calls onSuccess callback", async () => {
         const onSuccess = jest.fn();
         const asyncFn = jest.fn().mockResolvedValue("data");
-        const { result } = renderHook(() =>
-            useAsync(asyncFn, [], { onSuccess })
-        );
+        renderHook(() => useAsync(asyncFn, [], { onSuccess }));
 
         await waitFor(() => {
             expect(onSuccess).toHaveBeenCalledWith("data");
@@ -52,9 +50,7 @@ describe("useAsync Hook", () => {
         const onError = jest.fn();
         const error = new Error("Test error");
         const asyncFn = jest.fn().mockRejectedValue(error);
-        const { result } = renderHook(() =>
-            useAsync(asyncFn, [], { onError })
-        );
+        renderHook(() => useAsync(asyncFn, [], { onError }));
 
         await waitFor(() => {
             expect(onError).toHaveBeenCalledWith(error);
@@ -63,9 +59,7 @@ describe("useAsync Hook", () => {
 
     it("skips execution when skip option is true", () => {
         const asyncFn = jest.fn().mockResolvedValue("data");
-        const { result } = renderHook(() =>
-            useAsync(asyncFn, [], { skip: true })
-        );
+        const { result } = renderHook(() => useAsync(asyncFn, [], { skip: true }));
 
         expect(asyncFn).not.toHaveBeenCalled();
         expect(result.current.isLoading).toBe(true);
@@ -91,9 +85,9 @@ describe("useAsync Hook", () => {
         const asyncFn = jest.fn().mockResolvedValue("data");
         let deps = [1];
 
-        const { result, rerender } = renderHook(
+        const { rerender } = renderHook(
             ({ deps: d }) => useAsync(asyncFn, d),
-            { initialProps: { deps } }
+            { initialProps: { deps } },
         );
 
         await waitFor(() => {

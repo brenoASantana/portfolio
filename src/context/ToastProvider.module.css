@@ -1,17 +1,17 @@
 .toastContainer {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 999;
-    pointer-events: none;
-    max-width: 400px;
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 999;
+  pointer-events: none;
+  max-width: 400px;
 }
 
 @media (max-width: 768px) {
-    .toastContainer {
-        top: 1rem;
-        right: 1rem;
-        left: 1rem;
-        max-width: 100%;
-    }
+  .toastContainer {
+    top: 1rem;
+    right: 1rem;
+    left: 1rem;
+    max-width: 100%;
+  }
 }

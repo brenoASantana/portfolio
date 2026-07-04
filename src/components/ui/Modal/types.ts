@@ -1,11 +1,11 @@
-import React from "react";
+import type React from "react";
 
 export interface ModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-    title?: string;
-    children: React.ReactNode;
-    footer?: React.ReactNode;
-    size?: "sm" | "md" | "lg";
-    closeOnBackdropClick?: boolean;
+  isOpen: boolean;
+  onClose: () => void;
+  title?: string;
+  children: React.ReactNode;
+  footer?: React.ReactNode;
+  size?: "sm" | "md" | "lg";
+  closeOnBackdropClick?: boolean;
 }

@@ -1,104 +1,109 @@
 .errorContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-    padding: 2rem;
-    background: linear-gradient(135deg, rgba(255, 0, 85, 0.05) 0%, rgba(194, 0, 251, 0.05) 100%);
-    border: 2px dashed #ff0055;
-    border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  padding: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 85, 0.05) 0%,
+    rgba(194, 0, 251, 0.05) 100%
+  );
+  border: 2px dashed #ff0055;
+  border-radius: 8px;
 }
 
 .errorBox {
-    background: var(--bg-secondary, #1a1a25);
-    border: 2px solid #ff0055;
-    border-radius: 8px;
-    padding: 2rem;
-    max-width: 600px;
-    box-shadow: 0 0 20px rgba(255, 0, 85, 0.3), inset 0 0 12px rgba(255, 0, 85, 0.1);
+  background: var(--bg-secondary, #1a1a25);
+  border: 2px solid #ff0055;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(255, 0, 85, 0.3), inset 0 0 12px
+    rgba(255, 0, 85, 0.1);
 }
 
 .errorTitle {
-    margin: 0 0 1rem 0;
-    font-family: "Press Start 2P", monospace;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ff0055;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  margin: 0 0 1rem 0;
+  font-family: "Press Start 2P", monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ff0055;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .errorMessage {
-    margin: 0 0 1rem 0;
-    font-family: "VT323", monospace;
-    font-size: 0.9rem;
-    color: var(--text-primary, #fff);
-    line-height: 1.5;
+  margin: 0 0 1rem 0;
+  font-family: "VT323", monospace;
+  font-size: 0.9rem;
+  color: var(--text-primary, #fff);
+  line-height: 1.5;
 }
 
 .errorDetails {
-    margin: 1rem 0;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.3);
-    border-left: 3px solid #ff0055;
-    border-radius: 4px;
-    cursor: pointer;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid #ff0055;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .errorDetails summary {
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.7rem;
-    color: var(--accent-secondary, #80ffda);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    user-select: none;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  color: var(--accent-secondary, #80ffda);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  user-select: none;
 }
 
 .errorDetails summary:hover {
-    color: #a0ffea;
+  color: #a0ffea;
 }
 
 .errorStack {
-    margin: 1rem 0 0 0;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(194, 0, 251, 0.2);
-    border-radius: 4px;
-    font-family: "Courier New", monospace;
-    font-size: 0.7rem;
-    color: #80ffda;
-    overflow-x: auto;
-    line-height: 1.4;
-    max-height: 200px;
-    overflow-y: auto;
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(194, 0, 251, 0.2);
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 0.7rem;
+  color: #80ffda;
+  overflow-x: auto;
+  line-height: 1.4;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 .resetButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1.5rem;
-    padding: 0.6rem 1.2rem;
-    background: #ff0055;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-family: "Press Start 2P", monospace;
-    font-size: 0.7rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: #ff0055;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 8px rgba(255, 0, 85, 0.4);
 }
 
 .resetButton:hover {
-    background: #ff3d70;
-    transform: translateY(-2px);
-    box-shadow: 0 0 16px rgba(255, 0, 85, 0.6);
+  background: #ff3d70;
+  transform: translateY(-2px);
+  box-shadow: 0 0 16px rgba(255, 0, 85, 0.6);
 }
 
 .resetButton:active {
-    transform: translateY(0);
+  transform: translateY(0);
 }
