@@ -18,7 +18,7 @@ help:
 	@echo "$(CYAN)==========================================$(RESET)"
 	@echo ""
 	@echo "$(GREEN)📦 Instalação & Setup:$(RESET)"
-	@echo "  make install      Instala todas as dependências (com legacy-peer-deps)"
+	@echo "  make install      Instala todas as dependências"
 	@echo "  make setup        Alias para install"
 	@echo ""
 	@echo "$(GREEN)🚀 Desenvolvimento:$(RESET)"
@@ -45,7 +45,7 @@ help:
 
 install:
 	@echo "$(CYAN)[>_] Baixando pacotes...$(RESET)"
-	@$(NPM) install --legacy-peer-deps
+	@$(NPM) install
 	@echo "$(GREEN)[+] Arsenal pronto!$(RESET)"
 
 setup: install

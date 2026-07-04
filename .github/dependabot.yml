@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # 📦 Atualiza as dependências do package.json (NPM)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    commit-message:
+      prefix: "chore(deps)" # Mantém compatibilidade com o semantic-release
+    # Agrupa todas as atualizações menores e patches em um único PR
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+    # Ignora atualizações do react-scripts (já que o projeto base foi abandonado)
+    ignore:
+      - dependency-name: "react-scripts"
+        versions: ["> 5.0.1"]
+
+  # 🤖 Atualiza as Actions do GitHub (ex: actions/checkout@v4)
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+    commit-message:
+      prefix: "ci"
