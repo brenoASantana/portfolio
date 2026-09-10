@@ -2,8 +2,7 @@ import type React from "react";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 
-// Data
-import { profileData } from "../data/profileData";
+import { useProfileData } from "../hooks/useProfileData";
 
 // CSS Module
 import styles from "./Experience.module.css";
@@ -14,6 +13,7 @@ interface CompanyMap {
 
 const Experience: React.FC = () => {
   const { t } = useTranslation();
+  const profileData = useProfileData();
 
   // Map company IDs to translation keys
   const getTranslationKey = useCallback((company: string): string => {
@@ -43,7 +43,7 @@ const Experience: React.FC = () => {
               <div className={styles.content}>
                 <header className={styles.header}>
                   <h3 className={styles.role}>
-                    {t(`experience.${translationKey}.role`)}
+                    {exp.role || t(`experience.${translationKey}.role`)}
                   </h3>
                   <a
                     href={exp.companyUrl}
@@ -61,7 +61,8 @@ const Experience: React.FC = () => {
                   </a>
                 </header>
                 <p className={styles.description}>
-                  {t(`experience.${translationKey}.description`)}
+                  {exp.description ||
+                    t(`experience.${translationKey}.description`)}
                 </p>
                 <div className={styles.techGroups}>
                   {Object.entries(exp.stacks).map(([groupName, tags]) => (

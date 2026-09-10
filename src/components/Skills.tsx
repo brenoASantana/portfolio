@@ -2,13 +2,14 @@ import type React from "react";
 import { useTranslation } from "react-i18next";
 
 // Data
-import { profileData } from "../data/profileData";
+import { useProfileData } from "../hooks/useProfileData";
 
 // CSS
 import styles from "./Skills.module.css";
 
 const Skills: React.FC = () => {
   const { t } = useTranslation();
+  const profileData = useProfileData();
 
   return (
     <article className={styles.ul}>

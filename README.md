@@ -51,3 +51,26 @@ O sistema (`i18n/config.js`) faz auto-detecção do idioma do navegador e persis
 - Para referenciar novos textos nos componentes use: `t('namespace.chave')`.
 
 ---
+
+## 🔄 Sincronização com LinkedIn
+
+O portfolio tenta atualizar os dados do perfil ao ser aberto através de
+`/api/linkedin/profile`. O token fica somente na função serverless da Vercel e
+os dados recebidos ficam em cache no navegador por 15 minutos. Se a integração
+estiver indisponível, os dados locais de `src/data/profileData.ts` continuam
+sendo usados.
+
+Para ativar a integração, crie uma aplicação no [LinkedIn Developers](https://www.linkedin.com/developers/)
+e configure esta variável de ambiente na Vercel:
+
+```env
+LINKEDIN_ACCESS_TOKEN=seu_token_de_acesso
+```
+
+O produto OpenID Connect / Sign In with LinkedIn permite sincronizar nome e
+localidade. Experiências profissionais e habilidades só ficam disponíveis se o
+LinkedIn aprovar os produtos e escopos correspondentes para a aplicação. O
+portfolio usa esses campos quando eles forem retornados, sem apagar o fallback
+local quando a API não os fornecer. Não é usado scraping do perfil público.
+
+---

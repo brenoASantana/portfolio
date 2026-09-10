@@ -14,13 +14,15 @@ interface ExperienceStack {
   methodologies?: string[];
 }
 
-interface Experience {
+export interface Experience {
   company: string;
   companyUrl: string;
+  role?: string;
+  description?: string;
   stacks: ExperienceStack;
 }
 
-interface ProfileData {
+export interface ProfileData {
   name: string;
   location: string;
   experiences: Experience[];
