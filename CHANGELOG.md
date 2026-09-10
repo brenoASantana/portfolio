@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/brenoASantana/portfolio/compare/portfolio-v1.1.0...portfolio-v1.2.0) (2026-09-10)
+
+
+### Features
+
+* adicionar chaves de tradução para experiência, educação e idiomas no perfil ([d152f1c](https://github.com/brenoASantana/portfolio/commit/d152f1c671ffe77d6a66729696ceb41375f15f08))
+
 # [1.1.0](https://github.com/brenoASantana/portfolio/compare/portfolio-v1.0.0...portfolio-v1.1.0) (2026-09-10)
 
 
