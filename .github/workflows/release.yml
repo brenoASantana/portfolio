@@ -3,7 +3,7 @@ name: Release Automático
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: write # Dá permissão pro robô commitar de volta
@@ -26,7 +26,7 @@ jobs:
           node-version: 20
 
       - name: Instalar dependências
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Rodar Semantic Release
         env:
