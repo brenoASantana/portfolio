@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build",
+  "buildCommand": "PUBLIC_URL= npm run build",
   "outputDirectory": "build",
   "devCommand": "npm start",
   "installCommand": "npm install",
