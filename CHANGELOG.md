@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/brenoASantana/portfolio/compare/portfolio-v1.2.0...portfolio-v1.3.0) (2026-09-10)
+
+
+### Features
+
+* atualizar estilo do título no perfil para usar cor e fonte personalizadas ([2760537](https://github.com/brenoASantana/portfolio/commit/27605379d1cbd7d713dd32ccdc5d879a6d2071e9))
+
 # [1.2.0](https://github.com/brenoASantana/portfolio/compare/portfolio-v1.1.0...portfolio-v1.2.0) (2026-09-10)
 
 
