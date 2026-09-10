@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/brenoASantana/portfolio/compare/portfolio-v1.0.0...portfolio-v1.1.0) (2026-09-10)
+
+
+### Features
+
+* adicionar seção de educação e idiomas ao perfil, incluindo tradução e integração com LinkedIn ([af53b48](https://github.com/brenoASantana/portfolio/commit/af53b489b21f7b4e9fa7b5b4b8f6f92a59063004))
+
 # 1.0.0 (2026-09-10)
 
 
