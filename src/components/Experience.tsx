@@ -43,7 +43,9 @@ const Experience: React.FC = () => {
               <div className={styles.content}>
                 <header className={styles.header}>
                   <h3 className={styles.role}>
-                    {exp.role || t(`experience.${translationKey}.role`)}
+                    {exp.roleKey
+                      ? t(exp.roleKey)
+                      : exp.role || t(`experience.${translationKey}.role`)}
                   </h3>
                   <a
                     href={exp.companyUrl}
@@ -61,10 +63,16 @@ const Experience: React.FC = () => {
                   </a>
                 </header>
                 <p className={styles.description}>
-                  {exp.description ||
+                  {exp.descriptionKey
+                    ? t(exp.descriptionKey)
+                    : exp.description ||
                     t(`experience.${translationKey}.description`)}
                 </p>
-                {exp.period && <p className={styles.period}>{exp.period}</p>}
+                {(exp.periodKey || exp.period) && (
+                  <p className={styles.period}>
+                    {exp.periodKey ? t(exp.periodKey) : exp.period}
+                  </p>
+                )}
                 <div className={styles.techGroups}>
                   {Object.entries(exp.stacks).map(([groupName, tags]) => (
                     <div key={groupName} className={styles.group}>

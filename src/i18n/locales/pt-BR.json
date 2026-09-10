@@ -32,14 +32,42 @@
   },
   "education": {
     "title": "Formação",
-    "languages": "Idiomas"
+    "languages": "Idiomas",
+    "languageNames": {
+      "portuguese": "Português",
+      "english": "Inglês"
+    },
+    "degrees": {
+      "bachelors": "Bacharelado",
+      "technical": "Ensino Técnico",
+      "computerOperator": "Operador de Computador",
+      "highSchool": "Colegial"
+    },
+    "proficiency": {
+      "native": "Nativo ou bilíngue",
+      "professional": "Proficiência profissional"
+    },
+    "periods": {
+      "bachelors": "Ago 2023 - Jul 2027",
+      "technical": "Fev 2022 - Jul 2023",
+      "computerOperator": "Jun 2021 - Mar 2022",
+      "highSchool": "Fev 2020 - Dez 2022"
+    }
   },
   "experience": {
     "title": "Experiência Profissional",
     "current": "Atual",
     "globo": {
       "role": "Estag Dev | Backstage Conteúdo",
-      "description": "Desenvolvimento de funcionalidades para a plataforma Backstage Content usando React.js e JavaScript. Contribuindo para soluções de gerenciamento de conteúdo com tecnologias frontend modernas em ambiente colaborativo."
+      "description": "Desenvolvimento de funcionalidades para a plataforma Backstage Content usando React.js e JavaScript. Contribuindo para soluções de gerenciamento de conteúdo com tecnologias frontend modernas em ambiente colaborativo.",
+      "junior": {
+        "role": "Desenvolvedor júnior",
+        "description": "Desenvolvimento de soluções para ambientes corporativos com foco em aplicações web, APIs e colaboração entre equipes."
+      },
+      "intern": {
+        "role": "Estag Dev | Backstage Conteúdo",
+        "description": "Desenvolvimento de funcionalidades para a plataforma Backstage Conteúdo usando React.js e JavaScript em ambiente colaborativo."
+      }
     },
     "ducke": {
       "role": "Consultor de Tecnologia",
@@ -56,6 +84,12 @@
       "infrastructure": "Infraestrutura",
       "tools": "Ferramentas",
       "methodologies": "Metodologias"
+    },
+    "periods": {
+      "globoJunior": "Fev 2026 - atual",
+      "globoIntern": "Mai 2025 - Fev 2026",
+      "ducke": "Abr 2024 - Mai 2025",
+      "entregue": "Jun 2022 - Abr 2024"
     }
   },
   "projects": {

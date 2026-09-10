@@ -18,20 +18,27 @@ export interface Experience {
   company: string;
   companyUrl: string;
   role?: string;
+  roleKey?: string;
   period?: string;
+  periodKey?: string;
   description?: string;
+  descriptionKey?: string;
   stacks: ExperienceStack;
 }
 
 export interface Education {
   institution: string;
   degree: string;
+  degreeKey?: string;
   period: string;
+  periodKey?: string;
 }
 
 export interface Language {
   name: string;
+  nameKey?: string;
   proficiency: string;
+  proficiencyKey?: string;
 }
 
 export interface ProfileData {
@@ -53,10 +60,9 @@ export const profileData: ProfileData = {
     {
       company: "Globo",
       companyUrl: "https://www.globo.com",
-      role: "Desenvolvedor júnior",
-      period: "Fev 2026 - atual",
-      description:
-        "Desenvolvimento de soluções para ambientes corporativos com foco em aplicações web, APIs e colaboração entre equipes.",
+      roleKey: "experience.globo.junior.role",
+      periodKey: "experience.periods.globoJunior",
+      descriptionKey: "experience.globo.junior.description",
       stacks: {
         frontend: ["React.js", "JavaScript", "TypeScript"],
         backend: ["Golang", "API REST"],
@@ -67,10 +73,9 @@ export const profileData: ProfileData = {
     {
       company: "Globo",
       companyUrl: "https://www.globo.com",
-      role: "Estag Dev | Backstage Conteúdo",
-      period: "Mai 2025 - Fev 2026",
-      description:
-        "Desenvolvimento de funcionalidades para a plataforma Backstage Conteúdo usando React.js e JavaScript em ambiente colaborativo.",
+      roleKey: "experience.globo.intern.role",
+      periodKey: "experience.periods.globoIntern",
+      descriptionKey: "experience.globo.intern.description",
       stacks: {
         frontend: ["React.js", "JavaScript", "TypeScript"],
         backend: ["API REST", "Serviços web"],
@@ -81,10 +86,9 @@ export const profileData: ProfileData = {
     {
       company: "Ducke: Excelência em Tecnologia",
       companyUrl: "https://www.ducke.com.br",
-      role: "Consultor de tecnologia",
-      period: "Abr 2024 - Mai 2025",
-      description:
-        "Implementação de funcionalidades no sistema ERP iDempiere com Java, manutenção de aplicações, documentação técnica e alinhamento de requisitos com clientes.",
+      roleKey: "experience.ducke.role",
+      periodKey: "experience.periods.ducke",
+      descriptionKey: "experience.ducke.description",
       stacks: {
         backend: ["Java", "iDempiere ERP"],
         database: ["PostgreSQL", "SQL"],
@@ -96,10 +100,9 @@ export const profileData: ProfileData = {
     {
       company: "Entregue Comércio e Serviços Ltda",
       companyUrl: "#",
-      role: "Estagiário de desenvolvimento de software",
-      period: "Jun 2022 - Abr 2024",
-      description:
-        "Desenvolvimento e melhoria do sistema ERP iDempiere para gestão empresarial, com foco em Java, PostgreSQL, Git, implementação de funcionalidades e correção de bugs.",
+      roleKey: "experience.entregue.role",
+      periodKey: "experience.periods.entregue",
+      descriptionKey: "experience.entregue.description",
       stacks: {
         backend: ["Java", "iDempiere ERP"],
         database: ["PostgreSQL", "SQL"],
@@ -114,28 +117,46 @@ export const profileData: ProfileData = {
     {
       institution: "Universidade do Estado do Rio de Janeiro",
       degree: "Bacharelado",
+      degreeKey: "education.degrees.bachelors",
       period: "Ago 2023 - Jul 2027",
+      periodKey: "education.periods.bachelors",
     },
     {
       institution: "Firjan Senai Barra do Piraí",
       degree: "Ensino Técnico",
+      degreeKey: "education.degrees.technical",
       period: "Fev 2022 - Jul 2023",
+      periodKey: "education.periods.technical",
     },
     {
       institution: "Firjan Senai Barra do Piraí",
       degree: "Operador de Computador",
+      degreeKey: "education.degrees.computerOperator",
       period: "Jun 2021 - Mar 2022",
+      periodKey: "education.periods.computerOperator",
     },
     {
       institution: "Colégio Estadual Professor José Antônio Maia Vinagre",
       degree: "Colegial",
+      degreeKey: "education.degrees.highSchool",
       period: "Fev 2020 - Dez 2022",
+      periodKey: "education.periods.highSchool",
     },
   ],
 
   languages: [
-    { name: "Português", proficiency: "Nativo ou bilíngue" },
-    { name: "English", proficiency: "Proficiência profissional" },
+    {
+      name: "Português",
+      nameKey: "education.languageNames.portuguese",
+      proficiency: "Nativo ou bilíngue",
+      proficiencyKey: "education.proficiency.native",
+    },
+    {
+      name: "English",
+      nameKey: "education.languageNames.english",
+      proficiency: "Proficiência profissional",
+      proficiencyKey: "education.proficiency.professional",
+    },
   ],
 
   // Habilidades importadas e consolidadas do LinkedIn

@@ -19,9 +19,9 @@ const Education: React.FC = () => {
                 <div className={styles.entries}>
                     {profileData.education.map((item) => (
                         <article key={`${item.institution}-${item.degree}`} className={styles.entry}>
-                            <h3>{item.degree}</h3>
+                            <h3>{item.degreeKey ? t(item.degreeKey) : item.degree}</h3>
                             <p>{item.institution}</p>
-                            <span>{item.period}</span>
+                            <span>{item.periodKey ? t(item.periodKey) : item.period}</span>
                         </article>
                     ))}
                 </div>
@@ -32,8 +32,12 @@ const Education: React.FC = () => {
                 <div className={styles.entries}>
                     {profileData.languages.map((language) => (
                         <article key={language.name} className={styles.entry}>
-                            <h3>{language.name}</h3>
-                            <span>{language.proficiency}</span>
+                            <h3>{language.nameKey ? t(language.nameKey) : language.name}</h3>
+                            <span>
+                                {language.proficiencyKey
+                                    ? t(language.proficiencyKey)
+                                    : language.proficiency}
+                            </span>
                         </article>
                     ))}
                 </div>

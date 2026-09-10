@@ -32,14 +32,42 @@
   },
   "education": {
     "title": "Education",
-    "languages": "Languages"
+    "languages": "Languages",
+    "languageNames": {
+      "portuguese": "Portuguese",
+      "english": "English"
+    },
+    "degrees": {
+      "bachelors": "Bachelor's Degree",
+      "technical": "Technical Education",
+      "computerOperator": "Computer Operator",
+      "highSchool": "High School"
+    },
+    "proficiency": {
+      "native": "Native or bilingual proficiency",
+      "professional": "Professional working proficiency"
+    },
+    "periods": {
+      "bachelors": "Aug 2023 - Jul 2027",
+      "technical": "Feb 2022 - Jul 2023",
+      "computerOperator": "Jun 2021 - Mar 2022",
+      "highSchool": "Feb 2020 - Dec 2022"
+    }
   },
   "experience": {
     "title": "Professional Experience",
     "current": "Current",
     "globo": {
       "role": "Dev Intern | Backstage Content",
-      "description": "Development of features for the Backstage Content platform using React.js and JavaScript. Contributing to content management solutions with modern frontend technologies in a collaborative environment."
+      "description": "Development of features for the Backstage Content platform using React.js and JavaScript. Contributing to content management solutions with modern frontend technologies in a collaborative environment.",
+      "junior": {
+        "role": "Junior Developer",
+        "description": "Development of solutions for corporate environments, focusing on web applications, APIs, and cross-team collaboration."
+      },
+      "intern": {
+        "role": "Dev Intern | Backstage Content",
+        "description": "Development of features for the Backstage Content platform using React.js and JavaScript in a collaborative environment."
+      }
     },
     "ducke": {
       "role": "Technology Consultant",
@@ -56,6 +84,12 @@
       "infrastructure": "Infrastructure",
       "tools": "Tools",
       "methodologies": "Methodologies"
+    },
+    "periods": {
+      "globoJunior": "Feb 2026 - present",
+      "globoIntern": "May 2025 - Feb 2026",
+      "ducke": "Apr 2024 - May 2025",
+      "entregue": "Jun 2022 - Apr 2024"
     }
   },
   "projects": {
