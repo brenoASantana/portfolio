@@ -64,6 +64,7 @@ const Experience: React.FC = () => {
                   {exp.description ||
                     t(`experience.${translationKey}.description`)}
                 </p>
+                {exp.period && <p className={styles.period}>{exp.period}</p>}
                 <div className={styles.techGroups}>
                   {Object.entries(exp.stacks).map(([groupName, tags]) => (
                     <div key={groupName} className={styles.group}>

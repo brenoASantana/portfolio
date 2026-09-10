@@ -4,6 +4,7 @@
     "about": "Sobre",
     "skills": "Habilidades",
     "experience": "Experiência",
+    "education": "Formação",
     "projects": "Projetos",
     "simpleProjects": "Outros Projetos",
     "ongoing": "Em Andamento",
@@ -28,6 +29,10 @@
   },
   "skills": {
     "title": "Habilidades"
+  },
+  "education": {
+    "title": "Formação",
+    "languages": "Idiomas"
   },
   "experience": {
     "title": "Experiência Profissional",
@@ -126,14 +131,22 @@
         "id": "projeto-1",
         "title": "Nome do Projeto 1",
         "description": "Descrição detalhada do projeto, tecnologias utilizadas e objetivos alcançados.",
-        "tags": ["React", "Node.js", "MongoDB"],
+        "tags": [
+          "React",
+          "Node.js",
+          "MongoDB"
+        ],
         "github": "https://github.com/brenoASantana/projeto-1"
       },
       {
         "id": "projeto-2",
         "title": "Nome do Projeto 2",
         "description": "Descrição detalhada do projeto, tecnologias utilizadas e objetivos alcançados.",
-        "tags": ["Java", "Spring Boot", "PostgreSQL"],
+        "tags": [
+          "Java",
+          "Spring Boot",
+          "PostgreSQL"
+        ],
         "github": "https://github.com/brenoASantana/projeto-2",
         "demo": "https://projeto2-demo.com"
       }

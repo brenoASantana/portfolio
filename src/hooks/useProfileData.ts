@@ -20,6 +20,12 @@ export const useProfileData = (): ProfileData => {
                 ...(linkedinProfile.experiences?.length
                     ? { experiences: linkedinProfile.experiences }
                     : {}),
+                ...(linkedinProfile.education?.length
+                    ? { education: linkedinProfile.education }
+                    : {}),
+                ...(linkedinProfile.languages?.length
+                    ? { languages: linkedinProfile.languages }
+                    : {}),
                 ...(linkedinProfile.skills?.length
                     ? { skills: linkedinProfile.skills }
                     : {}),

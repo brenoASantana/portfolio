@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./App.css";
 import About from "./components/About";
+import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Footer from "./components/layout/Footer";
@@ -100,6 +101,13 @@ const App: React.FC = () => {
         <button
           type="button"
           className="navLink"
+          onClick={() => handleNavClick("#education")}
+        >
+          {t("nav.education")}
+        </button>
+        <button
+          type="button"
+          className="navLink"
           onClick={() => handleNavClick("#game")}
         >
           {t("nav.game") || "Game"}
@@ -167,6 +175,8 @@ const App: React.FC = () => {
         </section>
 
         <Experience />
+
+        <Education />
 
         {/* Pixel Snake Game */}
         <section id="game">

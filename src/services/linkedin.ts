@@ -7,6 +7,8 @@ interface LinkedInProfileResponse {
     name?: string;
     location?: string;
     experiences?: ProfileData["experiences"];
+    education?: ProfileData["education"];
+    languages?: ProfileData["languages"];
     skills?: string[];
     updatedAt?: string;
 }
